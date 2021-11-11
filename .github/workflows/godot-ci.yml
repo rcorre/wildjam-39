@@ -5,7 +5,7 @@ on:
       - main
 
 env:
-  GODOT_VERSION: 3.4.0
+  GODOT_VERSION: 3.4
   EXPORT_NAME: wildjam-39
 
 jobs:
