@@ -4,6 +4,12 @@ Entry for [Godot Wild Jam 39](https://itch.io/jam/godot-wild-jam-39).
 
 # Credits
 
+## Models
+
+- https://rcorre.itch.io/goblin-mage-and-skeleton
+
+All other models were made during the jam.
+
 ## Icons from GameIcons.net
 
 - https://game-icons.net/1x1/lorc/locked-chest.html

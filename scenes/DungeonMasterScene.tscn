@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://scenes/Floor.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/locked-chest.svg" type="Texture" id=2]
@@ -19,8 +19,9 @@
 [ext_resource path="res://assets/icons/slime.svg" type="Texture" id=17]
 [ext_resource path="res://props/Slime.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/icons/skeleton.svg" type="Texture" id=19]
-[ext_resource path="res://scenes/GroupButtons.gd" type="Script" id=20]
+[ext_resource path="res://props/Skeleton.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scenes/GroupButtons.gd" type="Script" id=21]
+[ext_resource path="res://scenes/GroupButtons.gd" type="Script" id=22]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 20, 20 )
@@ -115,7 +116,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/separation = 16
 alignment = 1
-script = ExtResource( 21 )
+script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -182,7 +183,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/separation = 16
 alignment = 1
-script = ExtResource( 20 )
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -221,7 +222,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/separation = 16
 alignment = 1
-script = ExtResource( 20 )
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -266,7 +267,7 @@ group = SubResource( 11 )
 text = "3"
 icon = ExtResource( 19 )
 script = ExtResource( 8 )
-prop_scene = ExtResource( 18 )
+prop_scene = ExtResource( 20 )
 
 [node name="PropCategoryButtons" type="HBoxContainer" parent="HUD/VBoxContainer"]
 margin_top = 74.0
@@ -274,7 +275,7 @@ margin_right = 1024.0
 margin_bottom = 144.0
 custom_constants/separation = 16
 alignment = 1
-script = ExtResource( 20 )
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
