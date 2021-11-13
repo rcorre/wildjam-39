@@ -1,10 +1,9 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/Floor.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/locked-chest.svg" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/LeagueGothic-Regular.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/icons/spiky-pit.svg" type="Texture" id=4]
-[ext_resource path="res://scenes/PropButton.gd" type="Script" id=5]
 [ext_resource path="res://props/Chest.tscn" type="PackedScene" id=6]
 [ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/PropButton.gd" type="Script" id=8]
@@ -107,7 +106,7 @@ toggle_mode = true
 shortcut = SubResource( 7 )
 group = SubResource( 5 )
 icon = ExtResource( 4 )
-script = ExtResource( 5 )
+script = ExtResource( 8 )
 prop_scene = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="HUD/PropIcons/VBoxContainer2"]

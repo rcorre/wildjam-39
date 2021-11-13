@@ -13,6 +13,7 @@ func _on_prop_selected(scene: PackedScene):
 	add_child(selected_prop)
 
 func _on_input_event(_camera: Node, event: InputEvent, position: Vector3, _normal: Vector3, _shape_idx: int):
+	print(event.as_text())
 	if not selected_prop:
 		return
 
