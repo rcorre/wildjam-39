@@ -7,6 +7,8 @@ func _ready():
 	Events.connect("prop_selected", self, "_on_prop_selected")
 
 func _on_prop_selected(scene: PackedScene):
+	if selected_prop:
+		selected_prop.queue_free()
 	selected_prop = scene.instance()
 	add_child(selected_prop)
 

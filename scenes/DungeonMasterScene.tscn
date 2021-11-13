@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/Floor.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/locked-chest.svg" type="Texture" id=2]
@@ -22,7 +22,21 @@ font_data = ExtResource( 3 )
 [sub_resource type="Theme" id=4]
 default_font = SubResource( 3 )
 
+[sub_resource type="InputEventAction" id=8]
+action = "prop1"
+pressed = true
+
+[sub_resource type="ShortCut" id=9]
+shortcut = SubResource( 8 )
+
 [sub_resource type="ButtonGroup" id=5]
+
+[sub_resource type="InputEventAction" id=6]
+action = "prop2"
+pressed = true
+
+[sub_resource type="ShortCut" id=7]
+shortcut = SubResource( 6 )
 
 [node name="DungeonMasterScene" type="Spatial"]
 
@@ -68,6 +82,7 @@ margin_bottom = 164.0
 margin_right = 76.0
 margin_bottom = 83.0
 toggle_mode = true
+shortcut = SubResource( 9 )
 group = SubResource( 5 )
 icon = ExtResource( 2 )
 script = ExtResource( 8 )
@@ -89,6 +104,7 @@ margin_bottom = 164.0
 margin_right = 76.0
 margin_bottom = 83.0
 toggle_mode = true
+shortcut = SubResource( 7 )
 group = SubResource( 5 )
 icon = ExtResource( 4 )
 script = ExtResource( 5 )
