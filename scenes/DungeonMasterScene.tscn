@@ -81,6 +81,7 @@ margin_bottom = 164.0
 margin_right = 76.0
 margin_bottom = 83.0
 toggle_mode = true
+shortcut_in_tooltip = false
 shortcut = SubResource( 9 )
 group = SubResource( 5 )
 icon = ExtResource( 2 )
