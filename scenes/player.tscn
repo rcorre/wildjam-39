@@ -17,5 +17,6 @@ shape = SubResource( 1 )
 
 [connection signal="updated_velocity" from="." to="Model" method="_on_movement_updated_velocity"]
 [connection signal="look_towards" from="Player_input" to="Model" method="_on_Player_input_look_towards"]
+[connection signal="mobile_look_towards" from="Player_input" to="Model" method="_on_Player_input_mobile_look_towards"]
 [connection signal="move_towards" from="Player_input" to="." method="_on_Player_input_move_towards"]
 [connection signal="updated_root_motion_direction" from="Model" to="." method="_on_Model_updated_root_motion_direction"]

@@ -2,7 +2,7 @@ extends Spatial
 
 signal updated_root_motion_direction(direction)
 
-func _on_Player_input_look_towards(position):
+func _on_Player_input_look_towards(position : Vector3):
 	"""
 	Update rotation matrix based on look at position
 	
@@ -10,6 +10,18 @@ func _on_Player_input_look_towards(position):
 	"""
 	var dir_to = global_transform.origin.direction_to(position)
 	var target_rad = atan2(dir_to.x, dir_to.z)
+	var dif_rad = target_rad - rotation.y 
+	
+	global_transform.basis = global_transform.basis.rotated(Vector3.UP, dif_rad)
+
+func _on_Player_input_mobile_look_towards(look_vect : Vector2):
+	"""
+	Update rotation matrix based on a directional vector
+	
+	Signal from: player_input
+		(Only for mobile controles)
+	"""
+	var target_rad = atan2(look_vect.x, look_vect.y)
 	var dif_rad = target_rad - rotation.y 
 	
 	global_transform.basis = global_transform.basis.rotated(Vector3.UP, dif_rad)
@@ -30,4 +42,6 @@ func _physics_process(delta):
 	var direction = global_transform.basis.xform(root_motion_origin) / delta
 
 	emit_signal("updated_root_motion_direction", direction)
+
+
 

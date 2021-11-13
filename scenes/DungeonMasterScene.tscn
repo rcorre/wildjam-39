@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/Floor.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/locked-chest.svg" type="Texture" id=2]
@@ -20,7 +20,6 @@
 [ext_resource path="res://props/Slime.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/icons/skeleton.svg" type="Texture" id=19]
 [ext_resource path="res://props/Skeleton.tscn" type="PackedScene" id=20]
-[ext_resource path="res://scenes/GroupButtons.gd" type="Script" id=21]
 [ext_resource path="res://scenes/GroupButtons.gd" type="Script" id=22]
 
 [sub_resource type="PlaneMesh" id=1]
@@ -101,17 +100,16 @@ __meta__ = {
 
 [node name="TabContainer" type="TabContainer" parent="HUD/VBoxContainer"]
 margin_right = 1024.0
-margin_bottom = 70.0
 custom_styles/panel = SubResource( 10 )
 tabs_visible = false
 script = ExtResource( 15 )
 
 [node name="Control" type="Control" parent="HUD/VBoxContainer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Treasure" type="HBoxContainer" parent="HUD/VBoxContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/separation = 16
@@ -183,7 +181,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/separation = 16
 alignment = 1
-script = ExtResource( 21 )
+script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -222,7 +220,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/separation = 16
 alignment = 1
-script = ExtResource( 21 )
+script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -270,12 +268,12 @@ script = ExtResource( 8 )
 prop_scene = ExtResource( 20 )
 
 [node name="PropCategoryButtons" type="HBoxContainer" parent="HUD/VBoxContainer"]
-margin_top = 74.0
+margin_top = 4.0
 margin_right = 1024.0
-margin_bottom = 144.0
+margin_bottom = 74.0
 custom_constants/separation = 16
 alignment = 1
-script = ExtResource( 21 )
+script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
