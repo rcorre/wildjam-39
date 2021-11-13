@@ -1,12 +1,14 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/Floor.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/locked-chest.svg" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/LeagueGothic-Regular.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/icons/spiky-pit.svg" type="Texture" id=4]
+[ext_resource path="res://assets/icons/spider-alt.svg" type="Texture" id=5]
 [ext_resource path="res://props/Chest.tscn" type="PackedScene" id=6]
 [ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/PropButton.gd" type="Script" id=8]
+[ext_resource path="res://props/Spider.tscn" type="PackedScene" id=9]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 20, 20 )
@@ -31,7 +33,7 @@ shortcut = SubResource( 8 )
 [sub_resource type="ButtonGroup" id=5]
 
 [sub_resource type="InputEventAction" id=6]
-action = "prop2"
+action = "prop3"
 pressed = true
 
 [sub_resource type="ShortCut" id=7]
@@ -73,8 +75,8 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/PropIcons"]
-margin_left = 428.0
-margin_right = 504.0
+margin_left = 382.0
+margin_right = 458.0
 margin_bottom = 164.0
 
 [node name="Button" type="Button" parent="HUD/PropIcons/VBoxContainer"]
@@ -96,8 +98,8 @@ text = "1"
 align = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HUD/PropIcons"]
-margin_left = 520.0
-margin_right = 596.0
+margin_left = 474.0
+margin_right = 550.0
 margin_bottom = 164.0
 
 [node name="Button" type="Button" parent="HUD/PropIcons/VBoxContainer2"]
@@ -115,4 +117,26 @@ margin_top = 87.0
 margin_right = 76.0
 margin_bottom = 164.0
 text = "2"
+align = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HUD/PropIcons"]
+margin_left = 566.0
+margin_right = 642.0
+margin_bottom = 164.0
+
+[node name="Button" type="Button" parent="HUD/PropIcons/VBoxContainer3"]
+margin_right = 76.0
+margin_bottom = 83.0
+toggle_mode = true
+shortcut = SubResource( 7 )
+group = SubResource( 5 )
+icon = ExtResource( 5 )
+script = ExtResource( 8 )
+prop_scene = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="HUD/PropIcons/VBoxContainer3"]
+margin_top = 87.0
+margin_right = 76.0
+margin_bottom = 164.0
+text = "3"
 align = 1
