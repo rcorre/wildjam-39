@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/Floor.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/locked-chest.svg" type="Texture" id=2]
@@ -9,6 +9,18 @@
 [ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/PropButton.gd" type="Script" id=8]
 [ext_resource path="res://props/Spider.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/icons/flanged-mace.svg" type="Texture" id=10]
+[ext_resource path="res://assets/icons/pocket-bow.svg" type="Texture" id=11]
+[ext_resource path="res://assets/icons/crystal-wand.svg" type="Texture" id=12]
+[ext_resource path="res://assets/icons/shiny-apple.svg" type="Texture" id=13]
+[ext_resource path="res://scenes/PropCategoryButton.gd" type="Script" id=14]
+[ext_resource path="res://scenes/TabContainer.gd" type="Script" id=15]
+[ext_resource path="res://assets/icons/unlit-bomb.svg" type="Texture" id=16]
+[ext_resource path="res://assets/icons/slime.svg" type="Texture" id=17]
+[ext_resource path="res://props/Slime.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/icons/skeleton.svg" type="Texture" id=19]
+[ext_resource path="res://scenes/GroupButtons.gd" type="Script" id=20]
+[ext_resource path="res://scenes/GroupButtons.gd" type="Script" id=21]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 20, 20 )
@@ -17,11 +29,13 @@ size = Vector2( 20, 20 )
 data = PoolVector3Array( 10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 64
+size = 32
 font_data = ExtResource( 3 )
 
 [sub_resource type="Theme" id=4]
 default_font = SubResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=10]
 
 [sub_resource type="InputEventAction" id=8]
 action = "prop1"
@@ -30,14 +44,26 @@ pressed = true
 [sub_resource type="ShortCut" id=9]
 shortcut = SubResource( 8 )
 
-[sub_resource type="ButtonGroup" id=5]
+[sub_resource type="ButtonGroup" id=11]
+
+[sub_resource type="InputEventAction" id=12]
+action = "prop2"
+pressed = true
+
+[sub_resource type="ShortCut" id=13]
+shortcut = SubResource( 12 )
 
 [sub_resource type="InputEventAction" id=6]
-action = "prop3"
+action = "prop2"
 pressed = true
+
+[sub_resource type="ShortCut" id=14]
+shortcut = SubResource( 6 )
 
 [sub_resource type="ShortCut" id=7]
 shortcut = SubResource( 6 )
+
+[sub_resource type="ButtonGroup" id=5]
 
 [node name="DungeonMasterScene" type="Spatial"]
 
@@ -63,80 +89,231 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PropIcons" type="HBoxContainer" parent="HUD"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -164.0
-custom_constants/separation = 16
-alignment = 1
+margin_top = -156.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/PropIcons"]
-margin_left = 382.0
-margin_right = 458.0
-margin_bottom = 164.0
+[node name="TabContainer" type="TabContainer" parent="HUD/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 70.0
+custom_styles/panel = SubResource( 10 )
+tabs_visible = false
+script = ExtResource( 15 )
 
-[node name="Button" type="Button" parent="HUD/PropIcons/VBoxContainer"]
-margin_right = 76.0
-margin_bottom = 83.0
+[node name="Control" type="Control" parent="HUD/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Treasure" type="HBoxContainer" parent="HUD/VBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 16
+alignment = 1
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mace" type="Button" parent="HUD/VBoxContainer/TabContainer/Treasure"]
+margin_left = 284.0
+margin_right = 383.0
+margin_bottom = 70.0
+custom_constants/hseparation = 16
 toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource( 9 )
-group = SubResource( 5 )
-icon = ExtResource( 2 )
+group = SubResource( 11 )
+text = "1"
+icon = ExtResource( 10 )
 script = ExtResource( 8 )
 prop_scene = ExtResource( 6 )
 
-[node name="Label" type="Label" parent="HUD/PropIcons/VBoxContainer"]
-margin_top = 87.0
-margin_right = 76.0
-margin_bottom = 164.0
-text = "1"
-align = 1
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/PropIcons"]
-margin_left = 474.0
-margin_right = 550.0
-margin_bottom = 164.0
-
-[node name="Button" type="Button" parent="HUD/PropIcons/VBoxContainer2"]
-margin_right = 76.0
-margin_bottom = 83.0
+[node name="Bow" type="Button" parent="HUD/VBoxContainer/TabContainer/Treasure"]
+margin_left = 399.0
+margin_right = 502.0
+margin_bottom = 70.0
+custom_constants/hseparation = 16
 toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource( 13 )
+group = SubResource( 11 )
+text = "2"
+icon = ExtResource( 11 )
+script = ExtResource( 8 )
+prop_scene = ExtResource( 6 )
+
+[node name="Wand" type="Button" parent="HUD/VBoxContainer/TabContainer/Treasure"]
+margin_left = 518.0
+margin_right = 621.0
+margin_bottom = 70.0
+custom_constants/hseparation = 16
+toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource( 14 )
+group = SubResource( 11 )
+text = "3"
+icon = ExtResource( 12 )
+script = ExtResource( 8 )
+prop_scene = ExtResource( 6 )
+
+[node name="Food" type="Button" parent="HUD/VBoxContainer/TabContainer/Treasure"]
+margin_left = 637.0
+margin_right = 740.0
+margin_bottom = 70.0
+custom_constants/hseparation = 16
+toggle_mode = true
+shortcut_in_tooltip = false
 shortcut = SubResource( 7 )
-group = SubResource( 5 )
+group = SubResource( 11 )
+text = "4"
+icon = ExtResource( 13 )
+script = ExtResource( 8 )
+prop_scene = ExtResource( 6 )
+
+[node name="Traps" type="HBoxContainer" parent="HUD/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 16
+alignment = 1
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spike" type="Button" parent="HUD/VBoxContainer/TabContainer/Traps"]
+margin_left = 403.0
+margin_right = 502.0
+margin_bottom = 70.0
+custom_constants/hseparation = 16
+toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource( 9 )
+group = SubResource( 11 )
+text = "1"
 icon = ExtResource( 4 )
 script = ExtResource( 8 )
 prop_scene = ExtResource( 7 )
 
-[node name="Label" type="Label" parent="HUD/PropIcons/VBoxContainer2"]
-margin_top = 87.0
-margin_right = 76.0
-margin_bottom = 164.0
-text = "2"
-align = 1
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="HUD/PropIcons"]
-margin_left = 566.0
-margin_right = 642.0
-margin_bottom = 164.0
-
-[node name="Button" type="Button" parent="HUD/PropIcons/VBoxContainer3"]
-margin_right = 76.0
-margin_bottom = 83.0
+[node name="Bomb" type="Button" parent="HUD/VBoxContainer/TabContainer/Traps"]
+margin_left = 518.0
+margin_right = 621.0
+margin_bottom = 70.0
+custom_constants/hseparation = 16
 toggle_mode = true
+shortcut_in_tooltip = false
 shortcut = SubResource( 7 )
-group = SubResource( 5 )
+group = SubResource( 11 )
+text = "2"
+icon = ExtResource( 16 )
+script = ExtResource( 8 )
+prop_scene = ExtResource( 6 )
+
+[node name="Monsters" type="HBoxContainer" parent="HUD/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 16
+alignment = 1
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spider" type="Button" parent="HUD/VBoxContainer/TabContainer/Monsters"]
+margin_left = 403.0
+margin_right = 502.0
+margin_bottom = 70.0
+custom_constants/hseparation = 16
+toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource( 9 )
+group = SubResource( 11 )
+text = "1"
 icon = ExtResource( 5 )
 script = ExtResource( 8 )
 prop_scene = ExtResource( 9 )
 
-[node name="Label" type="Label" parent="HUD/PropIcons/VBoxContainer3"]
-margin_top = 87.0
-margin_right = 76.0
-margin_bottom = 164.0
+[node name="Slime" type="Button" parent="HUD/VBoxContainer/TabContainer/Monsters"]
+margin_left = 518.0
+margin_right = 621.0
+margin_bottom = 70.0
+custom_constants/hseparation = 16
+toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource( 7 )
+group = SubResource( 11 )
+text = "2"
+icon = ExtResource( 17 )
+script = ExtResource( 8 )
+prop_scene = ExtResource( 18 )
+
+[node name="Skeleton" type="Button" parent="HUD/VBoxContainer/TabContainer/Monsters"]
+margin_left = 518.0
+margin_right = 621.0
+margin_bottom = 70.0
+custom_constants/hseparation = 16
+toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource( 7 )
+group = SubResource( 11 )
 text = "3"
-align = 1
+icon = ExtResource( 19 )
+script = ExtResource( 8 )
+prop_scene = ExtResource( 18 )
+
+[node name="PropCategoryButtons" type="HBoxContainer" parent="HUD/VBoxContainer"]
+margin_top = 74.0
+margin_right = 1024.0
+margin_bottom = 144.0
+custom_constants/separation = 16
+alignment = 1
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="HUD/VBoxContainer/PropCategoryButtons"]
+margin_left = 343.0
+margin_right = 442.0
+margin_bottom = 70.0
+custom_constants/hseparation = 16
+toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource( 9 )
+group = SubResource( 5 )
+text = "1"
+icon = ExtResource( 2 )
+script = ExtResource( 14 )
+
+[node name="Button2" type="Button" parent="HUD/VBoxContainer/PropCategoryButtons"]
+margin_left = 458.0
+margin_right = 561.0
+margin_bottom = 70.0
+custom_constants/hseparation = 16
+toggle_mode = true
+shortcut = SubResource( 7 )
+group = SubResource( 5 )
+text = "2"
+icon = ExtResource( 4 )
+script = ExtResource( 14 )
+prop_category = 2
+
+[node name="Button3" type="Button" parent="HUD/VBoxContainer/PropCategoryButtons"]
+margin_left = 577.0
+margin_right = 680.0
+margin_bottom = 70.0
+custom_constants/hseparation = 16
+toggle_mode = true
+shortcut = SubResource( 7 )
+group = SubResource( 5 )
+text = "3"
+icon = ExtResource( 5 )
+script = ExtResource( 14 )
+prop_category = 3
