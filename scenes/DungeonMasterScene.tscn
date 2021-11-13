@@ -1,12 +1,28 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/Floor.gd" type="Script" id=1]
+[ext_resource path="res://assets/icons/locked-chest.svg" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/LeagueGothic-Regular.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/icons/spiky-pit.svg" type="Texture" id=4]
+[ext_resource path="res://scenes/PropButton.gd" type="Script" id=5]
+[ext_resource path="res://props/Chest.tscn" type="PackedScene" id=6]
+[ext_resource path="res://props/Spikes.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/PropButton.gd" type="Script" id=8]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 20, 20 )
 
 [sub_resource type="ConcavePolygonShape" id=2]
 data = PoolVector3Array( 10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="ButtonGroup" id=5]
 
 [node name="DungeonMasterScene" type="Spatial"]
 
@@ -22,3 +38,65 @@ shape = SubResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.711439, -0.446036, 0.543053, 0, 0.772757, 0.634702, -0.702748, -0.451552, 0.549769, 10.1235, 11.832, 10.2487 )
+
+[node name="HUD" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PropIcons" type="HBoxContainer" parent="HUD"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -164.0
+custom_constants/separation = 16
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/PropIcons"]
+margin_left = 428.0
+margin_right = 504.0
+margin_bottom = 164.0
+
+[node name="Button" type="Button" parent="HUD/PropIcons/VBoxContainer"]
+margin_right = 76.0
+margin_bottom = 83.0
+toggle_mode = true
+group = SubResource( 5 )
+icon = ExtResource( 2 )
+script = ExtResource( 8 )
+prop_scene = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="HUD/PropIcons/VBoxContainer"]
+margin_top = 87.0
+margin_right = 76.0
+margin_bottom = 164.0
+text = "1"
+align = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/PropIcons"]
+margin_left = 520.0
+margin_right = 596.0
+margin_bottom = 164.0
+
+[node name="Button" type="Button" parent="HUD/PropIcons/VBoxContainer2"]
+margin_right = 76.0
+margin_bottom = 83.0
+toggle_mode = true
+group = SubResource( 5 )
+icon = ExtResource( 4 )
+script = ExtResource( 5 )
+prop_scene = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="HUD/PropIcons/VBoxContainer2"]
+margin_top = 87.0
+margin_right = 76.0
+margin_bottom = 164.0
+text = "2"
+align = 1
