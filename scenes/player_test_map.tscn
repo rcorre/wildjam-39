@@ -8,7 +8,7 @@ size = Vector2( 20, 20 )
 [sub_resource type="ConcavePolygonShape" id=2]
 data = PoolVector3Array( 10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10 )
 
-[node name="test_map" type="Spatial"]
+[node name="player_test_map" type="Spatial"]
 
 [node name="Floor" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )

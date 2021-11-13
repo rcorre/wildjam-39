@@ -80,9 +80,13 @@ func _on_mobile_controls_toggled(button_pressed):
 		disable_mobile()
 	
 func disable_mobile():
+	$Debug/state_look.hide()
+	$Debug/state_move.hide()
 	remove_child(mobileMoveBtn)
 	remove_child(mobileLookBtn)
 
 func enable_mobile():
+	$Debug/state_look.show()
+	$Debug/state_move.show()
 	add_child(mobileMoveBtn)
 	add_child(mobileLookBtn)
