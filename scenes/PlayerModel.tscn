@@ -1978,16 +1978,18 @@ animation = "RunLeft-loop"
 blend_point_0/node = SubResource( 21 )
 blend_point_0/pos = Vector2( 0, 0 )
 blend_point_1/node = SubResource( 22 )
-blend_point_1/pos = Vector2( 0, 1 )
+blend_point_1/pos = Vector2( 0, 5 )
 blend_point_2/node = SubResource( 23 )
-blend_point_2/pos = Vector2( 0, -1 )
+blend_point_2/pos = Vector2( 0, -5 )
 blend_point_3/node = SubResource( 24 )
-blend_point_3/pos = Vector2( 1, 0 )
+blend_point_3/pos = Vector2( 5, 0 )
 blend_point_4/node = SubResource( 25 )
-blend_point_4/pos = Vector2( -1, 0 )
+blend_point_4/pos = Vector2( -5, 0 )
+min_space = Vector2( -5, -5 )
+max_space = Vector2( 5, 5 )
 
 [sub_resource type="AnimationNodeBlendTree" id=27]
-graph_offset = Vector2( -720, 5.33333 )
+graph_offset = Vector2( -518, 116 )
 nodes/Animation/node = SubResource( 19 )
 nodes/Animation/position = Vector2( -53.6667, 380.333 )
 nodes/attack/node = SubResource( 20 )
@@ -2107,7 +2109,7 @@ bones/20/name = "HandHold.R"
 bones/20/parent = 18
 bones/20/rest = Transform( -0.178586, -0.630432, 0.755422, -0.962119, -0.0488495, -0.268217, 0.205995, -0.774706, -0.597826, 0.0608109, 0.0821073, 0.0097738 )
 bones/20/enabled = true
-bones/20/bound_children = [ NodePath("BoneAttachment") ]
+bones/20/bound_children = [  ]
 bones/21/name = "Thumb.R"
 bones/21/parent = 17
 bones/21/rest = Transform( 0.929595, -0.327773, 0.168578, 0.0674121, 0.600845, 0.796518, -0.362366, -0.729074, 0.580639, -3.86308e-09, 0.233692, 9.25444e-09 )
@@ -2202,13 +2204,14 @@ skin = SubResource( 3 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.0738155, -0.708458, 0.70188, 0.557707, 0.612784, 0.559874, -0.826749, 0.350118, 0.440346, -0.237279, 0.932515, -0.197159 )
+transform = Transform( 0.131046, -0.73106, 0.669608, 0.557706, 0.612783, 0.559874, -0.819628, 0.300077, 0.488021, -0.223017, 0.924494, -0.21316 )
 bone_name = "HandHold.R"
 
 [node name="Sword" parent="Armature/Skeleton/BoneAttachment" instance=ExtResource( 1 )]
 transform = Transform( 1, 2.98023e-08, 2.98023e-08, -2.98023e-08, 1, 0, -4.47035e-08, 0, 1, 0, 0, 0 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Armature"]
+root_node = NodePath("../..")
 anims/RunBackward-loop = SubResource( 11 )
 anims/RunForward-loop = SubResource( 12 )
 anims/RunLeft-loop = SubResource( 13 )
@@ -2223,12 +2226,9 @@ shape = SubResource( 18 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 27 )
-anim_player = NodePath("../AnimationPlayer")
+anim_player = NodePath("../Armature/AnimationPlayer")
 active = true
 process_mode = 0
 root_motion_track = NodePath("Armature/Skeleton:Root")
 parameters/attack/active = false
-parameters/move/blend_position = Vector2( 0.00835943, 0.105932 )
-
-[node name="RootMotionView" type="RootMotionView" parent="."]
-animation_path = NodePath("../AnimationTree")
+parameters/move/blend_position = Vector2( -0.0109291, 0 )

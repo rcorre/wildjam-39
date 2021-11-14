@@ -2,9 +2,9 @@
 
 [ext_resource path="res://scenes/movement.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/player_interactable_detection.gd" type="Script" id=2]
-[ext_resource path="res://scenes/Model_Mech.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Player_input.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/material/player_icon.tres" type="Material" id=5]
+[ext_resource path="res://scenes/PlayerModel.tscn" type="PackedScene" id=6]
 
 [sub_resource type="BoxShape" id=3]
 
@@ -21,9 +21,7 @@ shape = SubResource( 3 )
 
 [node name="Player_input" parent="." index="1" instance=ExtResource( 4 )]
 
-[node name="Model" parent="." index="2" instance=ExtResource( 3 )]
-
-[node name="interactable_detection" type="Area" parent="." index="3"]
+[node name="interactable_detection" type="Area" parent="." index="2"]
 collision_layer = 0
 collision_mask = 2048
 script = ExtResource( 2 )
@@ -36,6 +34,8 @@ shape = SubResource( 2 )
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 4, 0 )
 mesh = SubResource( 4 )
 material/0 = ExtResource( 5 )
+
+[node name="Model" parent="." index="3" instance=ExtResource( 6 )]
 
 [connection signal="updated_velocity" from="." to="Model" method="_on_movement_updated_velocity"]
 [connection signal="look_towards" from="Player_input" to="Model" method="_on_Player_input_look_towards"]

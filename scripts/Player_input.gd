@@ -33,6 +33,7 @@ func keyboard_input():
 		emit_signal("look_towards", result.position)
 
 	var input_vect := Input.get_vector("Right", "Left", "Down", "Up")
+
 	emit_signal("move_towards", Vector3(input_vect.x, 0 , input_vect.y))
 
 func mobile_input():

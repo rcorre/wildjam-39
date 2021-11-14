@@ -455,31 +455,31 @@ surfaces/0 = {
 "vertex_count": 2514
 }
 
-[sub_resource type="AnimationNodeAnimation" id=1]
+[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "Stand"
 
-[sub_resource type="AnimationNodeAnimation" id=12]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "RunForward-loop"
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "RunRight-loop"
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "RunLeft-loop"
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=21]
 animation = "RunBackward-loop"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=16]
-blend_point_0/node = SubResource( 1 )
+blend_point_0/node = SubResource( 17 )
 blend_point_0/pos = Vector2( 0, 0 )
-blend_point_1/node = SubResource( 12 )
+blend_point_1/node = SubResource( 18 )
 blend_point_1/pos = Vector2( 0, 6 )
-blend_point_2/node = SubResource( 13 )
+blend_point_2/node = SubResource( 19 )
 blend_point_2/pos = Vector2( 6, 0 )
-blend_point_3/node = SubResource( 14 )
+blend_point_3/node = SubResource( 20 )
 blend_point_3/pos = Vector2( -6, 0 )
-blend_point_4/node = SubResource( 15 )
+blend_point_4/node = SubResource( 21 )
 blend_point_4/pos = Vector2( 0, -6 )
 min_space = Vector2( -6, -6 )
 max_space = Vector2( 6, 6 )
@@ -533,7 +533,7 @@ bones/8/name = "Cabin"
 bones/8/parent = 1
 bones/8/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3 )
 bones/8/enabled = true
-bones/8/bound_children = [ NodePath("CabinBoneAttachment") ]
+bones/8/bound_children = [  ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Armature"]
 anims/RunBackward-loop = SubResource( 7 )
@@ -544,7 +544,7 @@ anims/Stand = SubResource( 3 )
 anims/TPose = SubResource( 2 )
 
 [node name="CabinBoneAttachment" type="BoneAttachment" parent="Armature"]
-transform = Transform( 1, -3.71074e-10, 0, 0, 0, -1, 3.71074e-10, 1, 0, 0, 1.78008, 0 )
+transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 1.78, 0 )
 bone_name = "Cabin"
 
 [node name="Cabin" type="MeshInstance" parent="Armature/CabinBoneAttachment"]
@@ -572,10 +572,9 @@ material/0 = null
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 16 )
 anim_player = NodePath("../Armature/AnimationPlayer")
-active = true
 process_mode = 0
 root_motion_track = NodePath(".:Root")
-parameters/blend_position = Vector2( 0.0110364, 0 )
+parameters/blend_position = Vector2( 0.0262299, 0.0542493 )
 
 [node name="RootMotionView" type="RootMotionView" parent="AnimationTree"]
 animation_path = NodePath("..")
