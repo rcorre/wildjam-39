@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="WildJam39"
-run/main_scene="res://scenes/player_test_map.tscn"
+run/main_scene="res://scenes/DungeonMasterScene.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -1151,6 +1151,7 @@ interact={
 
 [input_devices]
 
+buffering/agile_event_flushing=true
 pointing/emulate_touch_from_mouse=true
 
 [layer_names]
@@ -1163,6 +1164,7 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/shading/force_vertex_shading=true
 quality/lightmapping/use_bicubic_sampling=false
 quality/filters/use_fxaa=true
 environment/default_environment="res://default_env.tres"

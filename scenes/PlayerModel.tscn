@@ -5,10 +5,10 @@
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "Skin"
-vertex_color_use_as_albedo = true
-params_cull_mode = 2
+params_specular_mode = 4
 albedo_color = Color( 0.590753, 0.71337, 0.407281, 1 )
-roughness = 0.5
+metallic_specular = 0.0
+roughness = 0.8
 
 [sub_resource type="ArrayMesh" id=2]
 resource_name = "Player_Cube003"
@@ -133,17 +133,13 @@ bind/33/pose = Transform( 1, 0, 0, 0, -0.182089, 0.983282, 0, -0.983282, -0.1820
 
 [sub_resource type="SpatialMaterial" id=4]
 resource_name = "Cloth"
-vertex_color_use_as_albedo = true
-params_cull_mode = 2
 albedo_color = Color( 0.906332, 0.906332, 0.906332, 1 )
-roughness = 0.751534
+metallic_specular = 0.0
 
 [sub_resource type="SpatialMaterial" id=5]
 resource_name = "Highlight"
-vertex_color_use_as_albedo = true
-params_cull_mode = 2
 albedo_color = Color( 0.475493, 0.653711, 0.906332, 1 )
-roughness = 0.5
+metallic_specular = 0.0
 
 [sub_resource type="ArrayMesh" id=6]
 resource_name = "Player_Cube001"
@@ -2204,7 +2200,7 @@ skin = SubResource( 3 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.131046, -0.73106, 0.669608, 0.557706, 0.612783, 0.559874, -0.819628, 0.300077, 0.488021, -0.223017, 0.924494, -0.21316 )
+transform = Transform( 0.130988, -0.731038, 0.669642, 0.557706, 0.612783, 0.559874, -0.819637, 0.300129, 0.487973, -0.223032, 0.920689, -0.213144 )
 bone_name = "HandHold.R"
 
 [node name="Sword" parent="Armature/Skeleton/BoneAttachment" instance=ExtResource( 1 )]
