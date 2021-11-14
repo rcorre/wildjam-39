@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/chest_set.wav-d7fc1ba272d29920c4953703d49a4cba.sample"
+
+[deps]
+
+source_file="res://audio/sfx/dungeon_setup/chest_set.wav"
+dest_files=[ "res://.import/chest_set.wav-d7fc1ba272d29920c4953703d49a4cba.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
