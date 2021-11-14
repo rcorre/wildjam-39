@@ -1,25 +1,10 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://assets/models/Sword.glb" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Model.gd" type="Script" id=2]
 [ext_resource path="res://scenes/MeleeArea.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Wand.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Bow.tscn" type="PackedScene" id=5]
-
-[sub_resource type="Animation" id=35]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("../right_hand:interpolation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1.0 ]
-}
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "Skin"
@@ -2532,7 +2517,7 @@ min_space = Vector2( -5, -5 )
 max_space = Vector2( 5, 5 )
 
 [sub_resource type="AnimationNodeBlendTree" id=27]
-graph_offset = Vector2( -493, 85.5 )
+graph_offset = Vector2( -550, -88 )
 nodes/Animation/node = SubResource( 19 )
 nodes/Animation/position = Vector2( -220, 240 )
 "nodes/Animation 2/node" = SubResource( 33 )
@@ -2733,10 +2718,7 @@ transform = Transform( -2.7474e-06, 0.992346, -0.0617458, 0.999816, 0.00236893, 
 visible = false
 
 [node name="string" parent="Armature/Skeleton/Bow/Armature/Skeleton" index="1"]
-transform = Transform( -1, -6.55674e-22, 1.50996e-07, 1.50996e-07, 2.0634e-08, 1, -3.1156e-15, 1, -2.0634e-08, -4.45912e-20, 1.68401e-07, 8.1606 )
-
-[node name="AnimationPlayer" parent="Armature/Skeleton/Bow" index="1"]
-anims/RESET = SubResource( 35 )
+transform = Transform( -1, -1.17235e-20, 1.50996e-07, 1.50996e-07, 2.0634e-08, 1, -3.11561e-15, 1, -2.0634e-08, -4.45912e-20, 1.68401e-07, 8.1606 )
 
 [node name="left_hand" type="SkeletonIK" parent="Armature/Skeleton"]
 process_priority = 1
@@ -2778,11 +2760,7 @@ skin = SubResource( 3 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-<<<<<<< HEAD
-transform = Transform( 0.131458, -0.73121, 0.669362, 0.557706, 0.612783, 0.559874, -0.819562, 0.299709, 0.488357, -0.222909, 0.940591, -0.213272 )
-=======
-transform = Transform( 0.13187, -0.731361, 0.669117, 0.557706, 0.612783, 0.559874, -0.819496, 0.299342, 0.488694, -0.222802, 0.941946, -0.213384 )
->>>>>>> d6639619475c5b53196201f79bbc4895ae03232a
+transform = Transform( 0.13187, -0.731361, 0.669116, 0.557706, 0.612783, 0.559874, -0.819496, 0.299341, 0.488694, -0.222802, 0.941955, -0.213384 )
 bone_name = "HandHold.R"
 
 [node name="mace" parent="Armature/Skeleton/BoneAttachment" instance=ExtResource( 1 )]
