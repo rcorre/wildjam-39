@@ -24,6 +24,7 @@ func _on_input_event(_camera: Node, event: InputEvent, position: Vector3, _norma
 	if event.is_action_pressed("place_prop"):
 		place_prop(pos)
 
+
 func place_prop(pos: Vector3):
 	assert(selected_prop)
 
