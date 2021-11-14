@@ -2,8 +2,8 @@
 
 [ext_resource path="res://assets/fonts/LeagueGothic-Regular.otf" type="DynamicFontData" id=1]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
 
 [resource]
-Label/fonts/font = SubResource( 5 )
+Label/fonts/font = SubResource( 1 )

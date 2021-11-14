@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/slime_set.wav-4d5c3a4e189dc1aeaa6c3a9009b1f0d5.sample"
+
+[deps]
+
+source_file="res://audio/sfx/dungeon_setup/slime_set.wav"
+dest_files=[ "res://.import/slime_set.wav-4d5c3a4e189dc1aeaa6c3a9009b1f0d5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
