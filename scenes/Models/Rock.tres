@@ -1,0 +1,19 @@
+[gd_resource type="SpatialMaterial" load_steps=3 format=2]
+
+[sub_resource type="OpenSimplexNoise" id=5]
+octaves = 6
+period = 32.6
+persistence = 1.0
+
+[sub_resource type="NoiseTexture" id=6]
+seamless = true
+noise = SubResource( 5 )
+
+[resource]
+resource_name = "Dungeon"
+albedo_color = Color( 0.592157, 0.384314, 0.227451, 1 )
+albedo_texture = SubResource( 6 )
+metallic_specular = 0.0
+uv1_scale = Vector3( 0.3, 0.3, 0.3 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 97.0058

@@ -2204,7 +2204,7 @@ skin = SubResource( 3 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.129641, -0.730544, 0.670443, 0.557706, 0.612783, 0.559874, -0.819851, 0.301329, 0.486872, -0.223382, 0.937108, -0.212777 )
+transform = Transform( 0.131221, -0.731124, 0.669503, 0.557706, 0.612783, 0.559874, -0.8196, 0.299921, 0.488164, -0.222971, 0.93071, -0.213207 )
 bone_name = "HandHold.R"
 
 [node name="Sword" parent="Armature/Skeleton/BoneAttachment" instance=ExtResource( 1 )]
@@ -2231,4 +2231,4 @@ active = true
 process_mode = 0
 root_motion_track = NodePath("Armature/Skeleton:Root")
 parameters/attack/active = false
-parameters/move/blend_position = Vector2( -0.00546455, 0.0431037 )
+parameters/move/blend_position = Vector2( -0.0109291, 0 )

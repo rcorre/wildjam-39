@@ -533,7 +533,7 @@ bones/8/name = "Cabin"
 bones/8/parent = 1
 bones/8/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3 )
 bones/8/enabled = true
-bones/8/bound_children = [  ]
+bones/8/bound_children = [ NodePath("CabinBoneAttachment") ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Armature"]
 anims/RunBackward-loop = SubResource( 7 )
