@@ -35,14 +35,15 @@ func _on_movement_updated_velocity(velocity):
 	"""
 	var local_velocity = global_transform.basis.xform_inv(velocity)
 	var blend_position = Vector2(-local_velocity.x, local_velocity.z)
-	print("update velocity", velocity, " Blend_pos", blend_position)
+
 	$AnimationTree.set("parameters/move/blend_position", blend_position)
 
 func _physics_process(delta):
 	var root_motion_origin = $AnimationTree.get_root_motion_transform().origin
 	var direction = global_transform.basis.xform(root_motion_origin) / delta
-	print("Direction: ", direction)
+
 	emit_signal("updated_root_motion_direction", direction)
 
 
-
+func _on_Player_input_attack():
+	$AnimationTree.set("parameters/attack/active", true)

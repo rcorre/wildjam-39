@@ -1989,7 +1989,7 @@ min_space = Vector2( -5, -5 )
 max_space = Vector2( 5, 5 )
 
 [sub_resource type="AnimationNodeBlendTree" id=27]
-graph_offset = Vector2( -518, 116 )
+graph_offset = Vector2( -518, 144.833 )
 nodes/Animation/node = SubResource( 19 )
 nodes/Animation/position = Vector2( -53.6667, 380.333 )
 nodes/attack/node = SubResource( 20 )
@@ -2204,7 +2204,7 @@ skin = SubResource( 3 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.131046, -0.73106, 0.669608, 0.557706, 0.612783, 0.559874, -0.819628, 0.300077, 0.488021, -0.223017, 0.924494, -0.21316 )
+transform = Transform( 0.129641, -0.730544, 0.670443, 0.557706, 0.612783, 0.559874, -0.819851, 0.301329, 0.486872, -0.223382, 0.937108, -0.212777 )
 bone_name = "HandHold.R"
 
 [node name="Sword" parent="Armature/Skeleton/BoneAttachment" instance=ExtResource( 1 )]
@@ -2231,4 +2231,4 @@ active = true
 process_mode = 0
 root_motion_track = NodePath("Armature/Skeleton:Root")
 parameters/attack/active = false
-parameters/move/blend_position = Vector2( -0.0109291, 0 )
+parameters/move/blend_position = Vector2( -0.00546455, 0.0431037 )

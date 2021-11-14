@@ -5,7 +5,9 @@ const ray_length = 20
 signal look_towards(position)
 signal mobile_look_towards(look_vect)
 signal move_towards(move_dir)
-const TouchScreenButtonDiameter = 300
+signal attack()
+
+const TouchScreenButtonDiameter = 200
 
 onready var mobileMoveBtn = $TouchScreenMoveButton
 onready var mobileLookBtn = $TouchScreenLookButton
@@ -35,7 +37,9 @@ func keyboard_input():
 	var input_vect := Input.get_vector("Right", "Left", "Down", "Up")
 
 	emit_signal("move_towards", Vector3(input_vect.x, 0 , input_vect.y))
-
+	if Input.is_action_just_pressed("attack"):
+		emit_signal("attack")
+	
 func mobile_input():
 	$Debug/state_move.text = str(mobileMoveBtn.is_pressed())
 	$Debug/state_look.text = str(mobileLookBtn.is_pressed())
@@ -72,7 +76,6 @@ func _input(event):
 		mobile_look_vect = (center_look_btn - event.position).normalized()
 	$Debug/VBoxContainer/event_point.text = str(event.position)
 
-
 func _on_mobile_controls_toggled(button_pressed):
 	mobile_controls = button_pressed
 	if mobile_controls:
@@ -91,3 +94,9 @@ func enable_mobile():
 	$Debug/state_move.show()
 	add_child(mobileMoveBtn)
 	add_child(mobileLookBtn)
+
+func _on_attack_pressed():
+	emit_signal("attack")
+
+func _on_interact_pressed():
+	Input.action_press("interact")

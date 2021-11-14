@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Floor.gd" type="Script" id=1]
 [ext_resource path="res://scenes/DungeonMasterHUD.tscn" type="PackedScene" id=2]
@@ -41,6 +41,14 @@ surfaces/0 = {
 "skeleton_aabb": [  ],
 "vertex_count": 21451
 }
+
+[sub_resource type="ProceduralSky" id=10]
+
+[sub_resource type="Environment" id=9]
+background_mode = 1
+background_sky = SubResource( 10 )
+background_color = Color( 0.282353, 0.262745, 0.262745, 1 )
+tonemap_mode = 2
 
 [node name="DungeonMasterScene" type="Spatial"]
 script = ExtResource( 21 )
@@ -118,5 +126,8 @@ bounces = 9
 use_hdr = false
 capture_enabled = false
 light_data = ExtResource( 3 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 9 )
 
 [connection signal="toggled" from="player_controler" to="." method="_on_player_controler_toggled"]

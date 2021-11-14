@@ -9,6 +9,7 @@ size = Vector2( 20, 20 )
 data = PoolVector3Array( 10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10 )
 
 [node name="player_test_map" type="Spatial"]
+transform = Transform( 0.999996, -0.000233652, -0.00265548, 0.000233234, 1, -0.000157164, 0.00265552, 0.000156542, 0.999996, 0, 0, 0 )
 
 [node name="Floor" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )

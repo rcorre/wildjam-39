@@ -20,7 +20,6 @@ func update_velocity(delta):
 	Accelerate towards desired velocity:
 		Real speed is based on animation, this velocity is input for blendtree.
 	"""
-	print("@ Update Velocty: ", velocity, " ", move_dir)
 	velocity.x = move_toward(velocity.x, move_dir.x, ACCEL * delta)
 #	velocity.y -= GRAVITY * delta
 	velocity.z = move_toward(velocity.z, move_dir.z, ACCEL * delta)
@@ -37,5 +36,5 @@ func _on_Model_updated_root_motion_direction(direction):
 	"""
 #	direction.y = -GRAVITY
 	velocity = move_and_slide(direction, Vector3.UP)
-	print("Final: ", velocity)
+
 
