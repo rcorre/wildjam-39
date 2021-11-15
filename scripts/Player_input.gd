@@ -30,7 +30,7 @@ func keyboard_input():
 	var from = project_ray_origin(get_viewport().get_mouse_position())
 	var to = from + project_ray_normal(get_viewport().get_mouse_position()) * ray_length
 	var space_state = get_world().direct_space_state
-	var result = space_state.intersect_ray(from, to, [], 1)
+	var result = space_state.intersect_ray(from, to, [], $look_at_plane.collision_layer)
 	if result:
 		emit_signal("look_towards", result.position)
 

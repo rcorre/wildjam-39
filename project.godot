@@ -1164,6 +1164,7 @@ pointing/emulate_touch_from_mouse=true
 3d_physics/layer_1="default"
 3d_physics/layer_2="player"
 3d_physics/layer_12="interactable"
+3d_physics/layer_16="look_at_plane"
 
 [physics]
 

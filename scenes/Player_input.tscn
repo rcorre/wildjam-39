@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/icons/100r_circle.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player_input.gd" type="Script" id=2]
 [ext_resource path="res://assets/Theme/theme.tres" type="Theme" id=3]
 [ext_resource path="res://assets/icons/look-at.png" type="Texture" id=4]
 [ext_resource path="res://assets/icons/punch-blast.png" type="Texture" id=5]
+
+[sub_resource type="ConcavePolygonShape" id=7]
+data = PoolVector3Array( 10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10 )
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 100.0
@@ -16,6 +19,14 @@ radius = 38.0
 transform = Transform( -1, -7.57103e-08, 4.37114e-08, 0, 0.5, 0.866025, -8.74228e-08, 0.866025, -0.5, 0, 7, -4 )
 current = true
 script = ExtResource( 2 )
+
+[node name="look_at_plane" type="StaticBody" parent="."]
+transform = Transform( 1, 2.41594e-14, 0, 2.84217e-14, 0.5, -0.866026, -1.77636e-14, 0.866026, 0.5, -2.84217e-14, 5.96046e-08, -7 )
+collision_layer = 32768
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="look_at_plane"]
+shape = SubResource( 7 )
 
 [node name="TouchScreenMoveButton" type="TouchScreenButton" parent="."]
 position = Vector2( 0, 400 )
