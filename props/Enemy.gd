@@ -5,6 +5,11 @@ export(PackedScene) var projectile_scene: PackedScene
 const GRAVITY := -9.8
 const ATTACK_DISTANCE := 5.0
 
+enum LifeState {
+	ALIVE,
+	DEAD,
+}
+
 onready var aggro_area: Area = $AggroArea
 onready var anim_tree: AnimationTree = $AnimationTree
 onready var projectile_point: Spatial = $SpitPoint
@@ -32,3 +37,7 @@ func _physics_process(delta: float):
 	var root_motion_origin := anim_tree.get_root_motion_transform().origin
 	velocity = global_transform.basis.xform(root_motion_origin) / delta
 	velocity = move_and_slide(velocity)
+
+func hurt():
+	anim_tree.set("parameters/life_state/current", LifeState.DEAD)
+	get_tree().create_timer(5.0).connect("timeout", self, "queue_free")
