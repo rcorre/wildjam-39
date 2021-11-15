@@ -22,3 +22,4 @@ All other models were made during the jam.
 - https://game-icons.net/1x1/lorc/crystal-wand.html
 - https://game-icons.net/1x1/lorc/pocket-bow.html
 - https://game-icons.net/1x1/delapouite/flanged-mace.html
+- https://game-icons.net/1x1/skoll/hearts.html
