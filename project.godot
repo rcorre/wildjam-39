@@ -1162,8 +1162,9 @@ pointing/emulate_touch_from_mouse=true
 [layer_names]
 
 3d_physics/layer_1="default"
-3d_physics/layer_2="player"
+3d_physics/layer_2="hero"
 3d_physics/layer_3="prop_placement"
+3d_physics/layer_4="enemy"
 3d_physics/layer_12="interactable"
 3d_physics/layer_16="look_at_plane"
 

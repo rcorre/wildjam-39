@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/models/Sword.glb" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Model.gd" type="Script" id=2]
+[ext_resource path="res://scenes/MeleeArea.gd" type="Script" id=3]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "Skin"
@@ -234,6 +235,21 @@ surfaces/0 = {
 "primitive": 4,
 "skeleton_aabb": [ AABB( -0.223487, 0.00384848, -0.112727, 0.446975, 0.278183, 0.28975 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0.0933554, 0.00384848, -0.112727, 0.134773, 0.278183, 0.28975 ), AABB( 0.10859, 0.00384848, -0.112727, 0.114897, 0.172427, 0.28975 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.228129, 0.00384848, -0.112727, 0.134773, 0.278183, 0.28975 ), AABB( -0.223487, 0.00384848, -0.112727, 0.114897, 0.172427, 0.28975 ) ],
 "vertex_count": 1035
+}
+
+[sub_resource type="Animation" id=29]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeleeArea/CollisionShape:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -1706,6 +1722,18 @@ tracks/34/loop_wrap = true
 tracks/34/imported = false
 tracks/34/enabled = true
 tracks/34/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/35/type = "value"
+tracks/35/path = NodePath("MeleeArea/CollisionShape:disabled")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
 
 [sub_resource type="Animation" id=17]
 resource_name = "TPose"
@@ -1949,15 +1977,13 @@ tracks/33/imported = false
 tracks/33/enabled = true
 tracks/33/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="BoxShape" id=18]
-extents = Vector3( 0.2, 0.9, 0.2 )
-
 [sub_resource type="AnimationNodeAnimation" id=19]
 animation = "Swing1"
 
 [sub_resource type="AnimationNodeOneShot" id=20]
 filter_enabled = true
-filters = [ "Armature/Skeleton:Chest", "Armature/Skeleton:HandHold.L", "Armature/Skeleton:HandHold.R", "Armature/Skeleton:Head", "Armature/Skeleton:LowerArm.L", "Armature/Skeleton:LowerArm.R", "Armature/Skeleton:LowerHand.L", "Armature/Skeleton:LowerHand.R", "Armature/Skeleton:Neck", "Armature/Skeleton:Shoulder.L", "Armature/Skeleton:Shoulder.R", "Armature/Skeleton:Thumb.L", "Armature/Skeleton:Thumb.R", "Armature/Skeleton:Torso", "Armature/Skeleton:UpperArm.L", "Armature/Skeleton:UpperArm.R", "Armature/Skeleton:UpperHand.L", "Armature/Skeleton:UpperHand.R" ]
+filters = [ "Armature/Skeleton:Chest", "Armature/Skeleton:HandHold.L", "Armature/Skeleton:HandHold.R", "Armature/Skeleton:Head", "Armature/Skeleton:LowerArm.L", "Armature/Skeleton:LowerArm.R", "Armature/Skeleton:LowerHand.L", "Armature/Skeleton:LowerHand.R", "Armature/Skeleton:Neck", "Armature/Skeleton:Shoulder.L", "Armature/Skeleton:Shoulder.R", "Armature/Skeleton:Thumb.L", "Armature/Skeleton:Thumb.R", "Armature/Skeleton:Torso", "Armature/Skeleton:UpperArm.L", "Armature/Skeleton:UpperArm.R", "Armature/Skeleton:UpperHand.L", "Armature/Skeleton:UpperHand.R", "MeleeArea/CollisionShape:disabled" ]
+fadeout_time = 0.0
 
 [sub_resource type="AnimationNodeAnimation" id=21]
 animation = "Stand-loop"
@@ -1989,15 +2015,18 @@ min_space = Vector2( -5, -5 )
 max_space = Vector2( 5, 5 )
 
 [sub_resource type="AnimationNodeBlendTree" id=27]
-graph_offset = Vector2( -518, 144.833 )
+graph_offset = Vector2( -449, -13 )
 nodes/Animation/node = SubResource( 19 )
-nodes/Animation/position = Vector2( -53.6667, 380.333 )
+nodes/Animation/position = Vector2( -80, 360 )
 nodes/attack/node = SubResource( 20 )
 nodes/attack/position = Vector2( 186.667, 106.667 )
 nodes/move/node = SubResource( 26 )
 nodes/move/position = Vector2( -77, 129 )
 nodes/output/position = Vector2( 453.333, 160 )
 node_connections = [ "output", 0, "attack", "attack", 0, "move", "attack", 1, "Animation" ]
+
+[sub_resource type="BoxShape" id=28]
+extents = Vector3( 0.7, 1, 0.392212 )
 
 [node name="Player" type="Spatial"]
 script = ExtResource( 2 )
@@ -2204,7 +2233,7 @@ skin = SubResource( 3 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.131221, -0.731124, 0.669503, 0.557706, 0.612783, 0.559874, -0.8196, 0.299921, 0.488164, -0.222971, 0.93071, -0.213207 )
+transform = Transform( 0.131695, -0.731297, 0.669221, 0.557706, 0.612783, 0.559874, -0.819524, 0.299498, 0.488551, -0.222848, 0.928086, -0.213336 )
 bone_name = "HandHold.R"
 
 [node name="Sword" parent="Armature/Skeleton/BoneAttachment" instance=ExtResource( 1 )]
@@ -2212,6 +2241,8 @@ transform = Transform( 1, 2.98023e-08, 2.98023e-08, -2.98023e-08, 1, 0, -4.47035
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Armature"]
 root_node = NodePath("../..")
+autoplay = "Swing1"
+anims/RESET = SubResource( 29 )
 anims/RunBackward-loop = SubResource( 11 )
 anims/RunForward-loop = SubResource( 12 )
 anims/RunLeft-loop = SubResource( 13 )
@@ -2219,10 +2250,6 @@ anims/RunRight-loop = SubResource( 14 )
 anims/Stand-loop = SubResource( 15 )
 anims/Swing1 = SubResource( 16 )
 anims/TPose = SubResource( 17 )
-
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
-shape = SubResource( 18 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 27 )
@@ -2232,3 +2259,15 @@ process_mode = 0
 root_motion_track = NodePath("Armature/Skeleton:Root")
 parameters/attack/active = false
 parameters/move/blend_position = Vector2( -0.0109291, 0 )
+
+[node name="MeleeArea" type="Area" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MeleeArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.578033 )
+shape = SubResource( 28 )
+disabled = true
+
+[connection signal="body_entered" from="MeleeArea" to="MeleeArea" method="_on_MeleeArea_body_entered"]

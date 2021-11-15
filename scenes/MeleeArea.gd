@@ -1,5 +1,4 @@
 extends Area
 
-func attack():
-	for b in get_overlapping_bodies():
-		b.propagate_call("hurt")
+func _on_MeleeArea_body_entered(body):
+	body.propagate_call("hurt")
