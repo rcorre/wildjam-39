@@ -23,8 +23,10 @@ var mobile_look_vect := Vector2.ZERO
 
 func _ready():
 	$Debug/VBoxContainer/Platform.text = "Platform: " + OS.get_name()
-	$Debug/VBoxContainer/Screen_size.text = str(get_viewport().size)
-	mobileLookBtn.position.x = get_viewport().size.x - (TouchScreenButtonDiameter)
+	$Debug/VBoxContainer/Screen_size1.text = str(OS.get_real_window_size())
+	$Debug/VBoxContainer/Screen_size2.text = str(ProjectSettings.get_setting("display/window/size/width"))
+	
+	mobileLookBtn.position.x = ProjectSettings.get_setting("display/window/size/width") - (TouchScreenButtonDiameter)
 
 func keyboard_input():
 	var from = project_ray_origin(get_viewport().get_mouse_position())
@@ -41,8 +43,6 @@ func keyboard_input():
 		emit_signal("attack")
 	
 func mobile_input():
-	$Debug/state_move.text = str(mobileMoveBtn.is_pressed())
-	$Debug/state_look.text = str(mobileLookBtn.is_pressed())
 	if mobileMoveBtn.is_pressed():
 		emit_signal("move_towards", Vector3(mobile_move_vect.x, 0 , mobile_move_vect.y).normalized())
 	else:
@@ -52,7 +52,6 @@ func mobile_input():
 
 func _physics_process(delta):
 	$Debug/VBoxContainer/FPS.text = "FPS: " + str(Engine.get_frames_per_second())
-	$Debug/VBoxContainer/Screen_size.text = str(get_viewport().size)
 #	mobileLookBtn.position.x = get_viewport().size.x - (TouchScreenButtonDiameter)
 	if mobile_controls:
 		mobile_input()
@@ -84,14 +83,10 @@ func _on_mobile_controls_toggled(button_pressed):
 		disable_mobile()
 	
 func disable_mobile():
-	$Debug/state_look.hide()
-	$Debug/state_move.hide()
 	remove_child(mobileMoveBtn)
 	remove_child(mobileLookBtn)
 
 func enable_mobile():
-	$Debug/state_look.show()
-	$Debug/state_move.show()
 	add_child(mobileMoveBtn)
 	add_child(mobileLookBtn)
 

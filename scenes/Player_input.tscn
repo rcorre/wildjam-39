@@ -97,33 +97,20 @@ margin_top = 68.0
 margin_right = 109.0
 margin_bottom = 88.0
 
-[node name="Screen_size" type="Label" parent="Debug/VBoxContainer"]
+[node name="Screen_size1" type="Label" parent="Debug/VBoxContainer"]
 margin_top = 92.0
 margin_right = 109.0
 margin_bottom = 112.0
 
-[node name="event_point" type="Label" parent="Debug/VBoxContainer"]
+[node name="Screen_size2" type="Label" parent="Debug/VBoxContainer"]
 margin_top = 116.0
 margin_right = 109.0
 margin_bottom = 136.0
 
-[node name="state_move" type="Label" parent="Debug"]
-margin_left = 91.0
-margin_top = 268.0
-margin_right = 200.0
-margin_bottom = 288.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="state_look" type="Label" parent="Debug"]
-margin_left = 819.0
-margin_top = 274.0
-margin_right = 928.0
-margin_bottom = 294.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="event_point" type="Label" parent="Debug/VBoxContainer"]
+margin_top = 140.0
+margin_right = 109.0
+margin_bottom = 160.0
 
 [node name="HealthBar" type="HBoxContainer" parent="."]
 anchor_left = 0.5

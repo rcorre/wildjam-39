@@ -20,7 +20,7 @@ func _on_input_event(_camera: Node, event: InputEvent, position: Vector3, _norma
 
 	var pos := position.round()  # "snap" to grid
 	selected_prop.global_transform.origin = pos
-
+	
 	if event.is_action_pressed("place_prop"):
 		place_prop(pos)
 

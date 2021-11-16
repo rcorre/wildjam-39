@@ -34,7 +34,8 @@ func _on_Model_updated_root_motion_direction(direction):
 	"""
 	Signal from: Model
 	"""
-#	direction.y = -GRAVITY
+	if !is_on_floor():
+		direction.y = -GRAVITY
 	velocity = move_and_slide(direction, Vector3.UP)
 
 
