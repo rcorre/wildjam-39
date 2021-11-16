@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scenes/PropButton.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LeagueGothic-Regular.otf" type="DynamicFontData" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/PropCategoryButton.gd" type="Script" id=4]
 [ext_resource path="res://assets/icons/spider-alt.svg" type="Texture" id=5]
 [ext_resource path="res://assets/icons/flanged-mace.svg" type="Texture" id=6]
-[ext_resource path="res://props/Chest.tscn" type="PackedScene" id=7]
+[ext_resource path="res://props/Chest_mase.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/icons/unlit-bomb.svg" type="Texture" id=8]
 [ext_resource path="res://assets/icons/pocket-bow.svg" type="Texture" id=9]
 [ext_resource path="res://assets/icons/slime.svg" type="Texture" id=10]
@@ -20,6 +20,8 @@
 [ext_resource path="res://scenes/GroupButtons.gd" type="Script" id=18]
 [ext_resource path="res://scenes/TabContainer.gd" type="Script" id=19]
 [ext_resource path="res://assets/icons/shiny-apple.svg" type="Texture" id=20]
+[ext_resource path="res://props/Chest_bow.tscn" type="PackedScene" id=21]
+[ext_resource path="res://props/Chest_wand.tscn" type="PackedScene" id=22]
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
@@ -126,7 +128,7 @@ group = SubResource( 11 )
 text = "2"
 icon = ExtResource( 9 )
 script = ExtResource( 1 )
-prop_scene = ExtResource( 7 )
+prop_scene = ExtResource( 21 )
 
 [node name="Wand" type="Button" parent="HUD/VBoxContainer/TabContainer/Treasure"]
 margin_left = 518.0
@@ -140,7 +142,7 @@ group = SubResource( 11 )
 text = "3"
 icon = ExtResource( 16 )
 script = ExtResource( 1 )
-prop_scene = ExtResource( 7 )
+prop_scene = ExtResource( 22 )
 
 [node name="Food" type="Button" parent="HUD/VBoxContainer/TabContainer/Treasure"]
 margin_left = 637.0

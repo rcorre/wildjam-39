@@ -41,12 +41,11 @@ material/0 = ExtResource( 5 )
 [node name="Model" parent="." index="3" instance=ExtResource( 6 )]
 
 [node name="Health" parent="." index="4" instance=ExtResource( 3 )]
-collision_layer = 2
-collision_mask = 0
 
 [connection signal="updated_velocity" from="." to="Model" method="_on_movement_updated_velocity"]
 [connection signal="attack" from="Player_input" to="Model" method="_on_Player_input_attack"]
 [connection signal="look_towards" from="Player_input" to="Model" method="_on_Player_input_look_towards"]
 [connection signal="mobile_look_towards" from="Player_input" to="Model" method="_on_Player_input_mobile_look_towards"]
 [connection signal="move_towards" from="Player_input" to="." method="_on_Player_input_move_towards"]
+[connection signal="weapon_pick_up" from="interactable_detection" to="Model" method="_on_interactable_detection_weapon_pick_up"]
 [connection signal="updated_root_motion_direction" from="Model" to="." method="_on_Model_updated_root_motion_direction"]

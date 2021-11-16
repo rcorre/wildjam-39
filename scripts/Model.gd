@@ -2,6 +2,11 @@ extends Spatial
 
 signal updated_root_motion_direction(direction)
 
+var tmp = {
+	global.Item.MACE : {"packed":1, "Animation": global.Item.MACE}
+}
+
+
 func _on_Player_input_look_towards(position : Vector3):
 	"""
 	Update rotation matrix based on look at position
@@ -47,3 +52,20 @@ func _physics_process(delta):
 
 func _on_Player_input_attack():
 	$AnimationTree.set("parameters/attack/active", true)
+
+export(PackedScene) var projectile_scene: PackedScene
+onready var projectile_point: Spatial = $projectilePoint
+func wand_attack():
+	var projectile: Spatial = projectile_scene.instance()
+	projectile.global_transform = projectile_point.global_transform
+	get_tree().current_scene.add_child(projectile)
+
+func _on_interactable_detection_weapon_pick_up(weapon):
+	"""
+	Enable weapon mesh
+	Set current weapon value in AnimationTree for future one_shot
+	"""
+	for mesh in $Armature/Skeleton/BoneAttachment.get_children():
+		mesh.hide()
+	$Armature/Skeleton/BoneAttachment.get_child(weapon).show()
+	$AnimationTree.set("parameters/attack_weapon/current", weapon)
