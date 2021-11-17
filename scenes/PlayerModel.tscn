@@ -2686,7 +2686,7 @@ bones/20/name = "HandHold.R"
 bones/20/parent = 18
 bones/20/rest = Transform( -0.178586, -0.630432, 0.755422, -0.962119, -0.0488495, -0.268217, 0.205995, -0.774706, -0.597826, 0.0608109, 0.0821073, 0.0097738 )
 bones/20/enabled = true
-bones/20/bound_children = [ NodePath("BoneAttachment") ]
+bones/20/bound_children = [  ]
 bones/21/name = "Thumb.R"
 bones/21/parent = 17
 bones/21/rest = Transform( 0.929595, -0.327773, 0.168578, 0.0674121, 0.600845, 0.796518, -0.362366, -0.729074, 0.580639, -3.86308e-09, 0.233692, 9.25444e-09 )
@@ -2781,7 +2781,7 @@ skin = SubResource( 3 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.131221, -0.731124, 0.669503, 0.557706, 0.612783, 0.559874, -0.8196, 0.299921, 0.488164, -0.222971, 0.930709, -0.213207 )
+transform = Transform( 0.131754, -0.731318, 0.669186, 0.557706, 0.612783, 0.559874, -0.819514, 0.299446, 0.488599, -0.222832, 0.939472, -0.213352 )
 bone_name = "HandHold.R"
 
 [node name="mace" parent="Armature/Skeleton/BoneAttachment" instance=ExtResource( 1 )]
