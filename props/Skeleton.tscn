@@ -1,12 +1,93 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/models/Skeleton.glb" type="PackedScene" id=1]
+[ext_resource path="res://props/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://scenes/projectiles/Bone.tscn" type="PackedScene" id=3]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.2, 0.9, 0.2 )
 
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Throw"
+
+[sub_resource type="AnimationNodeOneShot" id=8]
+filter_enabled = true
+filters = [ "Armature/Skeleton:BodyBack", "Armature/Skeleton:BodyFront", "Armature/Skeleton:ElbowPoleTarget.L", "Armature/Skeleton:ElbowPoleTarget.R", "Armature/Skeleton:HandHold.L", "Armature/Skeleton:HandHold.R", "Armature/Skeleton:HandIK.L", "Armature/Skeleton:HandIK.R", "Armature/Skeleton:Head", "Armature/Skeleton:LowerArm.L", "Armature/Skeleton:LowerArm.R", "Armature/Skeleton:LowerHand.L", "Armature/Skeleton:LowerHand.R", "Armature/Skeleton:Neck", "Armature/Skeleton:Shoulder.L", "Armature/Skeleton:Shoulder.R", "Armature/Skeleton:UpperArm.L", "Armature/Skeleton:UpperArm.R", "Armature/Skeleton:UpperHand.L", "Armature/Skeleton:UpperHand.R" ]
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "CombatIdle-loop"
+
+[sub_resource type="AnimationNodeTransition" id=10]
+input_count = 2
+input_0/name = "alive"
+input_0/auto_advance = false
+input_1/name = "dead"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "CombatIdle-loop"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "CombatMoveForward-loop"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=15]
+blend_point_0/node = SubResource( 13 )
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource( 14 )
+blend_point_1/pos = 1.0
+min_space = 0.0
+
+[sub_resource type="AnimationNodeTimeScale" id=6]
+
+[sub_resource type="AnimationNodeBlendTree" id=12]
+graph_offset = Vector2( 0, 328.333 )
+nodes/Animation/node = SubResource( 7 )
+nodes/Animation/position = Vector2( 93.3333, 333.333 )
+nodes/attack/node = SubResource( 8 )
+nodes/attack/position = Vector2( 360, 120 )
+nodes/die/node = SubResource( 11 )
+nodes/die/position = Vector2( 400, 333.333 )
+nodes/life_state/node = SubResource( 10 )
+nodes/life_state/position = Vector2( 626.667, 146.667 )
+nodes/move/node = SubResource( 15 )
+nodes/move/position = Vector2( -59, 101 )
+nodes/move_speed/node = SubResource( 6 )
+nodes/move_speed/position = Vector2( 160, 133.333 )
+nodes/output/position = Vector2( 800, 160 )
+node_connections = [ "output", 0, "life_state", "life_state", 0, "attack", "life_state", 1, "die", "attack", 0, "move_speed", "attack", 1, "Animation", "move_speed", 0, "move" ]
+
+[sub_resource type="SphereShape" id=9]
+radius = 10.0
+
 [node name="Skeleton" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+projectile_scene = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 1 )
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+tree_root = SubResource( 12 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+process_mode = 0
+root_motion_track = NodePath("Armature/Skeleton:Root")
+parameters/attack/active = false
+parameters/life_state/current = 0
+parameters/move/blend_position = -0.258152
+parameters/move_speed/scale = 1.0
+
+[node name="RootMotionView" type="RootMotionView" parent="." index="4"]
+animation_path = NodePath("../AnimationTree")
+
+[node name="AggroArea" type="Area" parent="." index="5"]
+collision_layer = 0
+collision_mask = 2
+input_ray_pickable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="AggroArea" index="0"]
+shape = SubResource( 9 )
+
+[node name="SpitPoint" type="Spatial" parent="." index="6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.840039, 0.560004 )
