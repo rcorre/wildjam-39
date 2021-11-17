@@ -1,12 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/icons/100r_circle.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player_input.gd" type="Script" id=2]
 [ext_resource path="res://assets/Theme/theme.tres" type="Theme" id=3]
 [ext_resource path="res://assets/icons/look-at.png" type="Texture" id=4]
 [ext_resource path="res://assets/icons/punch-blast.png" type="Texture" id=5]
-[ext_resource path="res://assets/icons/hearts.svg" type="Texture" id=6]
-[ext_resource path="res://scenes/HealthBar.gd" type="Script" id=7]
 
 [sub_resource type="ConcavePolygonShape" id=7]
 data = PoolVector3Array( 10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10 )
@@ -111,39 +109,6 @@ margin_bottom = 136.0
 margin_top = 140.0
 margin_right = 109.0
 margin_bottom = 160.0
-
-[node name="HealthBar" type="HBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.95
-anchor_right = 0.5
-anchor_bottom = 0.95
-margin_left = -100.0
-margin_top = -64.0
-margin_right = 100.0
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="HealthBar"]
-modulate = Color( 1, 0, 0, 1 )
-margin_right = 64.0
-margin_bottom = 64.0
-texture = ExtResource( 6 )
-
-[node name="TextureRect2" type="TextureRect" parent="HealthBar"]
-modulate = Color( 1, 0, 0, 1 )
-margin_left = 68.0
-margin_right = 132.0
-margin_bottom = 64.0
-texture = ExtResource( 6 )
-
-[node name="TextureRect3" type="TextureRect" parent="HealthBar"]
-modulate = Color( 1, 0, 0, 1 )
-margin_left = 136.0
-margin_right = 200.0
-margin_bottom = 64.0
-texture = ExtResource( 6 )
 
 [connection signal="pressed" from="TouchScreenLookButton/attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="TouchScreenLookButton/interact" to="." method="_on_interact_pressed"]

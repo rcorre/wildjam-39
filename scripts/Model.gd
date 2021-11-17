@@ -53,20 +53,24 @@ func _physics_process(delta):
 func _on_Player_input_attack():
 	$AnimationTree.set("parameters/attack/active", true)
 
-export(PackedScene) var projectile_scene: PackedScene
-export(PackedScene) var projectile_scene2: PackedScene
+export(PackedScene) var wand_projectile: PackedScene
+export(PackedScene) var bow_projectile: PackedScene
+onready var projectiles = [null, bow_projectile, wand_projectile]
 onready var projectile_point: Spatial = $projectilePoint
 func projectile_attack():
-	var projectile: Spatial = projectile_scene.instance()
+	var projectile: Spatial = projectiles[current_weapon].instance()
+	projectile.owner_unit = global.Unit.HERO
 	projectile.global_transform = projectile_point.global_transform
 	get_tree().current_scene.add_child(projectile)
 
 onready var weapons = [$Armature/Skeleton/BoneAttachment/mace,$Armature/Skeleton/Bow, $Armature/Skeleton/BoneAttachment/wand]
+var current_weapon = 0
 func _on_interactable_detection_weapon_pick_up(weapon):
 	"""
 	Enable weapon mesh
 	Set current weapon value in AnimationTree for future one_shot
 	"""
+	current_weapon = weapon
 	$Armature/Skeleton/left_hand.stop()
 	$Armature/Skeleton/right_hand.stop()
 	for mesh in weapons:

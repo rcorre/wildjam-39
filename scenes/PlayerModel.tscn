@@ -1,11 +1,10 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://assets/models/Sword.glb" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Model.gd" type="Script" id=2]
 [ext_resource path="res://scenes/MeleeArea.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Wand.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Bow.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/projectiles/AcidProjectile.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "Skin"
@@ -2539,7 +2538,6 @@ extents = Vector3( 0.7, 1, 0.392212 )
 
 [node name="Player" type="Spatial"]
 script = ExtResource( 2 )
-projectile_scene = ExtResource( 6 )
 
 [node name="Armature" type="Spatial" parent="."]
 
@@ -2648,7 +2646,7 @@ bones/20/name = "HandHold.R"
 bones/20/parent = 18
 bones/20/rest = Transform( -0.178586, -0.630432, 0.755422, -0.962119, -0.0488495, -0.268217, 0.205995, -0.774706, -0.597826, 0.0608109, 0.0821073, 0.0097738 )
 bones/20/enabled = true
-bones/20/bound_children = [ NodePath("BoneAttachment") ]
+bones/20/bound_children = [  ]
 bones/21/name = "Thumb.R"
 bones/21/parent = 17
 bones/21/rest = Transform( 0.929595, -0.327773, 0.168578, 0.0674121, 0.600845, 0.796518, -0.362366, -0.729074, 0.580639, -3.86308e-09, 0.233692, 9.25444e-09 )
@@ -2719,9 +2717,6 @@ bones/33/bound_children = [  ]
 transform = Transform( -2.7474e-06, 0.992346, -0.0617458, 0.999816, 0.00236893, 0.00950692, 0.0191608, -0.123469, -0.496082, -0.224306, 1.32502, 0.425947 )
 visible = false
 
-[node name="Skeleton" parent="Armature/Skeleton/Bow/Armature" index="0"]
-bones/11/bound_children = [ NodePath("string") ]
-
 [node name="string" parent="Armature/Skeleton/Bow/Armature/Skeleton" index="1"]
 transform = Transform( -1, -6.55674e-22, 1.50996e-07, 1.50996e-07, 2.0634e-08, 1, -3.1156e-15, 1, -2.0634e-08, -4.45912e-20, 1.68401e-07, 8.1606 )
 
@@ -2765,7 +2760,7 @@ skin = SubResource( 3 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.130988, -0.731038, 0.669642, 0.557706, 0.612783, 0.559874, -0.819637, 0.300129, 0.487973, -0.223032, 0.92069, -0.213144 )
+transform = Transform( 0.131696, -0.731297, 0.669221, 0.557706, 0.612783, 0.559874, -0.819524, 0.299497, 0.488551, -0.222848, 0.933161, -0.213336 )
 bone_name = "HandHold.R"
 
 [node name="mace" parent="Armature/Skeleton/BoneAttachment" instance=ExtResource( 1 )]

@@ -1,8 +1,25 @@
 extends Area
 
+export(int) var health = 3
+
+signal died()
 
 func _ready():
-	connect("area_entered", self, "on_health_area_entered")
-	
-func on_health_area_entered(area : Area):
-	print("Got hit by ", area)
+	for heart in range(health - 1):
+		$HealthBar.add_child($HealthBar/heart.duplicate())
+
+
+func hurt():
+	health -= 1
+	update_ui()
+	#if health < 0 emit signal died
+
+
+func _on_interactable_detection_food_pick_up(item):
+	health += 1
+	update_ui()
+
+func update_ui():
+	for i in range($HealthBar.get_child_count()):
+		var c: Control = $HealthBar.get_child(i)
+		c.modulate = Color.red if i < health else Color.gray

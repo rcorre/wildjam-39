@@ -8,3 +8,8 @@ enum Item {
 	WAND,
 	FOOD,
 }
+
+enum Unit {
+	HERO,
+	ENEMY,
+}

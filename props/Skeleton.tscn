@@ -54,7 +54,7 @@ nodes/move/position = Vector2( -59, 101 )
 nodes/move_speed/node = SubResource( 6 )
 nodes/move_speed/position = Vector2( 160, 133.333 )
 nodes/output/position = Vector2( 800, 160 )
-node_connections = [ "output", 0, "life_state", "life_state", 0, "attack", "life_state", 1, "die", "attack", 0, "move_speed", "attack", 1, "Animation", "move_speed", 0, "move" ]
+node_connections = [ "output", 0, "life_state", "attack", 0, "move_speed", "attack", 1, "Animation", "life_state", 0, "attack", "life_state", 1, "die", "move_speed", 0, "move" ]
 
 [sub_resource type="SphereShape" id=9]
 radius = 10.0

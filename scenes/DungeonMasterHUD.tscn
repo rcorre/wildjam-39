@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/PropButton.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LeagueGothic-Regular.otf" type="DynamicFontData" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://assets/icons/shiny-apple.svg" type="Texture" id=20]
 [ext_resource path="res://props/Chest_bow.tscn" type="PackedScene" id=21]
 [ext_resource path="res://props/Chest_wand.tscn" type="PackedScene" id=22]
+[ext_resource path="res://props/Chest_food.tscn" type="PackedScene" id=23]
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
@@ -156,7 +157,7 @@ group = SubResource( 11 )
 text = "4"
 icon = ExtResource( 20 )
 script = ExtResource( 1 )
-prop_scene = ExtResource( 7 )
+prop_scene = ExtResource( 23 )
 
 [node name="Traps" type="HBoxContainer" parent="HUD/VBoxContainer/TabContainer"]
 visible = false
