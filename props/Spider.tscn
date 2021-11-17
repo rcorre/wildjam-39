@@ -40,7 +40,7 @@ min_space = 0.0
 [sub_resource type="AnimationNodeTimeScale" id=6]
 
 [sub_resource type="AnimationNodeBlendTree" id=5]
-graph_offset = Vector2( -84, 148.333 )
+graph_offset = Vector2( -315.333, 124.667 )
 nodes/Animation/node = SubResource( 7 )
 nodes/Animation/position = Vector2( 93.6667, 334 )
 nodes/attack/node = SubResource( 8 )
@@ -54,13 +54,13 @@ nodes/move/position = Vector2( -61.6667, 121 )
 nodes/move_speed/node = SubResource( 6 )
 nodes/move_speed/position = Vector2( 188.333, 132.333 )
 nodes/output/position = Vector2( 800, 160 )
-node_connections = [ "output", 0, "life_state", "life_state", 0, "attack", "life_state", 1, "die", "move_speed", 0, "move", "attack", 0, "move_speed", "attack", 1, "Animation" ]
+node_connections = [ "output", 0, "life_state", "attack", 0, "move_speed", "attack", 1, "Animation", "life_state", 0, "attack", "life_state", 1, "die", "move_speed", 0, "move" ]
 
 [sub_resource type="SphereShape" id=9]
 radius = 10.0
 
 [node name="Spider" groups=["prop"] instance=ExtResource( 1 )]
-collision_layer = 8
+collision_layer = 9
 collision_mask = 2
 script = ExtResource( 2 )
 projectile_scene = ExtResource( 3 )

@@ -2723,7 +2723,7 @@ visible = false
 bones/11/bound_children = [ NodePath("string") ]
 
 [node name="string" parent="Armature/Skeleton/Bow/Armature/Skeleton" index="1"]
-transform = Transform( -1, -1.17235e-20, 1.50996e-07, 1.50996e-07, 2.0634e-08, 1, -3.11561e-15, 1, -2.0634e-08, -4.45912e-20, 1.68401e-07, 8.1606 )
+transform = Transform( -1, -6.55674e-22, 1.50996e-07, 1.50996e-07, 2.0634e-08, 1, -3.1156e-15, 1, -2.0634e-08, -4.45912e-20, 1.68401e-07, 8.1606 )
 
 [node name="left_hand" type="SkeletonIK" parent="Armature/Skeleton"]
 process_priority = 1
@@ -2765,7 +2765,7 @@ skin = SubResource( 3 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.131928, -0.731382, 0.669082, 0.557706, 0.612783, 0.559874, -0.819486, 0.29929, 0.488741, -0.222787, 0.943193, -0.2134 )
+transform = Transform( 0.130988, -0.731038, 0.669642, 0.557706, 0.612783, 0.559874, -0.819637, 0.300129, 0.487973, -0.223032, 0.92069, -0.213144 )
 bone_name = "HandHold.R"
 
 [node name="mace" parent="Armature/Skeleton/BoneAttachment" instance=ExtResource( 1 )]

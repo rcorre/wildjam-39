@@ -6,3 +6,4 @@ extends Node
 signal prop_category_selected(cat)
 signal prop_selected(scene)
 signal prop_placed()
+signal dungeon_entered()
