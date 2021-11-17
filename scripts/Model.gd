@@ -53,10 +53,13 @@ func _physics_process(delta):
 func _on_Player_input_attack():
 	$AnimationTree.set("parameters/attack/active", true)
 
+#-------------------- Weapons
+
 export(PackedScene) var wand_projectile: PackedScene
 export(PackedScene) var bow_projectile: PackedScene
 onready var projectiles = [null, bow_projectile, wand_projectile]
 onready var projectile_point: Spatial = $projectilePoint
+var ammo = 0
 func projectile_attack():
 	var projectile: Spatial = projectiles[current_weapon].instance()
 	projectile.owner_unit = global.Unit.HERO

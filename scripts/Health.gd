@@ -12,8 +12,8 @@ func _ready():
 func hurt():
 	health -= 1
 	update_ui()
-	#if health < 0 emit signal died
-
+	if health <= 0:
+		emit_signal("died") #Event buss
 
 func _on_interactable_detection_food_pick_up(item):
 	health += 1
