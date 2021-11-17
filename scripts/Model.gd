@@ -54,18 +54,28 @@ func _on_Player_input_attack():
 	$AnimationTree.set("parameters/attack/active", true)
 
 export(PackedScene) var projectile_scene: PackedScene
+export(PackedScene) var projectile_scene2: PackedScene
 onready var projectile_point: Spatial = $projectilePoint
-func wand_attack():
+func projectile_attack():
 	var projectile: Spatial = projectile_scene.instance()
 	projectile.global_transform = projectile_point.global_transform
 	get_tree().current_scene.add_child(projectile)
 
+onready var weapons = [$Armature/Skeleton/BoneAttachment/mace,$Armature/Skeleton/Bow, $Armature/Skeleton/BoneAttachment/wand]
 func _on_interactable_detection_weapon_pick_up(weapon):
 	"""
 	Enable weapon mesh
 	Set current weapon value in AnimationTree for future one_shot
 	"""
-	for mesh in $Armature/Skeleton/BoneAttachment.get_children():
+	$Armature/Skeleton/left_hand.stop()
+	$Armature/Skeleton/right_hand.stop()
+	for mesh in weapons:
 		mesh.hide()
-	$Armature/Skeleton/BoneAttachment.get_child(weapon).show()
+	weapons[weapon].show()
 	$AnimationTree.set("parameters/attack_weapon/current", weapon)
+	if weapon == global.Item.BOW:
+		$Armature/Skeleton/left_hand.start()
+		$Armature/Skeleton/right_hand.start()
+
+
+

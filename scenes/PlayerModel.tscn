@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/Model.gd" type="Script" id=2]
 [ext_resource path="res://scenes/MeleeArea.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Wand.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/bow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Bow.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/projectiles/AcidProjectile.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SpatialMaterial" id=1]
@@ -1800,184 +1800,145 @@ tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = PoolRealArray( 0, 1, -0.0166576, -0.0671819, -0.155711, -0.465191, -0.250701, 0.157931, 0.834149, 1, 1, 1, 0.133333, 1, -0.0122156, -0.0492669, -0.114188, -0.353748, -0.190642, 0.120097, 0.907797, 1, 1, 1, 0.266667, 1, -0.0077735, -0.0313517, -0.072665, -0.227991, -0.122869, 0.0774023, 0.962773, 1, 1, 1, 0.4, 1, -0.00333153, -0.0134366, -0.0311422, -0.0964766, -0.0519934, 0.0327536, 0.993437, 1, 1, 1, 0.533333, 1, 0.00111063, 0.00447863, 0.0103808, 0.0310126, 0.0167135, -0.0105287, 0.999324, 1, 1, 1, 0.6, 1, -0.00333144, -0.0134366, -0.0311421, -0.0964766, -0.0519932, 0.0327536, 0.993437, 1, 1, 1, 0.666667, 1, -0.00777359, -0.0313516, -0.072665, -0.227991, -0.122869, 0.0774023, 0.962773, 1, 1, 1, 0.733333, 1, -0.0122156, -0.0492668, -0.114188, -0.353747, -0.190642, 0.120097, 0.907797, 1, 1, 1, 0.8, 1, -0.0166576, -0.0671819, -0.155711, -0.465191, -0.250701, 0.157931, 0.834149, 1, 1, 1 )
 tracks/11/type = "transform"
-tracks/11/path = NodePath("Armature/Skeleton:Shoulder.R")
+tracks/11/path = NodePath("Armature/Skeleton:ElbowPoleTarget.R")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/keys = PoolRealArray( 0, 1, 1.86265e-09, -7.45058e-09, 1.19209e-07, -1.66533e-15, 0, 0, 1, 1, 1, 1, 0.8, 1, 1.86265e-09, -7.45058e-09, 1.19209e-07, -1.66533e-15, 0, 0, 1, 1, 1, 1 )
+tracks/11/keys = PoolRealArray( 0, 1, 2.98023e-08, 2.98023e-08, 0, 9.31323e-10, 2.66454e-15, -2.98023e-08, 1, 1, 1, 1, 0.8, 1, 2.98023e-08, 2.98023e-08, 0, 9.31323e-10, 2.66454e-15, -2.98023e-08, 1, 1, 1, 1 )
 tracks/12/type = "transform"
-tracks/12/path = NodePath("Armature/Skeleton:LowerHand.R")
+tracks/12/path = NodePath("Armature/Skeleton:HandIK.R")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/keys = PoolRealArray( 0, 1, 7.26432e-08, 2.98023e-08, 1.19209e-07, 1.49012e-08, 7.45058e-09, 3.72529e-09, 1, 1, 1, 1, 0.8, 1, 7.26432e-08, 2.98023e-08, 1.19209e-07, 1.49012e-08, 7.45058e-09, 3.72529e-09, 1, 1, 1, 1 )
+tracks/12/keys = PoolRealArray( 0, 1, -0.345095, -0.288679, 0.376464, -0.111247, -0.169663, 0.148984, 0.967803, 1, 1, 1, 0.0666667, 1, -0.269382, -0.351553, 0.224525, -0.350012, -0.212814, 0.125708, 0.903548, 1, 1, 1, 0.133333, 1, -0.193668, -0.414427, 0.0725855, -0.601721, -0.246145, 0.0881765, 0.754698, 1, 1, 1, 0.2, 1, -0.117955, -0.4773, -0.0793535, -0.800458, -0.257808, 0.0428829, 0.53941, 1, 1, 1, 0.266667, 1, -0.0422416, -0.540174, -0.231293, 0.914371, 0.249885, -0.00131093, -0.318561, 1, 1, 1, 0.333333, 1, -0.0286355, -0.331869, -0.144072, -0.711756, -0.208344, 0.0414677, 0.669535, 1, 1, 1, 0.4, 1, -0.0150296, -0.123563, -0.0568511, -0.274574, -0.103147, 0.0825984, 0.952443, 1, 1, 1, 0.466667, 1, -0.00411331, -0.00970501, -0.00662039, -0.0229937, -0.0223717, 0.0470814, 0.998376, 1, 1, 1, 0.533333, 1, 0.00411322, 0.00970513, 0.00662045, 0.0229193, 0.0222994, -0.046929, 0.998386, 1, 1, 1, 0.666667, 1, -0.170491, -0.139487, 0.191542, -0.050006, -0.0821656, 0.0593979, 0.99359, 1, 1, 1, 0.8, 1, -0.345095, -0.288679, 0.376464, -0.111247, -0.169663, 0.148984, 0.967803, 1, 1, 1 )
 tracks/13/type = "transform"
-tracks/13/path = NodePath("Armature/Skeleton:HandHold.R")
+tracks/13/path = NodePath("Armature/Skeleton:Foot.L")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/keys = PoolRealArray( 0, 1, -3.72529e-08, -6.33299e-08, -3.1665e-08, 2.98023e-08, -3.72529e-09, -7.45058e-09, 1, 1, 1, 1, 0.8, 1, -3.72529e-08, -6.33299e-08, -3.1665e-08, 2.98023e-08, -3.72529e-09, -7.45058e-09, 1, 1, 1, 1 )
+tracks/13/keys = PoolRealArray( 0, 1, 1.86265e-09, -2.98023e-08, -2.98023e-08, -5.9628e-05, 0.000302997, 0.000110316, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, -5.96894e-05, 0.000302968, 0.000110346, 1, 1, 1, 1 )
 tracks/14/type = "transform"
-tracks/14/path = NodePath("Armature/Skeleton:UpperHand.R")
+tracks/14/path = NodePath("Armature/Skeleton:LowerLeg.L")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/keys = PoolRealArray( 0, 1, 1.22935e-07, -1.19209e-07, -1.11759e-07, -0.420631, -0.154128, -0.225797, 0.865061, 1, 1, 1, 0.0666667, 1, -9.68575e-08, -1.3411e-07, -2.08616e-07, -0.291786, -0.106435, -0.23324, 0.921483, 1, 1, 1, 0.133333, 1, 2.27243e-07, -1.19209e-07, 7.45058e-08, -0.0632191, 0.0509182, -0.11672, 0.989842, 1, 1, 1, 0.2, 1, 1.41561e-07, -7.45058e-08, -2.23517e-08, 0.00950345, 0.185155, 0.152745, 0.970719, 1, 1, 1, 0.266667, 1, -1.86265e-08, -1.49012e-08, 7.45058e-09, -0.240449, 0.306952, 0.227968, 0.892186, 0.999999, 1, 1, 0.333333, 1, 1.15484e-07, -4.47035e-08, -9.68575e-08, -0.0132427, -0.154246, 0.110947, 0.981694, 1, 1, 1, 0.4, 1, 9.31323e-08, -8.9407e-08, -1.93715e-07, 0.0551967, -0.136938, 0.152694, 0.977183, 1, 1, 1, 0.466667, 1, 1.49012e-08, -7.45058e-08, -1.04308e-07, 0.0150567, -0.024354, 0.0579731, 0.997907, 1, 1, 1, 0.533333, 1, 1.22935e-07, -1.49012e-08, -2.30968e-07, -0.0240745, 0.0202948, -0.0649289, 0.997393, 1, 1, 1, 0.6, 1, -2.6077e-08, 4.47035e-08, -3.72529e-08, 0.0757033, -0.0323084, 0.0150063, 0.996494, 1, 1, 1, 0.666667, 1, -7.45058e-09, -5.96046e-08, -1.2666e-07, -0.00635342, -0.0798246, -0.017016, 0.996643, 1, 1, 1, 0.733333, 1, 1.86265e-08, -1.49012e-08, -2.23517e-07, -0.192019, -0.115798, -0.105654, 0.968791, 1, 1, 1, 0.8, 1, 1.22935e-07, -1.19209e-07, -1.11759e-07, -0.420631, -0.154128, -0.225797, 0.865061, 1, 1, 1 )
+tracks/14/keys = PoolRealArray( 0, 1, -1.49012e-08, 0, 0, 1.78814e-07, -5.0375e-10, -6.71106e-10, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 7.45058e-08, -2.03853e-10, -2.50979e-10, 1, 1, 1, 1 )
 tracks/15/type = "transform"
-tracks/15/path = NodePath("Armature/Skeleton:Thumb.R")
+tracks/15/path = NodePath("Armature/Skeleton:UpperLeg.L")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/keys = PoolRealArray( 0, 1, -5.7742e-08, -5.96046e-08, 2.98023e-08, 4.47035e-08, -7.45058e-09, -1.49012e-08, 1, 1, 1, 1, 0.8, 1, -5.7742e-08, -5.96046e-08, 2.98023e-08, 4.47035e-08, -7.45058e-09, -1.49012e-08, 1, 1, 1, 1 )
+tracks/15/keys = PoolRealArray( 0, 1, 0, 0, 0, -2.38461e-07, -7.89922e-07, 1.02839e-06, 1, 0.999798, 0.999819, 1.00038, 0.8, 1, 0, 0, 0, -3.1298e-07, -8.34634e-07, 9.98579e-07, 1, 0.999798, 0.999819, 1.00038 )
 tracks/16/type = "transform"
-tracks/16/path = NodePath("Armature/Skeleton:LowerArm.R")
+tracks/16/path = NodePath("Armature/Skeleton:Foot.R")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/keys = PoolRealArray( 0, 1, 6.0536e-08, 2.98023e-08, -5.96046e-08, -0.327881, -1.61257e-07, 0.0288474, 0.944278, 1, 1, 1, 0.0666667, 1, -5.7742e-08, 0, 5.96046e-08, -0.698854, -9.93248e-08, 0.0614847, 0.712617, 1, 1, 1, 0.133333, 1, 1.31316e-07, 2.38419e-07, 1.49012e-07, -0.856347, 2.91679e-08, 0.075341, 0.510876, 1, 1, 1, 0.2, 1, 1.29454e-07, 2.68221e-07, 5.96046e-08, -0.80922, 5.74914e-08, 0.0711948, 0.583176, 1, 1, 1, 0.266667, 1, 1.21072e-07, 2.98023e-08, 7.45058e-08, -0.570717, -1.97716e-07, 0.0502121, 0.81961, 1, 0.999999, 1, 0.333333, 1, 6.70552e-08, 1.78814e-07, 7.45058e-08, -0.652188, 7.3926e-09, 0.0573791, 0.755883, 1, 1, 1, 0.4, 1, 4.19095e-08, 2.38419e-07, 1.78814e-07, -0.41943, -1.5761e-07, 0.0369019, 0.907037, 1, 1, 1, 0.466667, 1, -4.47035e-08, 1.78814e-07, 7.45058e-08, -0.0582449, 3.03199e-09, 0.00512435, 0.998289, 1, 1, 1, 0.533333, 1, 2.6077e-08, 5.96046e-08, 1.49012e-07, 0.0782072, 1.33708e-08, -0.00688063, 0.996913, 1, 1, 1, 0.6, 1, -2.23517e-08, 1.49012e-07, 1.04308e-07, -0.359445, 9.98598e-08, 0.0316233, 0.93263, 1, 1, 1, 0.666667, 1, -7.63685e-08, -8.9407e-08, 1.49012e-08, -0.49581, -4.57428e-07, 0.0436227, 0.867335, 1, 1, 1, 0.733333, 1, -1.43424e-07, 8.9407e-08, 5.96046e-08, -0.4867, 2.88197e-08, 0.0428196, 0.872519, 1, 1, 1, 0.8, 1, 6.0536e-08, 2.98023e-08, -5.96046e-08, -0.327881, -1.61257e-07, 0.0288474, 0.944278, 1, 1, 1 )
+tracks/16/keys = PoolRealArray( 0, 1, 0, 0, 0, 2.59541e-06, 0.000110753, 0.000110268, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 2.55072e-06, 0.000110761, 0.000110283, 1, 1, 1, 1 )
 tracks/17/type = "transform"
-tracks/17/path = NodePath("Armature/Skeleton:UpperArm.R")
+tracks/17/path = NodePath("Armature/Skeleton:LowerLeg.R")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/keys = PoolRealArray( 0, 1, 1.49012e-08, -1.19209e-07, -8.19564e-08, 0.688157, 0.162485, 0.133885, 0.694344, 0.999999, 1, 1, 0.0666667, 1, -5.96046e-08, 4.47035e-08, 8.19564e-08, 0.711043, 0.264384, 0.185726, 0.62452, 0.999999, 1, 1, 0.133333, 1, -5.96046e-08, -1.49012e-08, 1.15484e-07, 0.488897, 0.275303, 0.37534, 0.737772, 1, 1, 1, 0.2, 1, -7.45058e-08, 2.08616e-07, 1.37836e-07, 0.100175, 0.0519374, 0.633971, 0.765081, 0.999999, 1, 1, 0.266667, 1, -5.96046e-08, 1.19209e-07, 1.9744e-07, -0.0694875, -0.14272, 0.764789, 0.62442, 0.999999, 1, 1, 0.333333, 1, -7.45058e-08, 7.45058e-08, 5.58794e-08, -0.0126751, -0.0275789, 0.261993, 0.964592, 1, 1, 1, 0.4, 1, 0, 8.9407e-08, 2.45869e-07, 0.101744, 0.00121503, 0.0426715, 0.993894, 1, 1, 1, 0.466667, 1, -1.3411e-07, 1.3411e-07, 1.41561e-07, 0.0200622, -0.000187538, 0.00484585, 0.999787, 1, 1, 1, 0.533333, 1, -1.19209e-07, 4.47035e-08, 2.08616e-07, -0.0291599, 0.00050148, -0.00363088, 0.999568, 1, 1, 1, 0.6, 1, -2.98023e-08, -5.96046e-08, 7.45058e-09, 0.282055, 0.00991399, 0.00247962, 0.959344, 1, 1, 1, 0.666667, 1, -5.96046e-08, 1.63913e-07, 1.63913e-07, 0.491753, 0.0399675, 0.0278437, 0.869371, 1, 1, 1, 0.733333, 1, -1.19209e-07, 8.9407e-08, 1.75089e-07, 0.637833, 0.0916716, 0.067284, 0.761734, 1, 0.999999, 1, 0.8, 1, 1.49012e-08, -1.19209e-07, -8.19564e-08, 0.688157, 0.162485, 0.133885, 0.694344, 0.999999, 1, 1 )
+tracks/17/keys = PoolRealArray( 0, 1, 0, 0, 0, -5.96046e-08, -2.11439e-10, -2.42962e-10, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, -5.96046e-08, -2.11439e-10, -2.42962e-10, 1, 1, 1, 1 )
 tracks/18/type = "transform"
-tracks/18/path = NodePath("Armature/Skeleton:ElbowPoleTarget.R")
+tracks/18/path = NodePath("Armature/Skeleton:UpperLeg.R")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/keys = PoolRealArray( 0, 1, 2.98023e-08, 2.98023e-08, 0, 9.31323e-10, 2.66454e-15, -2.98023e-08, 1, 1, 1, 1, 0.8, 1, 2.98023e-08, 2.98023e-08, 0, 9.31323e-10, 2.66454e-15, -2.98023e-08, 1, 1, 1, 1 )
+tracks/18/keys = PoolRealArray( 0, 1, 0, 0, 0, -1.26661e-07, -5.36541e-07, 9.78069e-07, 1, 0.999815, 0.999989, 1.0002, 0.8, 1, 0, 0, 0, -1.26661e-07, -5.36541e-07, 9.78069e-07, 1, 0.999815, 0.999989, 1.0002 )
 tracks/19/type = "transform"
-tracks/19/path = NodePath("Armature/Skeleton:HandIK.R")
+tracks/19/path = NodePath("Armature/Skeleton:Hips")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/keys = PoolRealArray( 0, 1, -0.345095, -0.288679, 0.376464, -0.111247, -0.169663, 0.148984, 0.967803, 1, 1, 1, 0.0666667, 1, -0.269382, -0.351553, 0.224525, -0.350012, -0.212814, 0.125708, 0.903548, 1, 1, 1, 0.133333, 1, -0.193668, -0.414427, 0.0725855, -0.601721, -0.246145, 0.0881765, 0.754698, 1, 1, 1, 0.2, 1, -0.117955, -0.4773, -0.0793535, -0.800458, -0.257808, 0.0428829, 0.53941, 1, 1, 1, 0.266667, 1, -0.0422416, -0.540174, -0.231293, 0.914371, 0.249885, -0.00131093, -0.318561, 1, 1, 1, 0.333333, 1, -0.0286355, -0.331869, -0.144072, -0.711756, -0.208344, 0.0414677, 0.669535, 1, 1, 1, 0.4, 1, -0.0150296, -0.123563, -0.0568511, -0.274574, -0.103147, 0.0825984, 0.952443, 1, 1, 1, 0.466667, 1, -0.00411331, -0.00970501, -0.00662039, -0.0229937, -0.0223717, 0.0470814, 0.998376, 1, 1, 1, 0.533333, 1, 0.00411322, 0.00970513, 0.00662045, 0.0229193, 0.0222994, -0.046929, 0.998386, 1, 1, 1, 0.666667, 1, -0.170491, -0.139487, 0.191542, -0.050006, -0.0821656, 0.0593979, 0.99359, 1, 1, 1, 0.8, 1, -0.345095, -0.288679, 0.376464, -0.111247, -0.169663, 0.148984, 0.967803, 1, 1, 1 )
+tracks/19/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 tracks/20/type = "transform"
-tracks/20/path = NodePath("Armature/Skeleton:Chest")
+tracks/20/path = NodePath("Armature/Skeleton:KneePoleTarget.L")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/keys = PoolRealArray( 0, 1, 1.93832e-09, 2.38419e-07, 4.65661e-10, 3.65083e-10, -0.291285, -0.00558228, 0.95662, 1, 1, 1, 0.333333, 1, 1.43836e-09, 1.19209e-07, 6.98492e-10, 1.2375e-09, -0.112506, -0.00215611, 0.993649, 1, 1, 1, 0.4, 1, 1.77314e-09, 2.38419e-07, 4.65661e-10, -1.10188e-09, -0.0762285, -0.00146087, 0.997089, 1, 1, 1, 0.466667, 1, -5.1832e-11, 1.19209e-07, -4.65661e-10, -1.58865e-09, -0.0290958, -0.000557601, 0.999577, 1, 1, 1, 0.533333, 1, 4.99959e-10, 1.19209e-07, 0, -1.14099e-09, 0.0290711, 0.000557128, 0.999577, 1, 1, 1, 0.666667, 1, -7.14574e-10, 0, -4.65661e-10, -7.19424e-10, -0.132854, -0.00254606, 0.991132, 1, 1, 1, 0.8, 1, 1.93832e-09, 2.38419e-07, 4.65661e-10, 3.65083e-10, -0.291285, -0.00558228, 0.95662, 1, 1, 1 )
+tracks/20/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 tracks/21/type = "transform"
-tracks/21/path = NodePath("Armature/Skeleton:Torso")
+tracks/21/path = NodePath("Armature/Skeleton:KneePoleTarget.R")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, -0.435762, 0, 0.900062, 1, 1, 1, 0.133333, 1, 0, 0, 0, 0, -0.549516, 0, 0.835483, 1, 1, 1, 0.266667, 1, 0, 0, 0, 0, -0.653867, 0, 0.756609, 1, 1, 1, 0.333333, 1, 0, 0, 0, 0, -0.439116, 0, 0.898431, 1, 1, 1, 0.4, 1, 0, 0, 0, 0, -0.184349, 0, 0.982861, 1, 1, 1, 0.466667, 1, 0, 0, 0, 0, -0.0291011, 0, 0.999577, 1, 1, 1, 0.533333, 1, 0, 0, 0, 0, 0.0290766, 0, 0.999577, 1, 1, 1, 0.6, 1, 0, 0, 0, 0, -0.0898153, 0, 0.995958, 1, 1, 1, 0.666667, 1, 0, 0, 0, 0, -0.21037, 0, 0.977622, 1, 1, 1, 0.733333, 1, 0, 0, 0, 0, -0.327278, 0, 0.944928, 1, 1, 1, 0.8, 1, 0, 0, 0, 0, -0.435762, 0, 0.900062, 1, 1, 1 )
+tracks/21/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 tracks/22/type = "transform"
-tracks/22/path = NodePath("Armature/Skeleton:Foot.L")
+tracks/22/path = NodePath("Armature/Skeleton:FootIK.L")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/keys = PoolRealArray( 0, 1, 1.86265e-09, -2.98023e-08, -2.98023e-08, -5.9628e-05, 0.000302997, 0.000110316, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, -5.96894e-05, 0.000302968, 0.000110346, 1, 1, 1, 1 )
+tracks/22/keys = PoolRealArray( 0, 1, 0, 0, -7.45058e-09, -1.11759e-07, 3.72529e-09, 1.49012e-08, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, -1.11759e-07, 2.6077e-08, 1.49012e-08, 1, 1, 1, 1 )
 tracks/23/type = "transform"
-tracks/23/path = NodePath("Armature/Skeleton:LowerLeg.L")
+tracks/23/path = NodePath("Armature/Skeleton:FootIK.R")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/keys = PoolRealArray( 0, 1, -1.49012e-08, 0, 0, 1.78814e-07, -5.0375e-10, -6.71106e-10, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 7.45058e-08, -2.03853e-10, -2.50979e-10, 1, 1, 1, 1 )
+tracks/23/keys = PoolRealArray( 0, 1, 0, 0, 3.72529e-09, 0, 2.22045e-16, -2.98023e-08, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 0, 6.66134e-16, -2.98023e-08, 1, 1, 1, 1 )
 tracks/24/type = "transform"
-tracks/24/path = NodePath("Armature/Skeleton:UpperLeg.L")
+tracks/24/path = NodePath("Armature/Skeleton:Root")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/keys = PoolRealArray( 0, 1, 0, 0, 0, -2.38461e-07, -7.89922e-07, 1.02839e-06, 1, 0.999798, 0.999819, 1.00038, 0.8, 1, 0, 0, 0, -3.1298e-07, -8.34634e-07, 9.98579e-07, 1, 0.999798, 0.999819, 1.00038 )
+tracks/24/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 tracks/25/type = "transform"
-tracks/25/path = NodePath("Armature/Skeleton:Foot.R")
+tracks/25/path = NodePath("Armature")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/keys = PoolRealArray( 0, 1, 0, 0, 0, 2.59541e-06, 0.000110753, 0.000110268, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 2.55072e-06, 0.000110761, 0.000110283, 1, 1, 1, 1 )
-tracks/26/type = "transform"
-tracks/26/path = NodePath("Armature/Skeleton:LowerLeg.R")
+tracks/25/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/26/type = "value"
+tracks/26/path = NodePath("MeleeArea/CollisionShape:disabled")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/keys = PoolRealArray( 0, 1, 0, 0, 0, -5.96046e-08, -2.11439e-10, -2.42962e-10, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, -5.96046e-08, -2.11439e-10, -2.42962e-10, 1, 1, 1, 1 )
-tracks/27/type = "transform"
-tracks/27/path = NodePath("Armature/Skeleton:UpperLeg.R")
-tracks/27/interp = 1
-tracks/27/loop_wrap = true
-tracks/27/imported = false
-tracks/27/enabled = true
-tracks/27/keys = PoolRealArray( 0, 1, 0, 0, 0, -1.26661e-07, -5.36541e-07, 9.78069e-07, 1, 0.999815, 0.999989, 1.0002, 0.8, 1, 0, 0, 0, -1.26661e-07, -5.36541e-07, 9.78069e-07, 1, 0.999815, 0.999989, 1.0002 )
-tracks/28/type = "transform"
-tracks/28/path = NodePath("Armature/Skeleton:Hips")
-tracks/28/interp = 1
-tracks/28/loop_wrap = true
-tracks/28/imported = false
-tracks/28/enabled = true
-tracks/28/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
-tracks/29/type = "transform"
-tracks/29/path = NodePath("Armature/Skeleton:KneePoleTarget.L")
-tracks/29/interp = 1
-tracks/29/loop_wrap = true
-tracks/29/imported = false
-tracks/29/enabled = true
-tracks/29/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
-tracks/30/type = "transform"
-tracks/30/path = NodePath("Armature/Skeleton:KneePoleTarget.R")
-tracks/30/interp = 1
-tracks/30/loop_wrap = true
-tracks/30/imported = false
-tracks/30/enabled = true
-tracks/30/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
-tracks/31/type = "transform"
-tracks/31/path = NodePath("Armature/Skeleton:FootIK.L")
-tracks/31/interp = 1
-tracks/31/loop_wrap = true
-tracks/31/imported = false
-tracks/31/enabled = true
-tracks/31/keys = PoolRealArray( 0, 1, 0, 0, -7.45058e-09, -1.11759e-07, 3.72529e-09, 1.49012e-08, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, -1.11759e-07, 2.6077e-08, 1.49012e-08, 1, 1, 1, 1 )
-tracks/32/type = "transform"
-tracks/32/path = NodePath("Armature/Skeleton:FootIK.R")
-tracks/32/interp = 1
-tracks/32/loop_wrap = true
-tracks/32/imported = false
-tracks/32/enabled = true
-tracks/32/keys = PoolRealArray( 0, 1, 0, 0, 3.72529e-09, 0, 2.22045e-16, -2.98023e-08, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 0, 6.66134e-16, -2.98023e-08, 1, 1, 1, 1 )
-tracks/33/type = "transform"
-tracks/33/path = NodePath("Armature/Skeleton:Root")
-tracks/33/interp = 1
-tracks/33/loop_wrap = true
-tracks/33/imported = false
-tracks/33/enabled = true
-tracks/33/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
-tracks/34/type = "transform"
-tracks/34/path = NodePath("Armature")
-tracks/34/interp = 1
-tracks/34/loop_wrap = true
-tracks/34/imported = false
-tracks/34/enabled = true
-tracks/34/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
-tracks/35/type = "value"
-tracks/35/path = NodePath("MeleeArea/CollisionShape:disabled")
-tracks/35/interp = 1
-tracks/35/loop_wrap = true
-tracks/35/imported = false
-tracks/35/enabled = true
-tracks/35/keys = {
+tracks/26/keys = {
 "times": PoolRealArray( 0, 0.2, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
+}
+tracks/27/type = "animation"
+tracks/27/path = NodePath("Armature/Skeleton/Bow/AnimationPlayer")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"clips": PoolStringArray( "Action" ),
+"times": PoolRealArray( 0 )
+}
+tracks/28/type = "method"
+tracks/28/path = NodePath(".")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "projectile_attack"
+} ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -2500,7 +2461,7 @@ tracks/35/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "wand_attack"
+"method": "projectile_attack"
 } ]
 }
 
@@ -2508,13 +2469,14 @@ tracks/35/keys = {
 animation = "attack_wand"
 
 [sub_resource type="AnimationNodeAnimation" id=34]
+animation = "attack_bow"
 
 [sub_resource type="AnimationNodeAnimation" id=19]
 animation = "attack_mace"
 
 [sub_resource type="AnimationNodeOneShot" id=20]
 filter_enabled = true
-filters = [ ".", "Armature/Skeleton:Chest", "Armature/Skeleton:HandHold.L", "Armature/Skeleton:HandHold.R", "Armature/Skeleton:Head", "Armature/Skeleton:LowerArm.L", "Armature/Skeleton:LowerArm.R", "Armature/Skeleton:LowerHand.L", "Armature/Skeleton:LowerHand.R", "Armature/Skeleton:Neck", "Armature/Skeleton:Shoulder.L", "Armature/Skeleton:Shoulder.R", "Armature/Skeleton:Thumb.L", "Armature/Skeleton:Thumb.R", "Armature/Skeleton:Torso", "Armature/Skeleton:UpperArm.L", "Armature/Skeleton:UpperArm.R", "Armature/Skeleton:UpperHand.L", "Armature/Skeleton:UpperHand.R", "MeleeArea/CollisionShape:disabled" ]
+filters = [ ".", "Armature/Bow/AnimationPlayer", "Armature/Skeleton/Bow/AnimationPlayer", "Armature/Skeleton/chest/Bow/AnimationPlayer", "Armature/Skeleton:Chest", "Armature/Skeleton:HandHold.L", "Armature/Skeleton:HandHold.R", "Armature/Skeleton:Head", "Armature/Skeleton:LowerArm.L", "Armature/Skeleton:LowerArm.R", "Armature/Skeleton:LowerHand.L", "Armature/Skeleton:LowerHand.R", "Armature/Skeleton:Neck", "Armature/Skeleton:Shoulder.L", "Armature/Skeleton:Shoulder.R", "Armature/Skeleton:Thumb.L", "Armature/Skeleton:Thumb.R", "Armature/Skeleton:Torso", "Armature/Skeleton:UpperArm.L", "Armature/Skeleton:UpperArm.R", "Armature/Skeleton:UpperHand.L", "Armature/Skeleton:UpperHand.R", "MeleeArea/CollisionShape:disabled" ]
 fadeout_time = 0.0
 
 [sub_resource type="AnimationNodeTransition" id=32]
@@ -2556,7 +2518,7 @@ min_space = Vector2( -5, -5 )
 max_space = Vector2( 5, 5 )
 
 [sub_resource type="AnimationNodeBlendTree" id=27]
-graph_offset = Vector2( -449, -13 )
+graph_offset = Vector2( -550, -88 )
 nodes/Animation/node = SubResource( 19 )
 nodes/Animation/position = Vector2( -220, 240 )
 "nodes/Animation 2/node" = SubResource( 33 )
@@ -2570,7 +2532,7 @@ nodes/attack_weapon/position = Vector2( 80, 180 )
 nodes/move/node = SubResource( 26 )
 nodes/move/position = Vector2( -220, 60 )
 nodes/output/position = Vector2( 580, 80 )
-node_connections = [ "output", 0, "attack", "attack_weapon", 0, "Animation", "attack_weapon", 1, "Animation 3", "attack_weapon", 2, "Animation 2", "attack", 0, "move", "attack", 1, "attack_weapon" ]
+node_connections = [ "output", 0, "attack", "attack", 0, "move", "attack", 1, "attack_weapon", "attack_weapon", 0, "Animation", "attack_weapon", 1, "Animation 3", "attack_weapon", 2, "Animation 2" ]
 
 [sub_resource type="BoxShape" id=28]
 extents = Vector3( 0.7, 1, 0.392212 )
@@ -2686,7 +2648,7 @@ bones/20/name = "HandHold.R"
 bones/20/parent = 18
 bones/20/rest = Transform( -0.178586, -0.630432, 0.755422, -0.962119, -0.0488495, -0.268217, 0.205995, -0.774706, -0.597826, 0.0608109, 0.0821073, 0.0097738 )
 bones/20/enabled = true
-bones/20/bound_children = [  ]
+bones/20/bound_children = [ NodePath("BoneAttachment") ]
 bones/21/name = "Thumb.R"
 bones/21/parent = 17
 bones/21/rest = Transform( 0.929595, -0.327773, 0.168578, 0.0674121, 0.600845, 0.796518, -0.362366, -0.729074, 0.580639, -3.86308e-09, 0.233692, 9.25444e-09 )
@@ -2753,6 +2715,28 @@ bones/33/rest = Transform( 0.866025, -0.491641, 0.0910446, -4.47035e-08, -0.1820
 bones/33/enabled = true
 bones/33/bound_children = [  ]
 
+[node name="Bow" parent="Armature/Skeleton" instance=ExtResource( 5 )]
+transform = Transform( -2.7474e-06, 0.992346, -0.0617458, 0.999816, 0.00236893, 0.00950692, 0.0191608, -0.123469, -0.496082, -0.224306, 1.32502, 0.425947 )
+visible = false
+
+[node name="Skeleton" parent="Armature/Skeleton/Bow/Armature" index="0"]
+bones/11/bound_children = [ NodePath("string") ]
+
+[node name="string" parent="Armature/Skeleton/Bow/Armature/Skeleton" index="1"]
+transform = Transform( -1, -1.17235e-20, 1.50996e-07, 1.50996e-07, 2.0634e-08, 1, -3.11561e-15, 1, -2.0634e-08, -4.45912e-20, 1.68401e-07, 8.1606 )
+
+[node name="left_hand" type="SkeletonIK" parent="Armature/Skeleton"]
+process_priority = 1
+root_bone = "UpperArm.L"
+tip_bone = "HandHold.L"
+target_node = NodePath("../Bow/Armature/Skeleton/base")
+
+[node name="right_hand" type="SkeletonIK" parent="Armature/Skeleton"]
+process_priority = 1
+root_bone = "UpperArm.R"
+tip_bone = "HandHold.R"
+target_node = NodePath("../Bow/Armature/Skeleton/string")
+
 [node name="Mesh" type="MeshInstance" parent="Armature/Skeleton"]
 mesh = SubResource( 2 )
 skin = SubResource( 3 )
@@ -2781,17 +2765,13 @@ skin = SubResource( 3 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.131105, -0.731081, 0.669572, 0.557706, 0.612783, 0.559874, -0.819618, 0.300024, 0.488069, -0.223001, 0.925767, -0.213176 )
+transform = Transform( 0.131928, -0.731382, 0.669082, 0.557706, 0.612783, 0.559874, -0.819486, 0.29929, 0.488741, -0.222787, 0.943193, -0.2134 )
 bone_name = "HandHold.R"
 
 [node name="mace" parent="Armature/Skeleton/BoneAttachment" instance=ExtResource( 1 )]
 transform = Transform( 1, 2.98023e-08, 2.98023e-08, -2.98023e-08, 1, 0, -4.47035e-08, 0, 1, 0, 0, 0 )
 
-[node name="BowNice" parent="Armature/Skeleton/BoneAttachment" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, 0, 1.49012e-08, 1, 0, 0, 0 )
-visible = false
-
-[node name="Wand" parent="Armature/Skeleton/BoneAttachment" instance=ExtResource( 4 )]
+[node name="wand" parent="Armature/Skeleton/BoneAttachment" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 2.98023e-08, 1, 4.47035e-08, -5.96046e-08, -2.98023e-08, 1, 0, 0, 0 )
 visible = false
 
@@ -2831,4 +2811,9 @@ disabled = true
 [node name="projectilePoint" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.265097, 1.26819, 0.6 )
 
+[node name="target" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1 )
+
 [connection signal="body_entered" from="MeleeArea" to="MeleeArea" method="_on_MeleeArea_body_entered"]
+
+[editable path="Armature/Skeleton/Bow"]

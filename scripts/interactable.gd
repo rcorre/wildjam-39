@@ -3,7 +3,7 @@ extends Area
 
 export(StreamTexture) var icon
 
-signal interact()
+signal interact(player_interactable)
 
 func _ready():
 	# don't block the mouse during placement
