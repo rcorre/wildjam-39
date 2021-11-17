@@ -13,10 +13,9 @@ emission_on_uv2 = false
 size = Vector3( 0.1, 0.1, 0.1 )
 
 [sub_resource type="Curve" id=4]
-_data = [ Vector2( 0, 0.794478 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.144318 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0.794478 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="BoxShape" id=5]
-margin = 0.2
 extents = Vector3( 0.1, 0.1, 0.1 )
 
 [node name="AcidProjectile" type="KinematicBody"]

@@ -53,11 +53,11 @@ func _physics_process(delta):
 func _on_Player_input_attack():
 	$AnimationTree.set("parameters/attack/active", true)
 
-#-------------------- Weapons
+#-------------------- Weapons --------------------
 
 export(PackedScene) var wand_projectile: PackedScene
 export(PackedScene) var bow_projectile: PackedScene
-onready var projectiles = [null, bow_projectile, wand_projectile]
+onready var projectiles = [null, null, bow_projectile, wand_projectile]
 onready var projectile_point: Spatial = $projectilePoint
 var ammo = 0
 func projectile_attack():
@@ -66,7 +66,7 @@ func projectile_attack():
 	projectile.global_transform = projectile_point.global_transform
 	get_tree().current_scene.add_child(projectile)
 
-onready var weapons = [$Armature/Skeleton/BoneAttachment/mace,$Armature/Skeleton/Bow, $Armature/Skeleton/BoneAttachment/wand]
+onready var weapons = [$Armature/Skeleton/BoneAttachment/sword, $Armature/Skeleton/BoneAttachment/mace,$Armature/Skeleton/Bow, $Armature/Skeleton/BoneAttachment/wand]
 var current_weapon = 0
 func _on_interactable_detection_weapon_pick_up(weapon):
 	"""

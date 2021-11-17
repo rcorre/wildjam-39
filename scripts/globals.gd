@@ -3,6 +3,7 @@ class_name global
 
 
 enum Item {
+	SWORD,
 	MACE,
 	BOW,
 	WAND,
