@@ -18,12 +18,15 @@ item = 3
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.996408, 0 )
 icon = ExtResource( 3 )
 
+[node name="Cube" parent="." index="1"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Cube" index="0"]
+transform = Transform( 1.3, 0, 0, 0, -5.68248e-08, -1, 0, 1.3, -4.37114e-08, 0, 0.05, 0 )
+texture = ExtResource( 5 )
+
 [node name="CollisionShape" type="CollisionShape" parent="." index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.240292, 0 )
 shape = SubResource( 1 )
-
-[node name="Sprite3D" type="Sprite3D" parent="." index="3"]
-transform = Transform( 1.3, 0, 0, 0, -5.68248e-08, -1, 0, 1.3, -4.37114e-08, 0, 0.05, 0 )
-texture = ExtResource( 5 )
 
 [connection signal="interact" from="interactable" to="." method="_on_interactable_interact"]

@@ -1,10 +1,25 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://assets/models/Sword.glb" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Model.gd" type="Script" id=2]
 [ext_resource path="res://scenes/MeleeArea.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Wand.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Bow.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=35]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../right_hand:interpolation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "Skin"
@@ -2517,7 +2532,7 @@ min_space = Vector2( -5, -5 )
 max_space = Vector2( 5, 5 )
 
 [sub_resource type="AnimationNodeBlendTree" id=27]
-graph_offset = Vector2( -550, -88 )
+graph_offset = Vector2( -493, 85.5 )
 nodes/Animation/node = SubResource( 19 )
 nodes/Animation/position = Vector2( -220, 240 )
 "nodes/Animation 2/node" = SubResource( 33 )
@@ -2720,6 +2735,9 @@ visible = false
 [node name="string" parent="Armature/Skeleton/Bow/Armature/Skeleton" index="1"]
 transform = Transform( -1, -6.55674e-22, 1.50996e-07, 1.50996e-07, 2.0634e-08, 1, -3.1156e-15, 1, -2.0634e-08, -4.45912e-20, 1.68401e-07, 8.1606 )
 
+[node name="AnimationPlayer" parent="Armature/Skeleton/Bow" index="1"]
+anims/RESET = SubResource( 35 )
+
 [node name="left_hand" type="SkeletonIK" parent="Armature/Skeleton"]
 process_priority = 1
 root_bone = "UpperArm.L"
@@ -2760,7 +2778,7 @@ skin = SubResource( 3 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.131047, -0.73106, 0.669607, 0.557706, 0.612783, 0.559874, -0.819628, 0.300076, 0.488021, -0.223016, 0.924501, -0.21316 )
+transform = Transform( 0.131458, -0.73121, 0.669362, 0.557706, 0.612783, 0.559874, -0.819562, 0.299709, 0.488357, -0.222909, 0.940591, -0.213272 )
 bone_name = "HandHold.R"
 
 [node name="mace" parent="Armature/Skeleton/BoneAttachment" instance=ExtResource( 1 )]
