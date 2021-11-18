@@ -7,6 +7,11 @@ export(int) var MAX_SPEED := 5.0 #6(Mech) Max speed is fixed to root motion spee
 var velocity := Vector3.ZERO
 var move_dir := Vector3.ZERO
 
+var starting_transform: Transform
+
+func _ready():
+	starting_transform = transform
+
 signal updated_velocity(velocity)
 
 func _on_Player_input_move_towards(_dir):
@@ -39,3 +44,7 @@ func _on_Model_updated_root_motion_direction(direction):
 	velocity = move_and_slide(direction, Vector3.UP)
 
 
+
+
+func _on_sandbox_player_died():
+	transform = starting_transform

@@ -1,20 +1,11 @@
 extends AudioStreamPlayer
 
-var index = 1
-
-#func _process(delta):
-#	if index == 1:
-#		#BUILD
-#		stream.resource_path = "res://audio/music/dungeon setup/dungeon_setup.ogg"
-#	elif index == 2:
-#		#AI
-#		stream.resource_path = "res://audio/music/dungeon playthrough/ai_dugeon_playthrough.ogg"
-#	else:
-#		#PLAYER
-#		stream.resource_path = "res://audio/music/dungeon playthrough/player_dungeon_playthrough.ogg"
 
 func _ready():
-	print(str(get_stream()))
+	Settings.connect("volume_updated", self, "on_volume_udpated")
+	
+func on_volume_udpated():
+	volume_db = Settings.background_volume
 
 func _on_player_controler_toggled(button_pressed):
 	if button_pressed:
