@@ -28,3 +28,4 @@ func _on_ai_toggled(on: bool):
 	else:
 		remove_child(ai)
 		add_child(dungeonMaster)
+		
