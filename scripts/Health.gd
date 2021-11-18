@@ -9,7 +9,7 @@ func _ready():
 		$HealthBar.add_child($HealthBar/heart.duplicate())
 
 
-func hurt():
+func hurt(_ignore):
 	health -= 1
 	update_ui()
 	if health <= 0:

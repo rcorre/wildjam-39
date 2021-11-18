@@ -9,12 +9,22 @@ enum LifeState {
 	ALIVE,
 	DEAD,
 }
+export(global.Enemy_type) var enemy_type
+
+var damage_table = [
+	[global.Item.SWORD, global.Item.BOW],	#Spider
+	[global.Item.WAND],						#Slime
+	[global.Item.MACE],						#Skeleton
+]
+
 
 onready var aggro_area: Area = $AggroArea
 onready var anim_tree: AnimationTree = $AnimationTree
 onready var projectile_point: Spatial = $SpitPoint
 
 var velocity := Vector3.ZERO
+
+
 
 func _physics_process(delta: float):
 	anim_tree.set("parameters/move/blend_position", 0.0)
@@ -38,6 +48,10 @@ func _physics_process(delta: float):
 	velocity = global_transform.basis.xform(root_motion_origin) / delta
 	velocity = move_and_slide(velocity)
 
-func hurt():
+func hurt(player_weapon):
+	if !(player_weapon in damage_table[enemy_type]):
+		print("This weapon can't hit this unit", damage_table[enemy_type])
+		return
+		
 	anim_tree.set("parameters/life_state/current", LifeState.DEAD)
 	get_tree().create_timer(5.0).connect("timeout", self, "queue_free")

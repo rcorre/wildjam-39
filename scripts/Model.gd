@@ -2,11 +2,6 @@ extends Spatial
 
 signal updated_root_motion_direction(direction)
 
-var tmp = {
-	global.Item.MACE : {"packed":1, "Animation": global.Item.MACE}
-}
-
-
 func _on_Player_input_look_towards(position : Vector3):
 	"""
 	Update rotation matrix based on look at position
@@ -59,14 +54,17 @@ export(PackedScene) var wand_projectile: PackedScene
 export(PackedScene) var bow_projectile: PackedScene
 onready var projectiles = [null, null, bow_projectile, wand_projectile]
 onready var projectile_point: Spatial = $projectilePoint
-var ammo = 0
+
 func projectile_attack():
 	var projectile: Spatial = projectiles[current_weapon].instance()
 	projectile.owner_unit = global.Unit.HERO
 	projectile.global_transform = projectile_point.global_transform
 	get_tree().current_scene.add_child(projectile)
 
-onready var weapons = [$Armature/Skeleton/BoneAttachment/sword, $Armature/Skeleton/BoneAttachment/mace,$Armature/Skeleton/Bow, $Armature/Skeleton/BoneAttachment/wand]
+onready var weapons = [$Armature/Skeleton/BoneAttachment/sword,
+					 $Armature/Skeleton/BoneAttachment/mace,
+					 $Armature/Skeleton/Bow,
+					 $Armature/Skeleton/BoneAttachment/wand]
 var current_weapon = 0
 func _on_interactable_detection_weapon_pick_up(weapon):
 	"""
@@ -84,5 +82,8 @@ func _on_interactable_detection_weapon_pick_up(weapon):
 		$Armature/Skeleton/left_hand.start()
 		$Armature/Skeleton/right_hand.start()
 
-
+func _on_MeleeArea_body_entered(body):
+	#if type is skeleton do extra damage
+	print("Hit: ", body.name)
+	body.propagate_call("hurt", [current_weapon])
 

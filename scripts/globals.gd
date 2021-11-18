@@ -10,6 +10,12 @@ enum Item {
 	FOOD,
 }
 
+enum Enemy_type {
+	SPIDER,
+	SLIME,
+	SKELETON,
+}
+
 enum Unit {
 	HERO,
 	ENEMY,

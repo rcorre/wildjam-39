@@ -14,6 +14,6 @@ func _ready():
 func _physics_process(delta: float):
 	var col := move_and_collide(global_transform.basis.z * speed * delta)
 	if col:
-		col.collider.propagate_call("hurt")
+		col.collider.propagate_call("hurt", [0])
 		print("Hit: ", col.collider.name)
 		queue_free()
