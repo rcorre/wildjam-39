@@ -6,6 +6,7 @@ var current_weapon = global.Item.SWORD
 
 signal weapon_pick_up(item)
 signal food_pick_up(item)
+signal bomb_pick_up()
 
 func _ready():
 	connect("weapon_pick_up", self, "update_weapon")
@@ -23,7 +24,6 @@ func _process(delta):
 	$icon.show()
 		
 	if Input.is_action_just_pressed("interact"):
-		print("pressed")
 		interactables[0].emit_signal("interact", self)
 		return
 

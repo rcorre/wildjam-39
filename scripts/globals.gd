@@ -8,6 +8,7 @@ enum Item {
 	BOW,
 	WAND,
 	FOOD,
+	BOMB,
 }
 
 enum Enemy_type {

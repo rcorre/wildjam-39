@@ -23,3 +23,8 @@ func update_ui():
 	for i in range($HealthBar.get_child_count()):
 		var c: Control = $HealthBar.get_child(i)
 		c.modulate = Color.red if i < health else Color.gray
+
+
+func _on_interactable_detection_bomb_pick_up():
+	hurt(0)
+	#TODO: Add Overload comment
