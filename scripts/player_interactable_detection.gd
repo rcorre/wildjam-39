@@ -23,6 +23,7 @@ func _process(delta):
 	$icon.show()
 		
 	if Input.is_action_just_pressed("interact"):
+		print("pressed")
 		interactables[0].emit_signal("interact", self)
 		return
 

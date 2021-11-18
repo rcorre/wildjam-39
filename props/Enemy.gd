@@ -24,7 +24,8 @@ onready var projectile_point: Spatial = $SpitPoint
 
 var velocity := Vector3.ZERO
 
-
+func _enter_tree():
+	add_to_group("enemy")
 
 func _physics_process(delta: float):
 	anim_tree.set("parameters/move/blend_position", 0.0)

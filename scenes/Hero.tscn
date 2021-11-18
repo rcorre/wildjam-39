@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/movement.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/interactable_detection.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Health.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/AIInput.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/AIInput.gd" type="Script" id=4]
 [ext_resource path="res://scenes/projectiles/MagicProjectile.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/PlayerModel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/projectiles/Arrow.tscn" type="PackedScene" id=7]
@@ -18,15 +18,21 @@ collision_layer = 2
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.00474, 0 )
 shape = SubResource( 3 )
 
-[node name="AIInput" parent="." index="1" instance=ExtResource( 4 )]
+[node name="AIInput" type="Spatial" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+script = ExtResource( 4 )
 
-[node name="interactable_detection" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Camera" type="Camera" parent="." index="2"]
+transform = Transform( -1, -7.57103e-08, 4.37114e-08, 0, 0.5, 0.866025, -8.74228e-08, 0.866025, -0.5, 0, 7, -4 )
+current = true
 
-[node name="Model" parent="." index="3" instance=ExtResource( 6 )]
+[node name="interactable_detection" parent="." index="3" instance=ExtResource( 2 )]
+
+[node name="Model" parent="." index="4" instance=ExtResource( 6 )]
 wand_projectile = ExtResource( 5 )
 bow_projectile = ExtResource( 7 )
 
-[node name="Health" parent="." index="4" instance=ExtResource( 3 )]
+[node name="Health" parent="." index="5" instance=ExtResource( 3 )]
 collision_layer = 0
 health = 5
 

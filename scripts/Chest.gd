@@ -2,6 +2,9 @@ extends StaticBody
 
 export(global.Item) var item
 
+func _enter_tree():
+	add_to_group("chest")
+
 func _on_interactable_interact(player_interactable):
 	print("Player was given a ", global.Item.keys()[item])
 	if item == global.Item.FOOD:
