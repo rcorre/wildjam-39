@@ -40,6 +40,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41421, 0 )
 light_color = Color( 0.905882, 0.537255, 0.45098, 1 )
 light_energy = 0.7
 light_indirect_energy = 2.0
+light_size = 0.2
 light_bake_mode = 2
 omni_range = 15.0
 

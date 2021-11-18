@@ -15,7 +15,7 @@ func _physics_process(delta: float):
 		print("Hit a : ", col.collider.name)
 		col.collider.propagate_call("hurt", [projectile_weapon_type])
 		speed = 3
-		$CPUParticles.lifetime = 0.25
+		#$CPUParticles.lifetime = 0.25
 		$CollisionShape.disabled = true
 		hit_object = true
 		custom_queue_free(.25)
