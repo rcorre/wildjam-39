@@ -1,6 +1,7 @@
 extends Area
 
 export(int) var health = 3
+onready var starting_health = health
 
 signal died()
 
@@ -8,12 +9,16 @@ func _ready():
 	for heart in range(health - 1):
 		$HealthBar.add_child($HealthBar/heart.duplicate())
 
-
 func hurt(_ignore):
 	health -= 1
 	update_ui()
 	if health <= 0:
-		emit_signal("died") #Event buss
+		if Settings.is_sandbox:
+			health = starting_health
+			update_ui()
+			emit_signal("died")
+		else:
+			Events.emit_signal("hero_died")
 
 func _on_interactable_detection_food_pick_up(item):
 	health += 1
