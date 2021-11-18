@@ -39,8 +39,6 @@ tracks/0/keys = {
 }
 
 [node name="Bone" type="KinematicBody"]
-collision_layer = 0
-collision_mask = 0
 script = ExtResource( 1 )
 speed = 8.0
 

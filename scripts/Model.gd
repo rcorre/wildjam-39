@@ -57,8 +57,7 @@ onready var projectile_point: Spatial = $projectilePoint
 
 func projectile_attack():
 	var projectile: Spatial = projectiles[current_weapon].instance()
-	projectile.owner_unit = global.Unit.HERO
-	projectile.projectile_weapon_type = current_weapon
+	projectile.add_collision_exception_with(get_parent())
 	projectile.global_transform = projectile_point.global_transform
 	get_tree().current_scene.add_child(projectile)
 
