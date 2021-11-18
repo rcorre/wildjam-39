@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://scripts/PropButton.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LeagueGothic-Regular.otf" type="DynamicFontData" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://props/Chest_bow.tscn" type="PackedScene" id=21]
 [ext_resource path="res://props/Chest_wand.tscn" type="PackedScene" id=22]
 [ext_resource path="res://props/Chest_food.tscn" type="PackedScene" id=23]
+[ext_resource path="res://props/Chest_bomb.tscn" type="PackedScene" id=24]
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
@@ -196,7 +197,7 @@ group = SubResource( 11 )
 text = "2"
 icon = ExtResource( 8 )
 script = ExtResource( 1 )
-prop_scene = ExtResource( 7 )
+prop_scene = ExtResource( 24 )
 
 [node name="Monsters" type="HBoxContainer" parent="HUD/VBoxContainer/TabContainer"]
 visible = false
