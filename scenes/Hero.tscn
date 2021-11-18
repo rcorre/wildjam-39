@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/movement.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/interactable_detection.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Health.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/AIInput.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/projectiles/MagicProjectile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/PlayerModel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/projectiles/Arrow.tscn" type="PackedScene" id=7]
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.406732, 0.462666, 1 )
+
+[node name="movement" instance=ExtResource( 1 )]
+collision_layer = 2
+
+[node name="CollisionShape" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.00474, 0 )
+shape = SubResource( 3 )
+
+[node name="AIInput" parent="." index="1" instance=ExtResource( 4 )]
+
+[node name="interactable_detection" parent="." index="2" instance=ExtResource( 2 )]
+
+[node name="Model" parent="." index="3" instance=ExtResource( 6 )]
+wand_projectile = ExtResource( 5 )
+bow_projectile = ExtResource( 7 )
+
+[node name="Health" parent="." index="4" instance=ExtResource( 3 )]
+collision_layer = 0
+health = 5
+
+[connection signal="updated_velocity" from="." to="Model" method="_on_movement_updated_velocity"]
+[connection signal="attack" from="AIInput" to="Model" method="_on_Player_input_attack"]
+[connection signal="look_towards" from="AIInput" to="Model" method="_on_Player_input_look_towards"]
+[connection signal="mobile_look_towards" from="AIInput" to="Model" method="_on_Player_input_mobile_look_towards"]
+[connection signal="move_towards" from="AIInput" to="." method="_on_Player_input_move_towards"]
+[connection signal="food_pick_up" from="interactable_detection" to="Health" method="_on_interactable_detection_food_pick_up"]
+[connection signal="weapon_pick_up" from="interactable_detection" to="Model" method="_on_interactable_detection_weapon_pick_up"]
+[connection signal="updated_root_motion_direction" from="Model" to="." method="_on_Model_updated_root_motion_direction"]
