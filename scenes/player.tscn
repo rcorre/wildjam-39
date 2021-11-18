@@ -24,6 +24,7 @@ shape = SubResource( 3 )
 
 [node name="Health" parent="." index="4" instance=ExtResource( 3 )]
 collision_layer = 0
+health = 5
 
 [connection signal="updated_velocity" from="." to="Model" method="_on_movement_updated_velocity"]
 [connection signal="attack" from="Player_input" to="Model" method="_on_Player_input_attack"]

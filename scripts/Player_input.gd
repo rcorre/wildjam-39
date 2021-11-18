@@ -26,6 +26,10 @@ func _ready():
 	$Debug/VBoxContainer/Screen_size1.text = str(OS.get_real_window_size())
 	$Debug/VBoxContainer/Screen_size2.text = str(ProjectSettings.get_setting("display/window/size/width"))
 	
+	if OS.get_real_window_size().x >= ProjectSettings.get_setting("display/window/size/width"):
+		disable_mobile()
+		mobile_controls = false
+
 	mobileLookBtn.position.x = ProjectSettings.get_setting("display/window/size/width") - (TouchScreenButtonDiameter)
 
 func keyboard_input():
