@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/movement.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/interactable_detection.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Health.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Player_input.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/projectiles/MagicProjectile.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/PlayerModel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/projectiles/Arrow.tscn" type="PackedScene" id=7]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.406732, 0.462666, 1 )
@@ -21,6 +23,8 @@ shape = SubResource( 3 )
 [node name="interactable_detection" parent="." index="2" instance=ExtResource( 2 )]
 
 [node name="Model" parent="." index="3" instance=ExtResource( 6 )]
+wand_projectile = ExtResource( 5 )
+bow_projectile = ExtResource( 7 )
 
 [node name="Health" parent="." index="4" instance=ExtResource( 3 )]
 collision_layer = 0
