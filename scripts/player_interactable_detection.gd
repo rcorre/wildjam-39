@@ -2,7 +2,7 @@ extends Area
 
 var material : Material = load("res://assets/material/player_icon.tres")
 
-var current_weapon = global.Item.MACE
+var current_weapon = global.Item.SWORD
 
 signal weapon_pick_up(item)
 signal food_pick_up(item)

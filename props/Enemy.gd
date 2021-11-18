@@ -50,7 +50,9 @@ func _physics_process(delta: float):
 
 func hurt(player_weapon):
 	if !(player_weapon in damage_table[enemy_type]):
-		print("This weapon can't hit this unit", damage_table[enemy_type])
+		print(global.Item.keys()[player_weapon], " can't hit this unit, need", damage_table[enemy_type])
+		for weapon in damage_table[enemy_type]:
+			print(global.Item.keys()[weapon])
 		return
 		
 	anim_tree.set("parameters/life_state/current", LifeState.DEAD)

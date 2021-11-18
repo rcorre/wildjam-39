@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/projectiles/AcidProjectile.tscn" type="PackedScene" id=3]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.190596, 0.105742, 0.20104 )
+extents = Vector3( 0.190596, 1.71398, 0.20104 )
 
 [sub_resource type="AnimationNodeAnimation" id=7]
 animation = "Attack"
@@ -65,7 +65,7 @@ projectile_scene = ExtResource( 3 )
 enemy_type = 1
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0887709, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51635, 0 )
 shape = SubResource( 1 )
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="3"]
