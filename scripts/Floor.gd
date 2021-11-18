@@ -24,7 +24,6 @@ func _on_input_event(_camera: Node, event: InputEvent, position: Vector3, _norma
 	if event.is_action_pressed("place_prop"):
 		place_prop(pos)
 
-
 func place_prop(pos: Vector3):
 	assert(selected_prop)
 
@@ -32,5 +31,6 @@ func place_prop(pos: Vector3):
 		if p.global_transform.origin.is_equal_approx(pos) and p != selected_prop:
 			return  # already a prop here
 
+	selected_prop.propagate_call("_on_placed")
 	selected_prop = null
 	Events.emit_signal("prop_placed")
