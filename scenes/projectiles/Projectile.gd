@@ -15,4 +15,7 @@ func _physics_process(delta: float):
 	if col:
 		print("Hit a : ", col.collider.name)
 		col.collider.propagate_call("hurt", [projectile_weapon_type])
+		speed = 3
+		$CPUParticles.lifetime = 0.25
+		yield(get_tree().create_timer(0.25), "timeout")
 		queue_free()
