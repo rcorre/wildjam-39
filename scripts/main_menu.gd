@@ -1,13 +1,18 @@
 extends Control
 
 var DungeonMasterScene = load("res://scenes/DungeonMasterScene.tscn")
-
+var button_hover = load("res://audio/sfx/menu/button_hover.wav")
+var button_select = load("res://audio/sfx/menu/button_select.wav")
 func _on_Sandbox_pressed():
 	Settings.is_sandbox = true
+	$sfx.stream = button_select
+	$sfx.play()
 	start_game()
 
 func _on_Play_pressed():
 	Settings.is_sandbox = false
+	$sfx.stream = button_select
+	$sfx.play()
 	start_game()
 
 func start_game():
@@ -19,3 +24,8 @@ func start_game():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+
+func _on_btn_mouse_entered():
+	$sfx.stream = button_hover
+	$sfx.play()
