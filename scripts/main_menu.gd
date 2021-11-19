@@ -11,8 +11,8 @@ func _on_Play_pressed():
 	start_game()
 
 func start_game():
-	print("Starting game")
 	var game = DungeonMasterScene.instance()
+	game.connect("tree_entered", get_tree(), "set_current_scene", [game], CONNECT_ONESHOT)
 	get_tree().root.add_child(game)
 	queue_free()
 

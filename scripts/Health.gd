@@ -8,6 +8,10 @@ signal died()
 func _ready():
 	for heart in range(health - 1):
 		$HealthBar.add_child($HealthBar/heart.duplicate())
+	Events.connect("pause_pressed", self, "on_pause_pressed")
+	
+func on_pause_pressed():
+	$HealthBar.visible = !$HealthBar.visible
 
 func hurt(_ignore):
 	health -= 1
