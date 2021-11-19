@@ -33,8 +33,6 @@ func _on_ai_toggled(on: bool):
 		remove_child(ai)
 		$player_controler.show()
 		add_child(dungeonMaster)
-		
-
 
 func _on_pause_quit():
 	get_tree().root.add_child(main_menu)
