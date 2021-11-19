@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/models/Chest.glb" type="PackedScene" id=1]
 [ext_resource path="res://scenes/interactable.tscn" type="PackedScene" id=2]
@@ -7,6 +7,74 @@
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.381875, 0.237613, 0.2 )
+
+[sub_resource type="SpatialMaterial" id=2]
+resource_local_to_scene = true
+flags_transparent = true
+albedo_color = Color( 1, 0, 0, 1 )
+emission_enabled = true
+emission = Color( 1, 0, 0, 1 )
+emission_energy = 8.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=3]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="Animation" id=4]
+resource_name = "Explode"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 10, 10, 10 ), Vector3( 12, 12, 12 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material_override:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material_override:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ) ]
+}
 
 [node name="Chest" groups=["prop"] instance=ExtResource( 1 )]
 input_ray_pickable = false
@@ -24,4 +92,14 @@ shape = SubResource( 1 )
 [node name="Lid" parent="." index="3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.12791e-09, 0.274674, -0.215563 )
 
+[node name="MeshInstance" type="MeshInstance" parent="." index="5"]
+material_override = SubResource( 2 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MeshInstance" index="0"]
+anims/Explode = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+
+[connection signal="opened" from="." to="MeshInstance/AnimationPlayer" method="play" binds= [ "Explode" ]]
 [connection signal="interact" from="interactable" to="." method="_on_interactable_interact"]
