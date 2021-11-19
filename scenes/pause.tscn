@@ -43,33 +43,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="controls" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 183.0
+[node name="Sound_menu" parent="MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 152.0
 margin_right = 964.0
-margin_bottom = 221.0
-theme = ExtResource( 3 )
-text = "Controls"
-
-[node name="volume" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 251.0
-margin_right = 964.0
-margin_bottom = 289.0
-theme = ExtResource( 3 )
-text = "Volume"
+margin_bottom = 320.0
 
 [node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 319.0
+margin_top = 350.0
 margin_right = 964.0
-margin_bottom = 357.0
+margin_bottom = 388.0
 theme = ExtResource( 3 )
 text = "Quit"
 
-[node name="Sound_menu" parent="." instance=ExtResource( 2 )]
-visible = false
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1024.0
-margin_bottom = 600.0
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/volume" to="." method="_on_volume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
