@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://assets/models/Sword.glb" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Model.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/Bow.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/mace.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/projectiles/Bone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://audio/sfx/weapons/arrow_1.wav" type="AudioStream" id=8]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "Skin"
@@ -1941,6 +1942,20 @@ tracks/28/keys = {
 "method": "projectile_attack"
 } ]
 }
+tracks/29/type = "method"
+tracks/29/path = NodePath(".")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_current_weapn_sound"
+} ]
+}
 
 [sub_resource type="Animation" id=35]
 resource_name = "attack_swing"
@@ -2201,6 +2216,20 @@ tracks/35/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
+}
+tracks/36/type = "method"
+tracks/36/path = NodePath(".")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_current_weapn_sound"
+} ]
 }
 
 [sub_resource type="Animation" id=30]
@@ -2465,6 +2494,20 @@ tracks/35/keys = {
 "method": "projectile_attack"
 } ]
 }
+tracks/36/type = "method"
+tracks/36/path = NodePath(".")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_current_weapn_sound"
+} ]
+}
 
 [sub_resource type="AnimationNodeAnimation" id=33]
 animation = "attack_wand"
@@ -2474,7 +2517,7 @@ animation = "attack_bow"
 
 [sub_resource type="AnimationNodeOneShot" id=20]
 filter_enabled = true
-filters = [ ".", "Armature/Bow/AnimationPlayer", "Armature/Skeleton/Bow/AnimationPlayer", "Armature/Skeleton/chest/Bow/AnimationPlayer", "Armature/Skeleton:Chest", "Armature/Skeleton:HandHold.L", "Armature/Skeleton:HandHold.R", "Armature/Skeleton:Head", "Armature/Skeleton:LowerArm.L", "Armature/Skeleton:LowerArm.R", "Armature/Skeleton:LowerHand.L", "Armature/Skeleton:LowerHand.R", "Armature/Skeleton:Neck", "Armature/Skeleton:Shoulder.L", "Armature/Skeleton:Shoulder.R", "Armature/Skeleton:Thumb.L", "Armature/Skeleton:Thumb.R", "Armature/Skeleton:Torso", "Armature/Skeleton:UpperArm.L", "Armature/Skeleton:UpperArm.R", "Armature/Skeleton:UpperHand.L", "Armature/Skeleton:UpperHand.R", "MeleeArea/CollisionShape:disabled" ]
+filters = [ ".", "Armature/Bow/AnimationPlayer", "Armature/Skeleton/Bow/AnimationPlayer", "Armature/Skeleton/chest/Bow/AnimationPlayer", "Armature/Skeleton:Chest", "Armature/Skeleton:HandHold.L", "Armature/Skeleton:HandHold.R", "Armature/Skeleton:Head", "Armature/Skeleton:LowerArm.L", "Armature/Skeleton:LowerArm.R", "Armature/Skeleton:LowerHand.L", "Armature/Skeleton:LowerHand.R", "Armature/Skeleton:Neck", "Armature/Skeleton:Shoulder.L", "Armature/Skeleton:Shoulder.R", "Armature/Skeleton:Thumb.L", "Armature/Skeleton:Thumb.R", "Armature/Skeleton:Torso", "Armature/Skeleton:UpperArm.L", "Armature/Skeleton:UpperArm.R", "Armature/Skeleton:UpperHand.L", "Armature/Skeleton:UpperHand.R", "AudioStreamPlayer", "MeleeArea/CollisionShape:disabled" ]
 fadeout_time = 0.0
 
 [sub_resource type="AnimationNodeTransition" id=32]
@@ -2657,7 +2700,7 @@ bones/20/name = "HandHold.R"
 bones/20/parent = 18
 bones/20/rest = Transform( -0.178586, -0.630432, 0.755422, -0.962119, -0.0488495, -0.268217, 0.205995, -0.774706, -0.597826, 0.0608109, 0.0821073, 0.0097738 )
 bones/20/enabled = true
-bones/20/bound_children = [  ]
+bones/20/bound_children = [ NodePath("BoneAttachment") ]
 bones/21/name = "Thumb.R"
 bones/21/parent = 17
 bones/21/rest = Transform( 0.929595, -0.327773, 0.168578, 0.0674121, 0.600845, 0.796518, -0.362366, -0.729074, 0.580639, -3.86308e-09, 0.233692, 9.25444e-09 )
@@ -2728,11 +2771,8 @@ bones/33/bound_children = [  ]
 transform = Transform( -2.7474e-06, 0.992346, -0.0617458, 0.999816, 0.00236893, 0.00950692, 0.0191608, -0.123469, -0.496082, -0.224306, 1.32502, 0.425947 )
 visible = false
 
-[node name="Skeleton" parent="Armature/Skeleton/Bow/Armature" index="0"]
-bones/11/bound_children = [  ]
-
 [node name="string" parent="Armature/Skeleton/Bow/Armature/Skeleton" index="1"]
-transform = Transform( -1, -6.55674e-22, 1.50996e-07, 1.50996e-07, 2.0634e-08, 1, -3.1156e-15, 1, -2.0634e-08, -4.45912e-20, 1.68401e-07, 8.1606 )
+transform = Transform( -1, -1.17235e-20, 1.50996e-07, 1.50996e-07, 2.0634e-08, 1, -3.11561e-15, 1, -2.0634e-08, -4.45912e-20, 1.68401e-07, 8.1606 )
 
 [node name="left_hand" type="SkeletonIK" parent="Armature/Skeleton"]
 process_priority = 1
@@ -2774,7 +2814,7 @@ skin = SubResource( 3 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( 0.131577, -0.731254, 0.669291, 0.557706, 0.612783, 0.559874, -0.819543, 0.299603, 0.488454, -0.222878, 0.941853, -0.213304 )
+transform = Transform( 0.131221, -0.731124, 0.669504, 0.557706, 0.612783, 0.559874, -0.8196, 0.299921, 0.488164, -0.222971, 0.934397, -0.213207 )
 bone_name = "HandHold.R"
 
 [node name="sword" parent="Armature/Skeleton/BoneAttachment" instance=ExtResource( 1 )]
@@ -2825,6 +2865,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.265097, 1.26819, 0.6 )
 
 [node name="target" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 
 [connection signal="body_entered" from="MeleeArea" to="." method="_on_MeleeArea_body_entered"]
 

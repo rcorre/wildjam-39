@@ -81,6 +81,14 @@ func _on_interactable_detection_weapon_pick_up(weapon):
 	if weapon == global.Item.BOW:
 		$Armature/Skeleton/left_hand.start()
 		$Armature/Skeleton/right_hand.start()
+onready var all_weapon_sound = {global.Item.MACE:[load("res://audio/sfx/weapons/smack.wav")],
+								global.Item.SWORD:[load("res://audio/sfx/weapons/sword_1.wav"), load("res://audio/sfx/weapons/sword_2.wav"),load("res://audio/sfx/weapons/sword_3.wav")],
+								global.Item.BOW:[load("res://audio/sfx/weapons/arrow_1.wav")],
+								global.Item.WAND:[load("res://audio/sfx/weapons/bomb.wav")]}
+func play_current_weapn_sound():
+	var weapon_sound : Array = all_weapon_sound[current_weapon]
+	$AudioStreamPlayer.stream = weapon_sound[randi() % weapon_sound.size()]
+	$AudioStreamPlayer.play()
 
 func _on_MeleeArea_body_entered(body):
 	#if type is skeleton do extra damage

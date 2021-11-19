@@ -29,7 +29,7 @@ func _on_interactable_interact(player_interactable):
 
 	if is_in_group("chest"):
 		remove_from_group("chest")
-	$sfx.play()
+#	$sfx.play()
 	anim.play("Open")
 	yield(get_tree().create_timer(2), "timeout")
 	anim.play_backwards("Open")
