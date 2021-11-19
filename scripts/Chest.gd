@@ -27,5 +27,8 @@ func _on_interactable_interact(player_interactable):
 		item = current_player_weapon
 		emit_signal("opened")
 
-	remove_from_group("chest")
+	if is_in_group("chest"):
+		remove_from_group("chest")
 	anim.play("Open")
+	yield(get_tree().create_timer(2), "timeout")
+	anim.play_backwards("Open")
