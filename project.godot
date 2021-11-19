@@ -28,6 +28,7 @@ config/icon="res://icon.png"
 
 Settings="*res://scripts/settings.gd"
 Events="*res://scenes/Events.tscn"
+Overlord="*res://scenes/overlord.tscn"
 
 [debug]
 

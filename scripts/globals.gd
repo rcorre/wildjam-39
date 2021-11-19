@@ -21,3 +21,13 @@ enum Unit {
 	HERO,
 	ENEMY,
 }
+
+enum overloard_dialogue {
+	INVALID_WEAPON,
+	CHEST_WEAPON,
+	CHEST_FOOD,
+	TRAP,
+	HERO_DEATH,
+	TUTORIAL,
+	RANDOM,
+}

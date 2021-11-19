@@ -59,6 +59,7 @@ func _physics_process(delta: float):
 
 func hurt(player_weapon):
 	if !(player_weapon in damage_table[enemy_type]):
+		Overlord.say_something_about(global.overloard_dialogue.INVALID_WEAPON)
 		print(global.Item.keys()[player_weapon], " can't hit this unit, need", damage_table[enemy_type])
 		return
 		
