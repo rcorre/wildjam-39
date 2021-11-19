@@ -17,7 +17,7 @@ filter_enabled = true
 filters = [ "Armature/Skeleton:BodyBack", "Armature/Skeleton:BodyFront", "Armature/Skeleton:ElbowPoleTarget.L", "Armature/Skeleton:ElbowPoleTarget.R", "Armature/Skeleton:HandHold.L", "Armature/Skeleton:HandHold.R", "Armature/Skeleton:HandIK.L", "Armature/Skeleton:HandIK.R", "Armature/Skeleton:Head", "Armature/Skeleton:LowerArm.L", "Armature/Skeleton:LowerArm.R", "Armature/Skeleton:LowerHand.L", "Armature/Skeleton:LowerHand.R", "Armature/Skeleton:Neck", "Armature/Skeleton:Shoulder.L", "Armature/Skeleton:Shoulder.R", "Armature/Skeleton:UpperArm.L", "Armature/Skeleton:UpperArm.R", "Armature/Skeleton:UpperHand.L", "Armature/Skeleton:UpperHand.R" ]
 
 [sub_resource type="AnimationNodeAnimation" id=11]
-animation = "CombatIdle-loop"
+animation = "Die"
 
 [sub_resource type="AnimationNodeTransition" id=10]
 input_count = 2
@@ -42,7 +42,7 @@ min_space = 0.0
 [sub_resource type="AnimationNodeTimeScale" id=6]
 
 [sub_resource type="AnimationNodeBlendTree" id=12]
-graph_offset = Vector2( 0, 328.333 )
+graph_offset = Vector2( 0, 65.6667 )
 nodes/Animation/node = SubResource( 7 )
 nodes/Animation/position = Vector2( 93.3333, 333.333 )
 nodes/attack/node = SubResource( 8 )
@@ -56,7 +56,7 @@ nodes/move/position = Vector2( -59, 101 )
 nodes/move_speed/node = SubResource( 6 )
 nodes/move_speed/position = Vector2( 160, 133.333 )
 nodes/output/position = Vector2( 800, 160 )
-node_connections = [ "output", 0, "life_state", "attack", 0, "move_speed", "attack", 1, "Animation", "life_state", 0, "attack", "life_state", 1, "die", "move_speed", 0, "move" ]
+node_connections = [ "output", 0, "life_state", "attack", 0, "move_speed", "attack", 1, "Animation", "move_speed", 0, "move", "life_state", 0, "attack", "life_state", 1, "die" ]
 
 [sub_resource type="SphereShape" id=9]
 radius = 10.0
@@ -96,6 +96,6 @@ shape = SubResource( 9 )
 [node name="SpitPoint" type="Spatial" parent="." index="6"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.840039, 0.560004 )
 
-[node name="PlaceSound" type="AudioStreamPlayer" parent="." index="11"]
+[node name="PlaceSound" type="AudioStreamPlayer" parent="." index="7"]
 stream = ExtResource( 4 )
 script = ExtResource( 5 )
