@@ -3,6 +3,7 @@ extends Spatial
 onready var dungeonMaster = $DungeonMasterHUD
 onready var player = preload("res://scenes/player.tscn").instance()
 onready var ai = preload("res://scenes/Hero.tscn").instance()
+var main_menu = load("res://scenes/main_menu.tscn").instance()
 
 func _ready():
 	Events.connect("hero_died", self, "on_hero_died")
@@ -33,3 +34,8 @@ func _on_ai_toggled(on: bool):
 		$player_controler.show()
 		add_child(dungeonMaster)
 		
+
+
+func _on_pause_quit():
+	get_tree().root.add_child(main_menu)
+	queue_free()
