@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/models/Chest.glb" type="PackedScene" id=1]
 [ext_resource path="res://scenes/interactable.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/icons/locked-chest.svg" type="Texture" id=3]
 [ext_resource path="res://scripts/Chest.gd" type="Script" id=4]
+[ext_resource path="res://props/PlaceSound.gd" type="Script" id=5]
+[ext_resource path="res://audio/sfx/dungeon_setup/chest_set.wav" type="AudioStream" id=6]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.381875, 0.237613, 0.2 )
@@ -23,5 +25,9 @@ shape = SubResource( 1 )
 
 [node name="Lid" parent="." index="3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.12791e-09, 0.274674, -0.215563 )
+
+[node name="sfx" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource( 6 )
+script = ExtResource( 5 )
 
 [connection signal="interact" from="interactable" to="." method="_on_interactable_interact"]

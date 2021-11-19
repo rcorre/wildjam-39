@@ -42,7 +42,7 @@ min_space = 0.0
 [sub_resource type="AnimationNodeTimeScale" id=6]
 
 [sub_resource type="AnimationNodeBlendTree" id=5]
-graph_offset = Vector2( -315.333, 124.667 )
+graph_offset = Vector2( -195, 132.5 )
 nodes/Animation/node = SubResource( 7 )
 nodes/Animation/position = Vector2( 93.6667, 334 )
 nodes/attack/node = SubResource( 8 )
@@ -63,7 +63,7 @@ radius = 10.0
 
 [node name="Spider" groups=["prop"] instance=ExtResource( 1 )]
 collision_layer = 9
-collision_mask = 2
+collision_mask = 3
 script = ExtResource( 2 )
 projectile_scene = ExtResource( 3 )
 
