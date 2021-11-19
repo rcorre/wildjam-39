@@ -55,7 +55,7 @@ nodes/move/position = Vector2( -61.6667, 121 )
 nodes/move_speed/node = SubResource( 6 )
 nodes/move_speed/position = Vector2( 188.333, 132.333 )
 nodes/output/position = Vector2( 800, 160 )
-node_connections = [ "output", 0, "life_state", "attack", 0, "move_speed", "attack", 1, "Animation", "life_state", 0, "attack", "life_state", 1, "die", "move_speed", 0, "move" ]
+node_connections = [ "output", 0, "life_state", "life_state", 0, "attack", "life_state", 1, "die", "move_speed", 0, "move", "attack", 0, "move_speed", "attack", 1, "Animation" ]
 
 [sub_resource type="SphereShape" id=9]
 radius = 10.0
@@ -95,6 +95,6 @@ shape = SubResource( 9 )
 [node name="SpitPoint" type="Spatial" parent="." index="6"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343143, 0.391362 )
 
-[node name="PlaceSound" type="AudioStreamPlayer" parent="." index="7"]
+[node name="sfx" type="AudioStreamPlayer" parent="." index="7"]
 stream = ExtResource( 4 )
 script = ExtResource( 5 )

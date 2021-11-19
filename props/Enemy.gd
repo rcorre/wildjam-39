@@ -10,6 +10,7 @@ enum LifeState {
 	ALIVE,
 	DEAD,
 }
+var current_state = LifeState.ALIVE
 export(global.Enemy_type) var enemy_type
 
 var damage_table = [
@@ -24,7 +25,7 @@ onready var anim_tree: AnimationTree = $AnimationTree
 onready var projectile_point: Spatial = $SpitPoint
 
 # for now, just reuse the placement sound as the death sound
-onready var die_sound: AudioStreamPlayer = $PlaceSound
+onready var die_sound: AudioStreamPlayer = $sfx
 
 var velocity := Vector3.ZERO
 
@@ -59,6 +60,10 @@ func hurt(player_weapon):
 		print(global.Item.keys()[player_weapon], " can't hit this unit, need", damage_table[enemy_type])
 		return
 		
+	if current_state == LifeState.DEAD:
+		return
+	current_state = LifeState.DEAD
+	
 	if die_sound:
 		die_sound.play()
 	anim_tree.set("parameters/life_state/current", LifeState.DEAD)
