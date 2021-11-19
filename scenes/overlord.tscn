@@ -7,7 +7,7 @@
 [sub_resource type="Animation" id=1]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("MarginContainer:modulate")
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/Label:percent_visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -16,10 +16,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ) ]
+"values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MarginContainer/HBoxContainer/Label:percent_visible")
+tracks/1/path = NodePath("MarginContainer/ColorRect:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -28,13 +28,25 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1.0 ]
+"values": [ Color( 0.65098, 0.65098, 0.65098, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MarginContainer/HBoxContainer/TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=2]
 resource_name = "animate"
 tracks/0/type = "value"
-tracks/0/path = NodePath("MarginContainer:modulate")
+tracks/0/path = NodePath("MarginContainer/ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -43,15 +55,39 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 0.65098, 0.65098, 0.65098, 0 ), Color( 0.65098, 0.65098, 0.65098, 0.392157 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MarginContainer/HBoxContainer/Label:percent_visible")
+tracks/1/path = NodePath("MarginContainer/HBoxContainer/TextureRect:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MarginContainer/HBoxContainer/Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MarginContainer/HBoxContainer/Label:percent_visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -84,7 +120,7 @@ anims/RESET = SubResource( 1 )
 anims/animate = SubResource( 2 )
 
 [node name="Viewport" type="Viewport" parent="."]
-size = Vector2( 150, 150 )
+size = Vector2( 100, 100 )
 own_world = true
 world = SubResource( 5 )
 render_target_v_flip = true
@@ -94,41 +130,51 @@ gui_disable_input = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.73936, 0 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -150.0
-rect_min_size = Vector2( 0, 150 )
+margin_top = -200.0
+rect_min_size = Vector2( 0, 100 )
+custom_constants/margin_right = 100
+custom_constants/margin_top = 50
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 50
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer"]
-margin_right = 1024.0
+margin_left = 100.0
+margin_top = 50.0
+margin_right = 924.0
 margin_bottom = 150.0
-color = Color( 0.65098, 0.65098, 0.65098, 1 )
+rect_min_size = Vector2( 0, 100 )
+color = Color( 0.65098, 0.65098, 0.65098, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-margin_right = 1024.0
+margin_left = 100.0
+margin_top = 50.0
+margin_right = 924.0
 margin_bottom = 150.0
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-margin_bottom = 150.0
+modulate = Color( 1, 1, 1, 0 )
+margin_bottom = 100.0
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
 margin_left = 4.0
-margin_top = 55.0
+margin_top = 30.0
 margin_right = 208.0
-margin_bottom = 94.0
+margin_bottom = 69.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Overlord text goes here"
+percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -20,3 +20,4 @@ func on_dungeon_entered():
 	"""
 	Events.emit_signal("prop_category_selected", 0)
 	Events.emit_signal("prop_selected", null)
+	

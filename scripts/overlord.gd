@@ -29,10 +29,11 @@ var option_to_text_list = {
 }
 
 func say_something_about(dialogue_option):
-	if randi() % 4 != 0: #25% chance to say thing
-		return
+#	if randi() % 4 != 0: #25% chance to say thing
+#		return
 	if $AnimationPlayer.is_playing():
 		return
+
 	$AnimationPlayer.play("animate")
 	var text_list = option_to_text_list[dialogue_option]
 	var dialogue = text_list[randi() % text_list.size()]
