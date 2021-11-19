@@ -4,6 +4,7 @@ export(PackedScene) var projectile_scene: PackedScene
 
 const GRAVITY := -9.8
 const ATTACK_DISTANCE := 5.0
+const GROUP := "enemy"
 
 enum LifeState {
 	ALIVE,
@@ -28,7 +29,7 @@ onready var die_sound: AudioStreamPlayer = $PlaceSound
 var velocity := Vector3.ZERO
 
 func _enter_tree():
-	add_to_group("enemy")
+	add_to_group(GROUP)
 
 func _physics_process(delta: float):
 	anim_tree.set("parameters/move/blend_position", 0.0)
@@ -42,6 +43,7 @@ func _physics_process(delta: float):
 				var projectile: Spatial = projectile_scene.instance()
 				projectile.global_transform = projectile_point.global_transform
 				get_tree().current_scene.add_child(projectile)
+			anim_tree.set("parameters/move/blend_position", 0.0)
 		else:
 			# look and move toward player
 			global_transform.basis = global_transform.looking_at(pos, Vector3.UP).basis
@@ -61,3 +63,4 @@ func hurt(player_weapon):
 		die_sound.play()
 	anim_tree.set("parameters/life_state/current", LifeState.DEAD)
 	get_tree().create_timer(5.0).connect("timeout", self, "queue_free")
+	remove_from_group(GROUP)

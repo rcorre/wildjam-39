@@ -9,11 +9,21 @@ var interacted := {}
 
 func _physics_process(delta):
 	var pos := global_transform.origin
+
+	var enemy := nearest_visible("enemy")
+	if enemy:
+		var target := enemy.global_transform.origin
+		emit_signal("look_towards", target)
+		if pos.distance_to(target) > 1.0:
+			emit_signal("move_towards", pos.direction_to(target))
+		else:
+			emit_signal("move_towards", Vector3.ZERO)
+			emit_signal("attack")
+
 	var chest := nearest_visible("chest")
 	if chest:
 		var target := chest.global_transform.origin
 		emit_signal("look_towards", target)
-		print(pos, target)
 		if pos.distance_to(target) > 1.0:
 			emit_signal("move_towards", pos.direction_to(target))
 		else:
