@@ -1,5 +1,7 @@
 extends StaticBody
 
+onready var anim: AnimationPlayer = $AnimationPlayer
+
 export(global.Item) var item
 
 func _enter_tree():
@@ -18,3 +20,5 @@ func _on_interactable_interact(player_interactable):
 		var current_player_weapon = player_interactable.current_weapon
 		player_interactable.emit_signal("weapon_pick_up", item)
 		item = current_player_weapon
+
+	anim.play("Open")
