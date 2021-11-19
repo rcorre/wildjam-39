@@ -27,4 +27,5 @@ func _on_interactable_interact(player_interactable):
 		item = current_player_weapon
 		emit_signal("opened")
 
+	remove_from_group("chest")
 	anim.play("Open")

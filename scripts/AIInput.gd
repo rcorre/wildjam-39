@@ -10,9 +10,14 @@ onready var exit: Vector3 = get_tree().get_nodes_in_group("exit")[0].global_tran
 
 var interacted := {}
 var path: PoolVector3Array
+var ray := RayCast.new()
+
 var path_debug: ImmediateGeometry
 
 func _ready():
+	ray.transform.origin.y = 1.0
+	ray.add_exception(get_parent())
+	add_child(ray)
 	if OS.is_debug_build():
 		path_debug = ImmediateGeometry.new()
 		add_child(path_debug)
@@ -34,6 +39,7 @@ func _physics_process(delta: float):
 
 	var enemy := nearest_visible("enemy")
 	if enemy:
+		path.resize(0)
 		var target := enemy.global_transform.origin
 		emit_signal("look_towards", target)
 		if pos.distance_to(target) > 1.0:
@@ -45,6 +51,7 @@ func _physics_process(delta: float):
 
 	var chest := nearest_visible("chest")
 	if chest:
+		path.resize(0)
 		var target := chest.global_transform.origin
 		emit_signal("look_towards", target)
 		if pos.distance_to(target) > 1.0:
@@ -75,8 +82,12 @@ func nearest_visible(group: String) -> Spatial:
 		assert(s)
 		if s in interacted:
 			continue
-		var dist := pos.distance_to(s.global_transform.origin)
+		var target := s.global_transform.origin
+		var dist := pos.distance_to(target)
 		if dist < nearest_dist:
-			nearest_dist = dist
-			nearest = s
+			ray.cast_to = ray.to_local(target)
+			ray.force_raycast_update()
+			if ray.get_collider() == s:
+				nearest_dist = dist
+				nearest = s
 	return nearest
