@@ -35,6 +35,7 @@ health = 5
 [connection signal="look_towards" from="Player_input" to="Model" method="_on_Player_input_look_towards"]
 [connection signal="mobile_look_towards" from="Player_input" to="Model" method="_on_Player_input_mobile_look_towards"]
 [connection signal="move_towards" from="Player_input" to="." method="_on_Player_input_move_towards"]
+[connection signal="bomb_pick_up" from="interactable_detection" to="Health" method="_on_interactable_detection_bomb_pick_up"]
 [connection signal="food_pick_up" from="interactable_detection" to="Health" method="_on_interactable_detection_food_pick_up"]
 [connection signal="weapon_pick_up" from="interactable_detection" to="Model" method="_on_interactable_detection_weapon_pick_up"]
 [connection signal="updated_root_motion_direction" from="Model" to="." method="_on_Model_updated_root_motion_direction"]
