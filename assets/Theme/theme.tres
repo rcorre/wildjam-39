@@ -17,7 +17,7 @@ color = Color( 0.596078, 0.266667, 0.266667, 1 )
 thickness = 10
 
 [sub_resource type="DynamicFont" id=1]
-size = 24
+size = 26
 font_data = ExtResource( 1 )
 
 [resource]

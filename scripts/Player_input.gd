@@ -87,11 +87,11 @@ func _on_mobile_controls_toggled(button_pressed):
 	
 func disable_mobile():
 	remove_child(mobileMoveBtn)
-	remove_child(right_anchor)
+	$RightAnchor.remove_child(mobileLookBtn)
 
 func enable_mobile():
 	add_child(mobileMoveBtn)
-	add_child(right_anchor)
+	$RightAnchor.add_child(mobileLookBtn)
 
 func _on_attack_pressed():
 	emit_signal("attack")
@@ -103,6 +103,8 @@ func _on_interact_pressed():
 func _on_menu_pressed():
 	Events.emit_signal("pause_pressed")
 	get_tree().paused = !get_tree().paused
+	if !Settings.mobile_controls:
+		return
 	$TouchScreenMoveButton.visible = !$TouchScreenMoveButton.visible
 	$RightAnchor/TouchScreenLookButton.visible = !$RightAnchor/TouchScreenLookButton.visible
 	$RightAnchor/attack.visible = !$RightAnchor/attack.visible

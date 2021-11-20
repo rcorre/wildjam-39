@@ -22,6 +22,10 @@ enum Unit {
 	ENEMY,
 }
 
+enum Hero {
+	PLAYER,
+	AI,
+}
 enum overloard_dialogue {
 	INVALID_WEAPON,
 	CHEST_WEAPON,

@@ -10,11 +10,11 @@
 [sub_resource type="ConcavePolygonShape" id=7]
 data = PoolVector3Array( 10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10 )
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 100.0
-
 [sub_resource type="CircleShape2D" id=5]
 radius = 38.0
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 100.0
 
 [node name="Player_input" type="Camera"]
 transform = Transform( -1, -7.57103e-08, 4.37114e-08, 0, 0.5, 0.866025, -8.74228e-08, 0.866025, -0.5, 0, 7, -4 )
@@ -29,6 +29,11 @@ collision_mask = 0
 [node name="CollisionShape" type="CollisionShape" parent="look_at_plane"]
 shape = SubResource( 7 )
 
+[node name="menu" type="TouchScreenButton" parent="."]
+pause_mode = 2
+normal = ExtResource( 4 )
+shape = SubResource( 5 )
+
 [node name="RightAnchor" type="Node2D" parent="."]
 position = Vector2( 825, 400 )
 
@@ -36,19 +41,13 @@ position = Vector2( 825, 400 )
 normal = ExtResource( 1 )
 shape = SubResource( 4 )
 
-[node name="attack" type="TouchScreenButton" parent="RightAnchor"]
+[node name="attack" type="TouchScreenButton" parent="RightAnchor/TouchScreenLookButton"]
 position = Vector2( -84, 43 )
 normal = ExtResource( 5 )
 shape = SubResource( 5 )
 
-[node name="interact" type="TouchScreenButton" parent="RightAnchor"]
+[node name="interact" type="TouchScreenButton" parent="RightAnchor/TouchScreenLookButton"]
 position = Vector2( -32, -48 )
-normal = ExtResource( 4 )
-shape = SubResource( 5 )
-
-[node name="menu" type="TouchScreenButton" parent="RightAnchor"]
-pause_mode = 2
-position = Vector2( 123, -400 )
 normal = ExtResource( 4 )
 shape = SubResource( 5 )
 
@@ -58,8 +57,9 @@ normal = ExtResource( 1 )
 shape = SubResource( 4 )
 
 [node name="Debug" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 theme = ExtResource( 3 )
 script = ExtResource( 6 )
 __meta__ = {
@@ -67,23 +67,25 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Debug"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Debug/VBoxContainer"]
 margin_right = 128.0
-margin_bottom = 40.0
+margin_bottom = 47.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Debug/VBoxContainer/HBoxContainer"]
-margin_top = 4.0
+margin_top = 7.0
 margin_right = 48.0
-margin_bottom = 36.0
+margin_bottom = 39.0
 text = "Mobile"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -92,15 +94,15 @@ __meta__ = {
 [node name="mobile_controls" type="CheckButton" parent="Debug/VBoxContainer/HBoxContainer"]
 margin_left = 52.0
 margin_right = 128.0
-margin_bottom = 40.0
+margin_bottom = 47.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Debug" type="VBoxContainer" parent="Debug/VBoxContainer"]
-margin_top = 44.0
+margin_top = 51.0
 margin_right = 128.0
-margin_bottom = 220.0
+margin_bottom = 227.0
 
 [node name="Platform" type="Label" parent="Debug/VBoxContainer/Debug"]
 margin_right = 128.0
@@ -126,7 +128,7 @@ margin_top = 144.0
 margin_right = 128.0
 margin_bottom = 176.0
 
-[connection signal="pressed" from="RightAnchor/attack" to="." method="_on_attack_pressed"]
-[connection signal="pressed" from="RightAnchor/interact" to="." method="_on_interact_pressed"]
-[connection signal="pressed" from="RightAnchor/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="RightAnchor/TouchScreenLookButton/attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="RightAnchor/TouchScreenLookButton/interact" to="." method="_on_interact_pressed"]
 [connection signal="toggled" from="Debug/VBoxContainer/HBoxContainer/mobile_controls" to="." method="_on_mobile_controls_toggled"]

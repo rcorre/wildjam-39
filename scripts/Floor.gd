@@ -12,7 +12,7 @@ func _on_prop_selected(scene: PackedScene):
 		selected_prop = null
 	if scene:
 		selected_prop = scene.instance()
-		get_tree().current_scene.add_child(selected_prop)
+		add_child(selected_prop)
 
 func _on_input_event(_camera: Node, event: InputEvent, position: Vector3, _normal: Vector3, _shape_idx: int):
 	if not selected_prop:

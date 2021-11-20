@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scripts/PropButton.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LeagueGothic-Regular.otf" type="DynamicFontData" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://props/Chest_wand.tscn" type="PackedScene" id=22]
 [ext_resource path="res://props/Chest_food.tscn" type="PackedScene" id=23]
 [ext_resource path="res://props/Chest_bomb.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/icons/look-at.png" type="Texture" id=25]
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
@@ -61,6 +62,9 @@ shortcut = SubResource( 6 )
 shortcut = SubResource( 6 )
 
 [sub_resource type="ButtonGroup" id=5]
+
+[sub_resource type="CircleShape2D" id=15]
+radius = 38.0
 
 [node name="DungeonMasterHUD" type="Camera"]
 transform = Transform( 0.711439, -0.446036, 0.543053, 0, 0.772757, 0.634702, -0.702748, -0.451552, 0.549769, 10.1235, 11.832, 10.2487 )
@@ -305,3 +309,8 @@ text = "3"
 icon = ExtResource( 5 )
 script = ExtResource( 4 )
 prop_category = 3
+
+[node name="menu" type="TouchScreenButton" parent="HUD"]
+pause_mode = 2
+normal = ExtResource( 25 )
+shape = SubResource( 15 )

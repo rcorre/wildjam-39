@@ -3,9 +3,6 @@ extends Node
 # ------ Mobile
 var mobile_controls = true
 
-# Game Mode
-var is_sandbox = true
-
 func _ready():
 	if OS.get_real_window_size().x >= ProjectSettings.get_setting("display/window/size/width"):
 		mobile_controls = false
