@@ -24,7 +24,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.240292, 0 )
 shape = SubResource( 1 )
 
 [node name="Lid" parent="." index="3"]
-transform = Transform( 1, 0, 0, 0, -0.0160025, 0.999872, 0, -0.999872, -0.0160025, -8.12791e-09, 0.274674, -0.215563 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.12791e-09, 0.274674, -0.215563 )
 
 [node name="sfx" type="AudioStreamPlayer" parent="." index="5"]
 stream = ExtResource( 6 )
