@@ -5,6 +5,7 @@ export(PackedScene) var projectile_scene: PackedScene
 const GRAVITY := -9.8
 const ATTACK_DISTANCE := 5.0
 const GROUP := "enemy"
+const TURN_RATE := 5.0
 
 enum LifeState {
 	ALIVE,
@@ -41,7 +42,8 @@ func _physics_process(delta: float):
 		var pos: Vector3 = b.global_transform.origin
 		# move toward player
 		# looking_at points us in the opposite direction
-		rotation.y = global_transform.looking_at(pos, Vector3.UP).basis.get_euler().y + PI
+		var look_y := global_transform.looking_at(pos, Vector3.UP).basis.get_euler().y + PI
+		rotation.y = lerp_angle(rotation.y, look_y, TURN_RATE * delta)
 		if global_transform.origin.distance_to(pos) < ATTACK_DISTANCE:
 			# in range to attack
 			if projectile_scene and not anim_tree.get("parameters/attack/active"):
