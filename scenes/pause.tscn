@@ -58,6 +58,8 @@ theme = ExtResource( 3 )
 text = "Main menu"
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+bus = "SFX"
 
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/quit" to="." method="_on_btn_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
