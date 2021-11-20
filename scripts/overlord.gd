@@ -29,8 +29,8 @@ var option_to_text_list = {
 }
 
 func say_something_about(dialogue_option):
-#	if randi() % 4 != 0: #25% chance to say thing
-#		return
+	if randi() % 4 != 0: #25% chance to say thing
+		return
 	if $AnimationPlayer.is_playing():
 		return
 
@@ -44,6 +44,6 @@ func say_something_about(dialogue_option):
 	#Prevent multiple returned yields from restarting animation.
 	if $AnimationPlayer.is_playing():
 		return
-	if $MarginContainer.modulate.a == 0:
+	if $MarginContainer/ColorRect.modulate.a == 0:
 		return
 	$AnimationPlayer.play_backwards("animate")

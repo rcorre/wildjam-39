@@ -165,6 +165,7 @@ modulate = Color( 1, 1, 1, 0 )
 margin_bottom = 100.0
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 4.0
 margin_top = 30.0
 margin_right = 208.0
