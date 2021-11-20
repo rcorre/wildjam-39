@@ -1,5 +1,6 @@
 extends Control
 
+const RANDOM_INTERVAL := 10.0
 const VOICE_PATH := "res://audio/sfx/voice/"
 
 const OPTION_TO_VOICE = {
@@ -12,7 +13,7 @@ const OPTION_TO_VOICE = {
 	global.overloard_dialogue.RANDOM :[
 		["Mirror, mirror, on the wall, who's <shatters> ... I thought so", preload("res://audio/sfx/voice/Mirror_Mirror_1.wav")],
 		["A hero? Here? Already? Who shows up early to a raid?", preload("res://audio/sfx/voice/Hero_Raid_2.wav")],
-		["Another hero? Give them a fetch quest or something", preload("res://audio/sfx/voice/Hero_Raid_2.wav")],
+		["Another hero? Give them a fetch quest or something", preload("res://audio/sfx/voice/Another_Hero_2.wav")],
 		["What was I thinking, hiring a dungeon designer on Fiverr?", preload("res://audio/sfx/voice/Fiverr_2.wav")],
 		["Bah, I'd do this myself if I weren't so busy doing ... uh ... evil things", preload("res://audio/sfx/voice/Evil_Things_1.wav")],
 	],
@@ -48,10 +49,17 @@ var already_said := {} # global.overlord_dialogue -> bool
 func _ready():
 	var texture = $Viewport.get_texture()
 	$MarginContainer/HBoxContainer/TextureRect.texture = texture
+	var timer := Timer.new()
+	add_child(timer)
+	timer.connect("timeout", self, "say_something_about", [global.overloard_dialogue.RANDOM])
+	timer.start(RANDOM_INTERVAL)
 
 func say_something_about(dialogue_option: int, chance: float = 0.25):
 	if randf() > chance:
+		print("Random voice roll success")
 		speak(dialogue_option)
+	else:
+		print("Random voice skip")
 
 func say_once(opt: int):
 	if not opt in already_said:
@@ -59,7 +67,7 @@ func say_once(opt: int):
 		speak(opt)
 
 func speak(dialogue_option: int):
-	if $AnimationPlayer.is_playing():
+	if $AnimationPlayer.is_playing() or voice.playing:
 		return
 
 	$AnimationPlayer.play("animate")
