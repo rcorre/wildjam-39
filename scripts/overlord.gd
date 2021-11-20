@@ -80,7 +80,7 @@ func speak(dialogue_option: int):
 	if stream:
 		voice.stream = stream
 		voice.play()
-	yield(get_tree().create_timer(3), "timeout")
+	yield(get_tree().create_timer(5), "timeout")
 
 	#Prevent multiple returned yields from restarting animation.
 	if $AnimationPlayer.is_playing():
