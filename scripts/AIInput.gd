@@ -40,9 +40,9 @@ func _process(delta: float):
 	path_debug.end()
 
 func _physics_process(delta: float):
-	#if pause_duration > 0.0:
-	#	pause_duration -= delta
-	#	return
+	if pause_duration > 0.0:
+		pause_duration -= delta
+		return
 
 	var pos := global_transform.origin
 
@@ -113,7 +113,9 @@ func follow_path():
 		emit_signal("move_towards", pos.direction_to(target))
 	else:
 		path.remove(0)
-		pause_duration = 0.5
+		if path and pos.distance_to(path[0]) > 5.0:
+			pause_duration = 0.5
+		emit_signal("move_towards", Vector3.ZERO)
 
 func nearest_visible(group: String) -> Spatial:
 	var nearest: Spatial = null
