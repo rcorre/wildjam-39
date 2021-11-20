@@ -39,9 +39,9 @@ func _physics_process(delta: float):
 		return
 	for b in aggro_area.get_overlapping_bodies():
 		var pos: Vector3 = b.global_transform.origin
-		#move toward player
-		global_transform.basis = global_transform.looking_at(pos, Vector3.UP).basis
-		rotate_y(PI) # looking_at points us in the opposite direction
+		# move toward player
+		# looking_at points us in the opposite direction
+		rotation.y = global_transform.looking_at(pos, Vector3.UP).basis.get_euler().y + PI
 		if global_transform.origin.distance_to(pos) < ATTACK_DISTANCE:
 			# in range to attack
 			if projectile_scene and not anim_tree.get("parameters/attack/active"):
@@ -55,6 +55,7 @@ func _physics_process(delta: float):
 	
 	var root_motion_origin := anim_tree.get_root_motion_transform().origin
 	velocity = global_transform.basis.xform(root_motion_origin) / delta
+	velocity.y = GRAVITY
 	velocity = move_and_slide(velocity)
 
 func hurt(player_weapon):
