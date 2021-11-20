@@ -1,4 +1,4 @@
-# Title Here
+# Dungineer
 
 Entry for [Godot Wild Jam 39](https://itch.io/jam/godot-wild-jam-39).
 
@@ -23,3 +23,6 @@ All other models were made during the jam.
 - https://game-icons.net/1x1/lorc/pocket-bow.html
 - https://game-icons.net/1x1/delapouite/flanged-mace.html
 - https://game-icons.net/1x1/skoll/hearts.html
+
+## Sounds from FreeSound.net
+- https://freesound.org/people/spookymodem/sounds/202093/
