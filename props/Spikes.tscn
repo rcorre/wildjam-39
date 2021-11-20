@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/models/Spikes.glb" type="PackedScene" id=1]
 [ext_resource path="res://props/TrapArea.gd" type="Script" id=2]
 [ext_resource path="res://props/PlayOnDungeonEnter.gd" type="Script" id=3]
 [ext_resource path="res://audio/sfx/dungeon_setup/trap_set.wav" type="AudioStream" id=4]
 [ext_resource path="res://props/PlaceSound.gd" type="Script" id=5]
+[ext_resource path="res://audio/sfx/weapons/spike_trigger.wav" type="AudioStream" id=6]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.4, 0.3, 0.4 )
@@ -80,6 +81,10 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
 shape = SubResource( 1 )
 
+[node name="TripSound" type="AudioStreamPlayer" parent="TrapArea" index="1"]
+stream = ExtResource( 6 )
+bus = "SFX"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 anims/RESET = SubResource( 2 )
 anims/fire = SubResource( 3 )
@@ -92,3 +97,4 @@ bus = "SFX"
 script = ExtResource( 5 )
 
 [connection signal="tripped" from="TrapArea" to="AnimationPlayer" method="play" binds= [ "fire" ]]
+[connection signal="tripped" from="TrapArea" to="TrapArea/TripSound" method="play"]

@@ -29,6 +29,7 @@ onready var projectile_point: Spatial = $SpitPoint
 
 # for now, just reuse the placement sound as the death sound
 onready var die_sound: AudioStreamPlayer = $sfx
+onready var ineffective_sound := AudioStreamPlayer.new()
 
 var velocity := Vector3.ZERO
 
@@ -38,6 +39,9 @@ func _enter_tree():
 func _ready():
 	# don't block the mouse during placement
 	input_ray_pickable = false
+	ineffective_sound.stream = preload("res://audio/sfx/weapons/ineffective_attack.wav")
+	ineffective_sound.bus = "SFX"
+	add_child(ineffective_sound)
 
 func _physics_process(delta: float):
 	anim_tree.set("parameters/move/blend_position", 0.0)
@@ -69,6 +73,7 @@ func _physics_process(delta: float):
 func hurt(player_weapon):
 	if !(player_weapon in damage_table[enemy_type]):
 		Overlord.say_something_about(global.overloard_dialogue.INVALID_WEAPON)
+		ineffective_sound.play()
 		print(global.Item.keys()[player_weapon], " can't hit this unit, need", damage_table[enemy_type])
 		return
 		
