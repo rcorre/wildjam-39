@@ -4,41 +4,37 @@ onready var dungeonMaster = $DungeonMasterHUD
 onready var player = preload("res://scenes/player.tscn").instance()
 onready var ai = preload("res://scenes/Hero.tscn").instance()
 var main_menu = load("res://scenes/main_menu.tscn").instance()
-var current_hero = global.Hero.PLAYER
 var map_dup
 
-func _ready():
-	Events.connect("hero_died", self, "on_hero_died")
-	
-func on_hero_died():
-	if current_hero == global.Hero.AI:
+func on_hero_died(hero):
+	if hero == ai:
 		start_player_run()
-	if current_hero == global.Hero.PLAYER:
+	if hero == player:
 		on_player_death()
 
 func start_AI_run():
-	print("A")
-	current_hero = global.Hero.AI
 	remove_child(dungeonMaster)
 	add_child(ai)
+	Events.connect("hero_died", self, "on_hero_died", [ai])
 	Events.emit_signal("dungeon_entered")
 	map_dup = $map.duplicate()
 	#TODO: overlord comment
 
 func start_player_run():
-	print("B")
 	remove_child(ai)
+	Events.disconnect("hero_died", self, "on_hero_died")
 	add_child(player)
+	Events.connect("hero_died", self, "on_hero_died", [player])
 	$map.queue_free()
 	add_child(map_dup)
 	Events.emit_signal("dungeon_entered")
-	current_hero = global.Hero.PLAYER
 	#TODO: overlord comment
 
 func on_player_death():
 	print("Game over....")
-#	_on_pause_quit() #Use some other scene.
 	#TODO: overlord comment
+	#yield some time
+	_on_pause_quit() #Use some other scene.
 
 func _on_player_controler_toggled(player_control):
 	if player_control:
@@ -67,5 +63,13 @@ func _on_pause_quit():
 	queue_free()
 
 func _on_ready_pressed():
-	$ready.hide()
+	#TODO: Overlord comment
+	$ready.queue_free()
 	start_AI_run()
+
+
+func _on_menu_pressed():
+	Events.emit_signal("pause_pressed")
+	get_tree().paused = !get_tree().paused
+	if get_node("ready"):
+		$ready.visible = !$ready.visible

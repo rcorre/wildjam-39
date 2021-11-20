@@ -12,7 +12,6 @@ func _ready():
 
 func _on_prop_category_selected(cat: int):
 	disabled = cat != 0
-	Events.can_pause = !disabled
 
 func on_dungeon_entered():
 	"""
