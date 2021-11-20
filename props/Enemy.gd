@@ -82,6 +82,8 @@ func hurt(player_weapon):
 	get_tree().create_timer(5.0).connect("timeout", self, "queue_free")
 	remove_from_group(GROUP)
 	emit_signal("died")
+	collision_layer = 0
+	collision_mask = 0
 
 func vulnerable_to() -> Array:
 	return damage_table[enemy_type]
