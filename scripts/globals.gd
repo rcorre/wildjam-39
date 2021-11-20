@@ -37,4 +37,7 @@ enum overloard_dialogue {
 	PLACE_TRAP,
 	PLACE_WEAPON,
 	PLACE_FOOD,
+	PLACE_SKELETON,
+	PLACE_SLIME,
+	PLACE_SPIDER,
 }

@@ -92,3 +92,12 @@ func hurt(player_weapon):
 
 func vulnerable_to() -> Array:
 	return damage_table[enemy_type]
+
+func _on_placed():
+	match enemy_type:
+		global.Enemy_type.SPIDER:
+			Overlord.say_once(global.overloard_dialogue.PLACE_SPIDER)
+		global.Enemy_type.SLIME:
+			Overlord.say_once(global.overloard_dialogue.PLACE_SLIME)
+		global.Enemy_type.SKELETON:
+			Overlord.say_once(global.overloard_dialogue.PLACE_SKELETON)

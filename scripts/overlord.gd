@@ -30,7 +30,16 @@ const OPTION_TO_VOICE = {
 	],
 	global.overloard_dialogue.PLACE_TRAP :[
 		["Hope you remember where you put that...", preload("res://audio/sfx/voice/RememberTrap.wav")],
-	]
+	],
+	global.overloard_dialogue.PLACE_SKELETON: [
+		["A skeleton? They'll shatter it with a single blow from a mace", preload("res://audio/sfx/voice/Skeleton_2.wav")],
+	],
+	global.overloard_dialogue.PLACE_SLIME: [
+		["If a mage comes through, that slime is no more dangerous than a jar of jam!", preload("res://audio/sfx/voice/Jar_of_Jam_2.wav")],
+	],
+	global.overloard_dialogue.PLACE_SPIDER: [
+		["You think those spider will stand up to a skilled archer?", preload("res://audio/sfx/voice/Spiders_2.wav")],
+	],
 }
 
 onready var voice: AudioStreamPlayer = $Voice
