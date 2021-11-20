@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Sound_menu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Theme/theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/fonts/LeagueGothic-Regular.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 84
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
 
 [node name="main_menu" type="Control"]
 pause_mode = 2
@@ -40,14 +48,15 @@ margin_bottom = 570.0
 
 [node name="title" type="Label" parent="MarginContainer/VBoxContainer2"]
 margin_right = 724.0
-margin_bottom = 164.0
+margin_bottom = 147.0
 size_flags_vertical = 3
-text = "Title"
+theme = SubResource( 2 )
+text = "Dungineer"
 align = 1
 valign = 1
 
 [node name="menu" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
-margin_top = 168.0
+margin_top = 151.0
 margin_right = 724.0
 margin_bottom = 540.0
 size_flags_vertical = 3
@@ -59,28 +68,28 @@ __meta__ = {
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer2/menu"]
 margin_right = 724.0
-margin_bottom = 38.0
+margin_bottom = 45.0
 theme = ExtResource( 3 )
 text = "Play"
 
 [node name="Sandbox" type="Button" parent="MarginContainer/VBoxContainer2/menu"]
-margin_top = 68.0
+margin_top = 75.0
 margin_right = 724.0
-margin_bottom = 106.0
+margin_bottom = 120.0
 theme = ExtResource( 3 )
 text = "Sandbox mode"
 
 [node name="Sound_menu" parent="MarginContainer/VBoxContainer2/menu" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 136.0
+margin_top = 150.0
 margin_right = 724.0
-margin_bottom = 304.0
+margin_bottom = 314.0
 
 [node name="quit" type="Button" parent="MarginContainer/VBoxContainer2/menu"]
-margin_top = 334.0
+margin_top = 344.0
 margin_right = 724.0
-margin_bottom = 372.0
+margin_bottom = 389.0
 theme = ExtResource( 3 )
 text = "Quit Game"
 
