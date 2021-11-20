@@ -17,6 +17,7 @@ func on_hero_died():
 		on_player_death()
 
 func start_AI_run():
+	print("A")
 	current_hero = global.Hero.AI
 	remove_child(dungeonMaster)
 	add_child(ai)
@@ -25,16 +26,18 @@ func start_AI_run():
 	#TODO: overlord comment
 
 func start_player_run():
-	current_hero = global.Hero.PLAYER
+	print("B")
 	remove_child(ai)
 	add_child(player)
 	$map.queue_free()
 	add_child(map_dup)
 	Events.emit_signal("dungeon_entered")
+	current_hero = global.Hero.PLAYER
 	#TODO: overlord comment
 
 func on_player_death():
 	print("Game over....")
+#	_on_pause_quit() #Use some other scene.
 	#TODO: overlord comment
 
 func _on_player_controler_toggled(player_control):
