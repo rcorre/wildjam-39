@@ -3,19 +3,18 @@ extends Control
 const VOICE_PATH := "res://audio/sfx/voice/"
 
 const OPTION_TO_VOICE = {
-	global.overloard_dialogue.CHEST_WEAPON :[
-		["...", null],
-	],
 	global.overloard_dialogue.CHEST_FOOD :[
-		["Did that just heal you?", null],
-		["Back in my day heros didn't need food", null],
+		["In my day, heros didn't need food", preload("res://audio/sfx/voice/Food_2.wav")],
 	],
 	global.overloard_dialogue.INVALID_WEAPON :[
 		["You fool! It won't work!", preload("res://audio/sfx/voice/WontWork.wav")],
 	],
 	global.overloard_dialogue.RANDOM :[
-		["Complaining about what the player does", null],
-		["You're not very good at this game", null],
+		["Mirror, mirror, on the wall, who's <shatters> ... I thought so", preload("res://audio/sfx/voice/Mirror_Mirror_1.wav")],
+		["A hero? Here? Already? Who shows up early to a raid?", preload("res://audio/sfx/voice/Hero_Raid_2.wav")],
+		["Another hero? Give them a fetch quest or something", preload("res://audio/sfx/voice/Hero_Raid_2.wav")],
+		["What was I thinking, hiring a dungeon designer on Fiverr?", preload("res://audio/sfx/voice/Fiverr_2.wav")],
+		["Bah, I'd do this myself if I weren't so busy doing ... uh ... evil things", preload("res://audio/sfx/voice/Evil_Things_1.wav")],
 	],
 	global.overloard_dialogue.TRAP :[
 		["You forgot you placed that?", null],

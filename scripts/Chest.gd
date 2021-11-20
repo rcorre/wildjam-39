@@ -32,7 +32,6 @@ func _on_interactable_interact(player_interactable):
 		emit_signal("opened")
 	else:
 		var current_player_weapon = player_interactable.current_weapon
-		Overlord.say_something_about(global.overloard_dialogue.CHEST_WEAPON)
 		player_interactable.emit_signal("weapon_pick_up", item)
 		item = current_player_weapon
 		emit_signal("opened")
