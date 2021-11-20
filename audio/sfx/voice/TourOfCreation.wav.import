@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/TourOfCreation.wav-53c4908fa895e3073d1a3c160576b8d0.sample"
+
+[deps]
+
+source_file="res://audio/sfx/voice/TourOfCreation.wav"
+dest_files=[ "res://.import/TourOfCreation.wav-53c4908fa895e3073d1a3c160576b8d0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

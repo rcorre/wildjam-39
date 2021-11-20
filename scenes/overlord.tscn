@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/overlord.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LeagueGothic-Regular.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/Overlord_model.tscn" type="PackedScene" id=3]
+[ext_resource path="res://audio/sfx/voice/TourOfCreation.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -179,3 +180,7 @@ percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Voice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Overlord"

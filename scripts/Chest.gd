@@ -9,6 +9,15 @@ export(global.Item) var item
 func _enter_tree():
 	add_to_group("chest")
 
+func _ready():
+	match item:
+		global.Item.FOOD:
+			Overlord.say_once(global.overloard_dialogue.PLACE_FOOD)
+		global.Item.BOMB:
+			Overlord.say_once(global.overloard_dialogue.PLACE_TRAP)
+		_:
+			Overlord.say_once(global.overloard_dialogue.PLACE_WEAPON)
+
 func _on_interactable_interact(player_interactable):
 	print("Player was given a ", global.Item.keys()[item])
 	if item == global.Item.FOOD:

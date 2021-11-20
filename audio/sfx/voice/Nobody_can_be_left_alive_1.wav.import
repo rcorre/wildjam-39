@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Nobody_can_be_left_alive_1.wav-1c251bad93cc8025bd5bdc1a34f5d2f5.sample"
+
+[deps]
+
+source_file="res://audio/sfx/voice/Nobody_can_be_left_alive_1.wav"
+dest_files=[ "res://.import/Nobody_can_be_left_alive_1.wav-1c251bad93cc8025bd5bdc1a34f5d2f5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/WontWork.wav-41df368eee01fd3cfbc48bf8fce1c1a0.sample"
+
+[deps]
+
+source_file="res://audio/sfx/voice/WontWork.wav"
+dest_files=[ "res://.import/WontWork.wav-41df368eee01fd3cfbc48bf8fce1c1a0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

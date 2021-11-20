@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/DinnerParty.wav-a8ba0a4e074639d95bed9b163ec37818.sample"
+
+[deps]
+
+source_file="res://audio/sfx/voice/DinnerParty.wav"
+dest_files=[ "res://.import/DinnerParty.wav-a8ba0a4e074639d95bed9b163ec37818.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

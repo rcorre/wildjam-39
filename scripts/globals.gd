@@ -30,4 +30,7 @@ enum overloard_dialogue {
 	HERO_DEATH,
 	TUTORIAL,
 	RANDOM,
+	PLACE_TRAP,
+	PLACE_WEAPON,
+	PLACE_FOOD,
 }
