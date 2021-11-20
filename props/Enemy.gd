@@ -7,6 +7,8 @@ const ATTACK_DISTANCE := 5.0
 const GROUP := "enemy"
 const TURN_RATE := 5.0
 
+signal died
+
 enum LifeState {
 	ALIVE,
 	DEAD,
@@ -75,3 +77,7 @@ func hurt(player_weapon):
 	anim_tree.set("parameters/life_state/current", LifeState.DEAD)
 	get_tree().create_timer(5.0).connect("timeout", self, "queue_free")
 	remove_from_group(GROUP)
+	emit_signal("died")
+
+func vulnerable_to() -> Array:
+	return damage_table[enemy_type]
