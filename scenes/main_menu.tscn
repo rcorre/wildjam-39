@@ -85,6 +85,8 @@ theme = ExtResource( 3 )
 text = "Quit Game"
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+bus = "SFX"
 
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer2/menu/Play" to="." method="_on_btn_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/menu/Play" to="." method="_on_Play_pressed"]

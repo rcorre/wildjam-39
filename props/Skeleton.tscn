@@ -99,4 +99,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.840039, 0.560004 )
 
 [node name="sfx" type="AudioStreamPlayer" parent="." index="7"]
 stream = ExtResource( 4 )
+bus = "SFX"
 script = ExtResource( 5 )

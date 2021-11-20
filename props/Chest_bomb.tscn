@@ -105,6 +105,7 @@ anims/RESET = SubResource( 5 )
 
 [node name="sfx" type="AudioStreamPlayer" parent="." index="6"]
 stream = ExtResource( 6 )
+bus = "SFX"
 script = ExtResource( 5 )
 
 [connection signal="opened" from="." to="MeshInstance/AnimationPlayer" method="play" binds= [ "Explode" ]]

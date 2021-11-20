@@ -1,26 +1,27 @@
 extends Node
 
-signal volume_updated
-
-# ------ Music 
-var background_volume = -20
-var sfx_volume = -20
-
 # ------ Mobile
 var mobile_controls = true
 
 # Game Mode
 var is_sandbox = true
 
-
 func _ready():
 	if OS.get_real_window_size().x >= ProjectSettings.get_setting("display/window/size/width"):
 		mobile_controls = false
 
-func set_background_volume(value):
-	background_volume = value
-	emit_signal("volume_updated")
+func get_background_volume() -> float:
+	var bus := AudioServer.get_bus_index("Music")
+	return AudioServer.get_bus_volume_db(bus)
+
+func set_background_volume(value: float):
+	var bus := AudioServer.get_bus_index("Music")
+	AudioServer.set_bus_volume_db(bus, value)
+
+func get_sfx_volume() -> float:
+	var bus := AudioServer.get_bus_index("SFX")
+	return AudioServer.get_bus_volume_db(bus)
 	
-func set_sfx_volume(value):
-	sfx_volume = value
-	emit_signal("volume_updated")
+func set_sfx_volume(value: float):
+	var bus := AudioServer.get_bus_index("SFX")
+	AudioServer.set_bus_volume_db(bus, value)

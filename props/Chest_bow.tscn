@@ -28,6 +28,7 @@ transform = Transform( 1, 0, 0, 0, -0.0160025, 0.999872, 0, -0.999872, -0.016002
 
 [node name="sfx" type="AudioStreamPlayer" parent="." index="5"]
 stream = ExtResource( 6 )
+bus = "SFX"
 script = ExtResource( 5 )
 
 [connection signal="interact" from="interactable" to="." method="_on_interactable_interact"]

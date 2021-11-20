@@ -88,6 +88,7 @@ script = ExtResource( 3 )
 
 [node name="PlaceSound" type="AudioStreamPlayer" parent="." index="3"]
 stream = ExtResource( 4 )
+bus = "SFX"
 script = ExtResource( 5 )
 
 [connection signal="tripped" from="TrapArea" to="AnimationPlayer" method="play" binds= [ "fire" ]]
