@@ -8,6 +8,7 @@ signal attack()
 onready var nav: Navigation = get_tree().get_nodes_in_group("nav")[0]
 onready var exit: Vector3 = get_tree().get_nodes_in_group("exit")[0].global_transform.origin
 
+var pause_duration := 1.0
 var interacted := {}
 var path: PoolVector3Array
 var ray := RayCast.new()
@@ -35,6 +36,10 @@ func _process(delta: float):
 	path_debug.end()
 
 func _physics_process(delta: float):
+	if pause_duration > 0.0:
+		pause_duration -= delta
+		return
+
 	var pos := global_transform.origin
 
 	var enemy := nearest_visible("enemy")
@@ -47,6 +52,7 @@ func _physics_process(delta: float):
 		else:
 			emit_signal("move_towards", Vector3.ZERO)
 			emit_signal("attack")
+			pause_duration = 0.5
 		return
 
 	var chest := nearest_visible("chest")
@@ -60,11 +66,13 @@ func _physics_process(delta: float):
 			emit_signal("move_towards", Vector3.ZERO)
 			Input.action_press("interact")
 			interacted[chest] = true
+			pause_duration = 1.0
 		return
 
 	if not path:
 		print("Pathfinding update")
 		path = nav.get_simple_path(pos, exit)
+		pause_duration = 1.0
 
 	var target := path[0]
 	emit_signal("look_towards", target)
@@ -72,6 +80,7 @@ func _physics_process(delta: float):
 		emit_signal("move_towards", pos.direction_to(target))
 	else:
 		path.remove(0)
+		pause_duration = 0.5
 
 func nearest_visible(group: String) -> Spatial:
 	var nearest: Spatial = null
