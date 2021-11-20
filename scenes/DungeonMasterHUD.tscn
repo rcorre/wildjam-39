@@ -79,12 +79,15 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -156.0
+alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TabContainer" type="TabContainer" parent="HUD/VBoxContainer"]
+margin_top = 12.0
 margin_right = 1024.0
+margin_bottom = 82.0
 custom_styles/panel = SubResource( 10 )
 tabs_visible = false
 script = ExtResource( 19 )
@@ -92,6 +95,7 @@ script = ExtResource( 19 )
 [node name="Control" type="Control" parent="HUD/VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 70 )
 
 [node name="Treasure" type="HBoxContainer" parent="HUD/VBoxContainer/TabContainer"]
 visible = false
@@ -253,9 +257,9 @@ script = ExtResource( 1 )
 prop_scene = ExtResource( 15 )
 
 [node name="PropCategoryButtons" type="HBoxContainer" parent="HUD/VBoxContainer"]
-margin_top = 4.0
+margin_top = 86.0
 margin_right = 1024.0
-margin_bottom = 74.0
+margin_bottom = 156.0
 custom_constants/separation = 16
 alignment = 1
 script = ExtResource( 18 )
