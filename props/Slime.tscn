@@ -55,13 +55,14 @@ nodes/move/position = Vector2( -61.6667, 121 )
 nodes/move_speed/node = SubResource( 6 )
 nodes/move_speed/position = Vector2( 188.333, 132.333 )
 nodes/output/position = Vector2( 800, 160 )
-node_connections = [ "output", 0, "life_state", "life_state", 0, "attack", "life_state", 1, "die", "move_speed", 0, "move", "attack", 0, "move_speed", "attack", 1, "Animation" ]
+node_connections = [ "output", 0, "life_state", "life_state", 0, "attack", "life_state", 1, "die", "attack", 0, "move_speed", "attack", 1, "Animation", "move_speed", 0, "move" ]
 
 [sub_resource type="SphereShape" id=9]
 radius = 10.0
 
 [node name="Slime" groups=["prop"] instance=ExtResource( 1 )]
 collision_layer = 9
+input_ray_pickable = false
 script = ExtResource( 2 )
 projectile_scene = ExtResource( 3 )
 enemy_type = 1

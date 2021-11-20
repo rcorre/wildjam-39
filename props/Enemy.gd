@@ -35,6 +35,10 @@ var velocity := Vector3.ZERO
 func _enter_tree():
 	add_to_group(GROUP)
 
+func _ready():
+	# don't block the mouse during placement
+	input_ray_pickable = false
+
 func _physics_process(delta: float):
 	anim_tree.set("parameters/move/blend_position", 0.0)
 	# should be at most 1 overlapping body
