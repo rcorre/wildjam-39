@@ -1,6 +1,6 @@
 extends Control
 
-const RANDOM_INTERVAL := 1.0
+const RANDOM_INTERVAL := 20.0
 const VOICE_PATH := "res://audio/sfx/voice/"
 
 const OPTION_TO_VOICE = {
@@ -14,8 +14,6 @@ const OPTION_TO_VOICE = {
 		["Mirror, mirror, on the wall, who's <shatters> ... I thought so", preload("res://audio/sfx/voice/Mirror_Mirror_1.wav")],
 		["A hero? Here? Already? Who shows up early to a raid?", preload("res://audio/sfx/voice/Hero_Raid_2.wav")],
 		["Another hero? Give them a fetch quest or something", preload("res://audio/sfx/voice/Another_Hero_2.wav")],
-		["What was I thinking, hiring a dungeon designer on Fiverr?", preload("res://audio/sfx/voice/Fiverr_2.wav")],
-		["Bah, I'd do this myself if I weren't so busy doing ... uh ... evil things", preload("res://audio/sfx/voice/Evil_Things_1.wav")],
 	],
 	global.overloard_dialogue.TRAP :[
 		["You forgot you placed that?", null],
@@ -40,6 +38,10 @@ const OPTION_TO_VOICE = {
 	global.overloard_dialogue.PLACE_SPIDER: [
 		["You think those spider will stand up to a skilled archer?", preload("res://audio/sfx/voice/Spiders_2.wav")],
 	],
+	global.overloard_dialogue.FAILURE: [
+		["What was I thinking, hiring a dungeon designer on Fiverr?", preload("res://audio/sfx/voice/Fiverr_2.wav")],
+		["Bah, I'd do this myself if I weren't so busy doing ... uh ... evil things", preload("res://audio/sfx/voice/Evil_Things_1.wav")],
+	]
 }
 
 onready var voice: AudioStreamPlayer = $Voice

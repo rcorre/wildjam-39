@@ -40,4 +40,5 @@ enum overloard_dialogue {
 	PLACE_SKELETON,
 	PLACE_SLIME,
 	PLACE_SPIDER,
+	FAILURE,
 }

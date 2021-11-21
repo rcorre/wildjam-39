@@ -22,12 +22,12 @@ func on_hero_died(hero):
 
 func on_hero_finished(hero):
 	if hero == ai:
-		pass
-		# TODO
+		Overlord.say_once(global.overloard_dialogue.FAILURE)
+		get_tree().create_timer(6.0).connect("timeout", get_tree(), "change_scene", ["res://scenes/main_menu.tscn"])
 	if hero == player:
 		#TODO: overlord comment
 		on_player_death()
-	
+
 func start_AI_run():
 	print("start AI run")
 	remove_child(dungeonMaster)
