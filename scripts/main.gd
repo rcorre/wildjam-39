@@ -91,10 +91,7 @@ func _on_menu_pressed():
 
 func _ready():
 	if Settings.mobile_controls:
-		$map/place.show()
-
-
-
+		$place.show()
 
 func _on_Area_body_entered(body):
 	if body.is_in_group("hero"):
