@@ -232,7 +232,7 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "It's a fine piece of work you've put together.
-Of course, nodoby can be left alive knowing its secrets
+Of course, nobody can be left alive knowing its secrets
 I think you deserve a tour of your own creation
 "
 align = 1
