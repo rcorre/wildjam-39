@@ -77,7 +77,9 @@ func _physics_process(delta: float):
 		false
 	)
 
-func hurt(player_weapon):
+func hurt(player_weapon: int):
+	if player_weapon == global.Item.ENEMY:
+		return # ignore friendly fire
 	if !(player_weapon in damage_table[enemy_type]):
 		Overlord.say_once(global.overloard_dialogue.INVALID_WEAPON)
 		ineffective_sound.play()
