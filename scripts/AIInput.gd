@@ -81,6 +81,14 @@ func _physics_process(delta: float):
 					path = nav.get_simple_path(pos, target)
 					seek_chest = target
 					return
+			# don't know of any weapon, look for another chest
+			var chest := nearest("chest")
+			if chest:
+				# found an unopened chest, hope it has the right weapon!
+				var target :=chest.global_transform.origin
+				path = nav.get_simple_path(pos, target)
+				seek_chest = target
+				return
 
 	var chest := nearest_visible("chest")
 	if chest:
@@ -114,6 +122,22 @@ func follow_path():
 		if path and pos.distance_to(path[0]) > 5.0:
 			pause_duration = 0.5
 		emit_signal("move_towards", Vector3.ZERO)
+
+func nearest(group: String) -> Spatial:
+	var nearest: Spatial = null
+	var nearest_dist := INF
+	var pos := global_transform.origin
+	for c in get_tree().get_nodes_in_group(group):
+		var s := c as Spatial
+		assert(s)
+		if s in interacted:
+			continue
+		var target := s.global_transform.origin
+		var dist := pos.distance_to(target)
+		if dist < nearest_dist:
+			nearest_dist = dist
+			nearest = s
+	return nearest
 
 func nearest_visible(group: String) -> Spatial:
 	var nearest: Spatial = null
