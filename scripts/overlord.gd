@@ -1,6 +1,6 @@
 extends Control
 
-const RANDOM_INTERVAL := 15.0
+const RANDOM_INTERVAL := 1.0
 const VOICE_PATH := "res://audio/sfx/voice/"
 
 const OPTION_TO_VOICE = {
@@ -53,26 +53,31 @@ func _ready():
 	add_child(timer)
 	timer.connect("timeout", self, "say_something_about", [global.overloard_dialogue.RANDOM])
 	timer.start(RANDOM_INTERVAL)
+	Events.connect("dungeon_entered", timer, "stop")
 
 func say_something_about(dialogue_option: int, chance: float = 0.25):
 	if randf() > chance:
 		print("Random voice roll success")
-		speak(dialogue_option)
+		speak_random(dialogue_option)
 	else:
 		print("Random voice skip")
 
 func say_once(opt: int):
 	if not opt in already_said:
 		already_said[opt] = true
-		speak(opt)
+		speak_random(opt)
 
-func speak(dialogue_option: int):
+func speak_random(dialogue_option: int):
 	if $AnimationPlayer.is_playing() or voice.playing:
 		return
 
 	$AnimationPlayer.play("animate")
 	var text_list = OPTION_TO_VOICE[dialogue_option]
-	var dialogue = text_list[randi() % text_list.size()]
+	speak(dialogue_option, randi() % text_list.size())
+
+func speak(opt: int, index: int):
+	var text_list = OPTION_TO_VOICE[opt]
+	var dialogue = text_list[index]
 	var text: String = dialogue[0]
 	var stream: AudioStream = dialogue[1]
 	print(text)

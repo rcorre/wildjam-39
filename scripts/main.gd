@@ -1,5 +1,7 @@
 extends Spatial
 
+const INTERLUDE_SCENE := preload("res://scenes/Interlude.tscn")
+
 onready var dungeonMaster = $DungeonMasterHUD
 onready var player = preload("res://scenes/player.tscn").instance()
 onready var ai = preload("res://scenes/Hero.tscn").instance()
@@ -7,22 +9,27 @@ var main_menu = load("res://scenes/main_menu.tscn").instance()
 var map_dup
 
 func on_hero_died(hero):
+	print("obj ", hero, " died")
+	hero.queue_free()
 	if hero == ai:
-		#TODO: overlord comment
-		start_player_run()
+		print("is ai")
+		var interlude := INTERLUDE_SCENE.instance()
+		add_child(interlude)
+		interlude.connect("tree_exited", self, "start_player_run")
 	if hero == player:
 		#TODO: overlord comment
 		on_player_death()
 
 func on_hero_finished(hero):
 	if hero == ai:
-		#TODO: overlord comment
-		start_player_run()
+		pass
+		# TODO
 	if hero == player:
 		#TODO: overlord comment
 		on_player_death()
 	
 func start_AI_run():
+	print("start AI run")
 	remove_child(dungeonMaster)
 	add_child(ai)
 	Events.connect("hero_died", self, "on_hero_died", [ai])
@@ -32,7 +39,6 @@ func start_AI_run():
 
 
 func start_player_run():
-	remove_child(ai)
 	Events.disconnect("hero_died", self, "on_hero_died")
 	Events.disconnect("hero_finished", self, "on_hero_finished")
 	add_child(player)

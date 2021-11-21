@@ -68,11 +68,18 @@ func _physics_process(delta: float):
 	var root_motion_origin := anim_tree.get_root_motion_transform().origin
 	velocity = global_transform.basis.xform(root_motion_origin) / delta
 	velocity.y = GRAVITY
-	velocity = move_and_slide(velocity)
+	velocity = move_and_slide(
+		velocity, 
+		Vector3.ZERO,
+		false, 
+		4, 
+		0.785398, 
+		false
+	)
 
 func hurt(player_weapon):
 	if !(player_weapon in damage_table[enemy_type]):
-		Overlord.say_something_about(global.overloard_dialogue.INVALID_WEAPON)
+		Overlord.say_once(global.overloard_dialogue.INVALID_WEAPON)
 		ineffective_sound.play()
 		print(global.Item.keys()[player_weapon], " can't hit this unit, need", damage_table[enemy_type])
 		return

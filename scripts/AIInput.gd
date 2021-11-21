@@ -62,7 +62,6 @@ func _physics_process(delta: float):
 	if enemy:
 		var vuln: Array = enemy.vulnerable_to()
 		if current_weapon in vuln:
-			print("AI: weapon will work")
 			path.resize(0)
 			var target := enemy.global_transform.origin
 			emit_signal("look_towards", target)
@@ -74,7 +73,6 @@ func _physics_process(delta: float):
 				pause_duration = 0.5
 			return
 		else:
-			print("AI: weapon won't work")
 			# see if we can find a weapon to use
 			for item in vuln:
 				var target = weapon_locations.get(item)

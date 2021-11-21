@@ -16,7 +16,8 @@ func on_pause_pressed():
 func hurt(_ignore):
 	health -= 1
 	update_ui()
-	if health <= 0:
+	if health == 0:
+		print("died")
 		Events.emit_signal("hero_died")
 
 func _on_interactable_detection_food_pick_up(item):
