@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://scripts/PropButton.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LeagueGothic-Regular.otf" type="DynamicFontData" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://props/Chest_bomb.tscn" type="PackedScene" id=24]
 [ext_resource path="res://assets/icons/exit-door.svg" type="Texture" id=25]
 [ext_resource path="res://scenes/PropBackButton.gd" type="Script" id=26]
+[ext_resource path="res://scripts/tip.gd" type="Script" id=27]
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
@@ -70,6 +71,40 @@ pressed = true
 
 [sub_resource type="ShortCut" id=16]
 shortcut = SubResource( 15 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="DungeonMasterHUD" type="Camera"]
 transform = Transform( 0.711439, -0.446036, 0.543053, 0, 0.772757, 0.634702, -0.702748, -0.451552, 0.549769, 10.1235, 11.832, 10.2487 )
@@ -121,6 +156,7 @@ __meta__ = {
 margin_left = 284.0
 margin_right = 383.0
 margin_bottom = 70.0
+hint_tooltip = "A powerful mace for killing skeletons"
 custom_constants/hseparation = 16
 toggle_mode = true
 shortcut_in_tooltip = false
@@ -135,6 +171,7 @@ prop_scene = ExtResource( 7 )
 margin_left = 399.0
 margin_right = 502.0
 margin_bottom = 70.0
+hint_tooltip = "A mighty bow for killing spiders"
 custom_constants/hseparation = 16
 toggle_mode = true
 shortcut_in_tooltip = false
@@ -149,6 +186,7 @@ prop_scene = ExtResource( 21 )
 margin_left = 518.0
 margin_right = 621.0
 margin_bottom = 70.0
+hint_tooltip = "A forceful wand for killing slime"
 custom_constants/hseparation = 16
 toggle_mode = true
 shortcut_in_tooltip = false
@@ -163,6 +201,7 @@ prop_scene = ExtResource( 22 )
 margin_left = 637.0
 margin_right = 740.0
 margin_bottom = 70.0
+hint_tooltip = "Food!"
 custom_constants/hseparation = 16
 toggle_mode = true
 shortcut_in_tooltip = false
@@ -176,6 +215,7 @@ prop_scene = ExtResource( 23 )
 [node name="BackButton" type="Button" parent="HUD/VBoxContainer/TabContainer/Treasure"]
 margin_right = 12.0
 margin_bottom = 45.0
+hint_tooltip = "Close"
 icon = ExtResource( 25 )
 script = ExtResource( 26 )
 
@@ -194,6 +234,7 @@ __meta__ = {
 margin_left = 403.0
 margin_right = 502.0
 margin_bottom = 70.0
+hint_tooltip = "Spikes"
 custom_constants/hseparation = 16
 toggle_mode = true
 shortcut_in_tooltip = false
@@ -208,6 +249,7 @@ prop_scene = ExtResource( 11 )
 margin_left = 518.0
 margin_right = 621.0
 margin_bottom = 70.0
+hint_tooltip = "Bomb"
 custom_constants/hseparation = 16
 toggle_mode = true
 shortcut_in_tooltip = false
@@ -218,9 +260,10 @@ icon = ExtResource( 8 )
 script = ExtResource( 1 )
 prop_scene = ExtResource( 24 )
 
-[node name="BackButton2" type="Button" parent="HUD/VBoxContainer/TabContainer/Traps"]
+[node name="BackButton" type="Button" parent="HUD/VBoxContainer/TabContainer/Traps"]
 margin_right = 76.0
 margin_bottom = 70.0
+hint_tooltip = "Close"
 icon = ExtResource( 25 )
 script = ExtResource( 26 )
 
@@ -239,6 +282,7 @@ __meta__ = {
 margin_left = 343.0
 margin_right = 442.0
 margin_bottom = 70.0
+hint_tooltip = "Spider"
 custom_constants/hseparation = 16
 toggle_mode = true
 shortcut_in_tooltip = false
@@ -253,6 +297,7 @@ prop_scene = ExtResource( 13 )
 margin_left = 458.0
 margin_right = 561.0
 margin_bottom = 70.0
+hint_tooltip = "Slime"
 custom_constants/hseparation = 16
 toggle_mode = true
 shortcut_in_tooltip = false
@@ -267,6 +312,7 @@ prop_scene = ExtResource( 17 )
 margin_left = 577.0
 margin_right = 680.0
 margin_bottom = 70.0
+hint_tooltip = "skeleton"
 custom_constants/hseparation = 16
 toggle_mode = true
 shortcut_in_tooltip = false
@@ -277,9 +323,10 @@ icon = ExtResource( 14 )
 script = ExtResource( 1 )
 prop_scene = ExtResource( 15 )
 
-[node name="BackButton3" type="Button" parent="HUD/VBoxContainer/TabContainer/Monsters"]
+[node name="BackButton" type="Button" parent="HUD/VBoxContainer/TabContainer/Monsters"]
 margin_right = 76.0
 margin_bottom = 70.0
+hint_tooltip = "Close"
 icon = ExtResource( 25 )
 script = ExtResource( 26 )
 
@@ -298,6 +345,7 @@ __meta__ = {
 margin_left = 343.0
 margin_right = 442.0
 margin_bottom = 70.0
+hint_tooltip = "Loot for venturing hero"
 custom_constants/hseparation = 16
 toggle_mode = true
 shortcut_in_tooltip = false
@@ -311,6 +359,7 @@ script = ExtResource( 4 )
 margin_left = 458.0
 margin_right = 561.0
 margin_bottom = 70.0
+hint_tooltip = "Dangerous traps"
 custom_constants/hseparation = 16
 toggle_mode = true
 shortcut = SubResource( 7 )
@@ -324,6 +373,7 @@ prop_category = 2
 margin_left = 577.0
 margin_right = 680.0
 margin_bottom = 70.0
+hint_tooltip = "Enemies"
 custom_constants/hseparation = 16
 toggle_mode = true
 shortcut = SubResource( 16 )
@@ -332,3 +382,27 @@ text = "3"
 icon = ExtResource( 5 )
 script = ExtResource( 4 )
 prop_category = 3
+
+[node name="tip" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -344.0
+margin_top = -128.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 17 )
+text = "The dungeon overlord has tasked you with building a dungeon to prevent venturing heroes from escaping the this level.
+
+Fill it with loot, traps, and enemies."
+autowrap = true
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="tip"]
+anims/RESET = SubResource( 18 )
+anims/fade = SubResource( 19 )
+
+[connection signal="animation_finished" from="tip/AnimationPlayer" to="tip" method="_on_AnimationPlayer_animation_finished"]
