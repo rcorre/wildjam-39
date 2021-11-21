@@ -52,7 +52,7 @@ margin_right = 724.0
 margin_bottom = 218.0
 size_flags_vertical = 3
 theme = SubResource( 2 )
-text = "Dungineer"
+text = "Dungeoneer"
 align = 1
 valign = 1
 
