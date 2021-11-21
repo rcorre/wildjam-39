@@ -132,6 +132,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.73936, 0 )
 anchor_right = 1.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 0, 100 )
+mouse_filter = 2
 custom_constants/margin_right = 100
 custom_constants/margin_top = 50
 custom_constants/margin_left = 100
@@ -146,6 +147,7 @@ margin_top = 50.0
 margin_right = 924.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 0, 100 )
+mouse_filter = 2
 color = Color( 0.65098, 0.65098, 0.65098, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -156,10 +158,12 @@ margin_left = 100.0
 margin_top = 50.0
 margin_right = 924.0
 margin_bottom = 150.0
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
 margin_bottom = 100.0
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
