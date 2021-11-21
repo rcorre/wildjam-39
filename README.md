@@ -23,6 +23,8 @@ All other models were made during the jam.
 - https://game-icons.net/1x1/lorc/pocket-bow.html
 - https://game-icons.net/1x1/delapouite/flanged-mace.html
 - https://game-icons.net/1x1/skoll/hearts.html
+- https://game-icons.net/1x1/delapouite/exit-door.html
+- https://game-icons.net/1x1/delapouite/entry-door.html
 
 ## Sounds from FreeSound.net
 - https://freesound.org/people/spookymodem/sounds/202093/

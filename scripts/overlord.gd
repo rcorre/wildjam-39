@@ -1,6 +1,6 @@
 extends Control
 
-const RANDOM_INTERVAL := 10.0
+const RANDOM_INTERVAL := 15.0
 const VOICE_PATH := "res://audio/sfx/voice/"
 
 const OPTION_TO_VOICE = {
