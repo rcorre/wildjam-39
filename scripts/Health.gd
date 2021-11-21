@@ -17,8 +17,9 @@ func hurt(_ignore):
 	health -= 1
 	update_ui()
 	if health == 0:
-		print("died")
-		Events.emit_signal("hero_died")
+		emit_signal("died")
+		# give a little time to show the character dying
+		get_tree().create_timer(1.0).connect("timeout", Events, "emit_signal", ["hero_died"])
 
 func _on_interactable_detection_food_pick_up(item):
 	health += 1
@@ -32,4 +33,4 @@ func update_ui():
 
 func _on_interactable_detection_bomb_pick_up():
 	hurt(0)
-	#TODO: Add Overload comment
+	Overlord.say_something_about(global.overloard_dialogue.TRAP)

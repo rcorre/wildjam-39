@@ -58,7 +58,7 @@ visible = false
 visible = false
 
 [node name="BoneAttachment" parent="Model/Armature/Skeleton" index="8"]
-transform = Transform( 0.131696, -0.731297, 0.669221, 0.557706, 0.612783, 0.559874, -0.819524, 0.299497, 0.488551, -0.222848, 0.943115, -0.213336 )
+transform = Transform( 0.131696, -0.731297, 0.669221, 0.557706, 0.612783, 0.559874, -0.819524, 0.299497, 0.488551, -0.222848, 0.931892, -0.213336 )
 
 [node name="Health" parent="." index="5" instance=ExtResource( 3 )]
 collision_layer = 0
@@ -74,6 +74,7 @@ health = 5
 [connection signal="weapon_pick_up" from="interactable_detection" to="AIInput" method="_on_weapon_pick_up"]
 [connection signal="weapon_pick_up" from="interactable_detection" to="Model" method="_on_interactable_detection_weapon_pick_up"]
 [connection signal="updated_root_motion_direction" from="Model" to="." method="_on_Model_updated_root_motion_direction"]
+[connection signal="died" from="Health" to="Model/AnimationTree" method="set" binds= [ "parameters/life_state/current", 1 ]]
 
 [editable path="Model"]
 [editable path="Model/Armature/Skeleton/Bow"]

@@ -95,3 +95,5 @@ func _on_MeleeArea_body_entered(body):
 	print("Hit: ", body.name)
 	body.propagate_call("hurt", [current_weapon])
 
+func _on_died():
+	$AnimationTree.set("parameters/life_state/current", 1)
