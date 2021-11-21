@@ -19,6 +19,8 @@ func _ready():
 			Overlord.say_once(global.overloard_dialogue.PLACE_WEAPON)
 
 func _on_interactable_interact(player_interactable):
+	# allow moving through it once opened
+	collision_layer = 0
 	print("Player was given a ", global.Item.keys()[item])
 	if item == global.Item.FOOD:
 		Overlord.say_something_about(global.overloard_dialogue.CHEST_FOOD)
