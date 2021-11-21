@@ -7,3 +7,4 @@ func _pressed():
 
 func _ready():
 	Events.connect("prop_placed", self, "set_pressed", [false])
+	shortcut_in_tooltip = false

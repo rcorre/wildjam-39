@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://scripts/PropButton.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LeagueGothic-Regular.otf" type="DynamicFontData" id=2]
@@ -63,6 +63,13 @@ shortcut = SubResource( 6 )
 shortcut = SubResource( 6 )
 
 [sub_resource type="ButtonGroup" id=5]
+
+[sub_resource type="InputEventAction" id=15]
+action = "prop3"
+pressed = true
+
+[sub_resource type="ShortCut" id=16]
+shortcut = SubResource( 15 )
 
 [node name="DungeonMasterHUD" type="Camera"]
 transform = Transform( 0.711439, -0.446036, 0.543053, 0, 0.772757, 0.634702, -0.702748, -0.451552, 0.549769, 10.1235, 11.832, 10.2487 )
@@ -319,7 +326,7 @@ margin_right = 680.0
 margin_bottom = 70.0
 custom_constants/hseparation = 16
 toggle_mode = true
-shortcut = SubResource( 7 )
+shortcut = SubResource( 16 )
 group = SubResource( 5 )
 text = "3"
 icon = ExtResource( 5 )
