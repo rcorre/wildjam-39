@@ -6,7 +6,7 @@ onready var dungeonMaster = $DungeonMasterHUD
 onready var player = preload("res://scenes/player.tscn").instance()
 onready var ai = preload("res://scenes/Hero.tscn").instance()
 var main_menu = load("res://scenes/main_menu.tscn").instance()
-var map_dup
+var props_dup: Node
 
 func on_hero_died(hero):
 	print("obj ", hero, " died")
@@ -35,7 +35,7 @@ func start_AI_run():
 	Events.connect("hero_died", self, "on_hero_died", [ai])
 	Events.connect("hero_finished", self, "on_hero_finished", [ai])
 	Events.emit_signal("dungeon_entered")
-	map_dup = $map.duplicate()
+	props_dup = $Props.duplicate()
 
 
 func start_player_run():
@@ -44,8 +44,8 @@ func start_player_run():
 	add_child(player)
 	Events.connect("hero_died", self, "on_hero_died", [player])
 	Events.connect("hero_finished", self, "on_hero_finished", [player])
-	$map.queue_free()
-	add_child(map_dup)
+	$Props.queue_free()
+	add_child(props_dup)
 	Events.emit_signal("dungeon_entered")
 
 func on_player_finished():

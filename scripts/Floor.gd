@@ -12,7 +12,7 @@ func _on_prop_selected(scene: PackedScene):
 		selected_prop = null
 	if scene:
 		selected_prop = scene.instance()
-		add_child(selected_prop)
+		get_node("../Props").add_child(selected_prop)
 
 var last_pos = Vector2.ZERO
 func _on_input_event(_camera: Node, event: InputEvent, position: Vector3, _normal: Vector3, _shape_idx: int):
