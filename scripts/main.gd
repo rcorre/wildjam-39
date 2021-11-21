@@ -9,24 +9,23 @@ var main_menu = load("res://scenes/main_menu.tscn").instance()
 var props_dup: Node
 
 func on_hero_died(hero):
-	print("obj ", hero, " died")
 	hero.queue_free()
 	if hero == ai:
-		print("is ai")
 		var interlude := INTERLUDE_SCENE.instance()
 		add_child(interlude)
 		interlude.connect("tree_exited", self, "start_player_run")
 	if hero == player:
-		#TODO: overlord comment
-		on_player_death()
+		Overlord.say_something_about(global.overloard_dialogue.PLAYER_DEATH, 1.0)
+		get_tree().create_timer(3.0).connect("timeout", self, "_on_pause_quit")
 
 func on_hero_finished(hero):
 	if hero == ai:
-		Overlord.say_once(global.overloard_dialogue.FAILURE)
+		Overlord.say_something_about(global.overloard_dialogue.FAILURE, 1.0)
 		get_tree().create_timer(6.0).connect("timeout", get_tree(), "change_scene", ["res://scenes/main_menu.tscn"])
 	if hero == player:
-		#TODO: overlord comment
-		on_player_death()
+		print("hero ok")
+		Overlord.say_something_about(global.overloard_dialogue.PLAYER_ESCAPE, 1.0)
+		get_tree().create_timer(3.0).connect("timeout", self, "_on_pause_quit")
 
 func start_AI_run():
 	print("start AI run")
@@ -52,11 +51,6 @@ func start_player_run():
 
 func on_player_finished():
 	print("Game over, You win!")
-	_on_pause_quit() #Use some other scene.
-
-func on_player_death():
-	print("Game over....")
-	#yield some time
 	_on_pause_quit() #Use some other scene.
 
 func _on_player_controler_toggled(player_control):

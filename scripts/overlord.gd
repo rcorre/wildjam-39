@@ -41,7 +41,14 @@ const OPTION_TO_VOICE = {
 	global.overloard_dialogue.FAILURE: [
 		["What was I thinking, hiring a dungeon designer on Fiverr?", preload("res://audio/sfx/voice/Fiverr_2.wav")],
 		["Bah, I'd do this myself if I weren't so busy doing ... uh ... evil things", preload("res://audio/sfx/voice/Evil_Things_1.wav")],
-	]
+	],
+	global.overloard_dialogue.PLAYER_DEATH: [
+		["Just as planned...", null],
+		["Now I can collect on that insurance policy", null],
+	],
+	global.overloard_dialogue.PLAYER_ESCAPE: [
+		["Curses! Of course the rat built a way out", null],
+	],
 }
 
 onready var voice: AudioStreamPlayer = $Voice
@@ -58,7 +65,7 @@ func _ready():
 	Events.connect("dungeon_entered", timer, "stop")
 
 func say_something_about(dialogue_option: int, chance: float = 0.25):
-	if randf() > chance:
+	if randf() < chance:
 		print("Random voice roll success")
 		speak_random(dialogue_option)
 	else:
@@ -87,7 +94,7 @@ func speak(opt: int, index: int):
 	if stream:
 		voice.stream = stream
 		voice.play()
-	yield(get_tree().create_timer(5), "timeout")
+	yield(get_tree().create_timer(4), "timeout")
 
 	#Prevent multiple returned yields from restarting animation.
 	if $AnimationPlayer.is_playing():
