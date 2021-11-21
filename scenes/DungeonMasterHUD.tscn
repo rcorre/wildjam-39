@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scripts/PropButton.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LeagueGothic-Regular.otf" type="DynamicFontData" id=2]
@@ -24,6 +24,8 @@
 [ext_resource path="res://props/Chest_wand.tscn" type="PackedScene" id=22]
 [ext_resource path="res://props/Chest_food.tscn" type="PackedScene" id=23]
 [ext_resource path="res://props/Chest_bomb.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/icons/exit-door.svg" type="Texture" id=25]
+[ext_resource path="res://scenes/PropBackButton.gd" type="Script" id=26]
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
@@ -164,6 +166,12 @@ icon = ExtResource( 20 )
 script = ExtResource( 1 )
 prop_scene = ExtResource( 23 )
 
+[node name="BackButton" type="Button" parent="HUD/VBoxContainer/TabContainer/Treasure"]
+margin_right = 12.0
+margin_bottom = 45.0
+icon = ExtResource( 25 )
+script = ExtResource( 26 )
+
 [node name="Traps" type="HBoxContainer" parent="HUD/VBoxContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -202,6 +210,12 @@ text = "2"
 icon = ExtResource( 8 )
 script = ExtResource( 1 )
 prop_scene = ExtResource( 24 )
+
+[node name="BackButton2" type="Button" parent="HUD/VBoxContainer/TabContainer/Traps"]
+margin_right = 76.0
+margin_bottom = 70.0
+icon = ExtResource( 25 )
+script = ExtResource( 26 )
 
 [node name="Monsters" type="HBoxContainer" parent="HUD/VBoxContainer/TabContainer"]
 visible = false
@@ -255,6 +269,12 @@ text = "3"
 icon = ExtResource( 14 )
 script = ExtResource( 1 )
 prop_scene = ExtResource( 15 )
+
+[node name="BackButton3" type="Button" parent="HUD/VBoxContainer/TabContainer/Monsters"]
+margin_right = 76.0
+margin_bottom = 70.0
+icon = ExtResource( 25 )
+script = ExtResource( 26 )
 
 [node name="PropCategoryButtons" type="HBoxContainer" parent="HUD/VBoxContainer"]
 margin_top = 86.0

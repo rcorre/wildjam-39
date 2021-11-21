@@ -11,7 +11,7 @@ func _ready():
 	Events.connect("prop_category_selected", self, "_on_prop_category_selected")
 
 func _on_prop_category_selected(cat: int):
-	disabled = cat != 0
+	disabled = cat == prop_category
 
 func on_dungeon_entered():
 	"""

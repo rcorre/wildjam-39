@@ -35,7 +35,7 @@ func place_prop(pos: Vector3):
 	selected_prop.propagate_call("_on_placed")
 	selected_prop = null
 	Events.emit_signal("prop_placed")
-
+	Events.emit_signal("prop_category_selected", 0)
 
 func _on_place_pressed():
 	place_prop(last_pos)
