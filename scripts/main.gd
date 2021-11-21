@@ -35,6 +35,7 @@ func start_AI_run():
 	Events.connect("hero_died", self, "on_hero_died", [ai])
 	Events.connect("hero_finished", self, "on_hero_finished", [ai])
 	Events.emit_signal("dungeon_entered")
+	Events.emit_signal("ai_entered")
 	props_dup = $Props.duplicate()
 
 
@@ -47,6 +48,7 @@ func start_player_run():
 	$Props.queue_free()
 	add_child(props_dup)
 	Events.emit_signal("dungeon_entered")
+	Events.emit_signal("player_entered")
 
 func on_player_finished():
 	print("Game over, You win!")
@@ -60,6 +62,7 @@ func on_player_death():
 func _on_player_controler_toggled(player_control):
 	if player_control:
 		Events.emit_signal("dungeon_entered")
+		Events.emit_signal("player_entered")
 		$Debug/ai_button.hide()
 		remove_child(dungeonMaster)
 		add_child(player)
@@ -71,6 +74,7 @@ func _on_player_controler_toggled(player_control):
 func _on_ai_toggled(on: bool):
 	if on:
 		Events.emit_signal("dungeon_entered")
+		Events.emit_signal("ai_entered")
 		remove_child(dungeonMaster)
 		$Debug/player_controler.hide()
 		add_child(ai)

@@ -54,7 +54,7 @@ func _ready():
 	var timer := Timer.new()
 	add_child(timer)
 	timer.connect("timeout", self, "say_something_about", [global.overloard_dialogue.RANDOM])
-	timer.start(RANDOM_INTERVAL)
+	Events.connect("game_started", timer, "start", [RANDOM_INTERVAL])
 	Events.connect("dungeon_entered", timer, "stop")
 
 func say_something_about(dialogue_option: int, chance: float = 0.25):

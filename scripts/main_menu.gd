@@ -14,11 +14,11 @@ func start_game():
 	game.connect("tree_entered", get_tree(), "set_current_scene", [game], CONNECT_ONESHOT)
 	get_tree().root.add_child(game)
 	queue_free()
-
+	print("started")
+	Events.emit_signal("game_started")
 
 func _on_quit_pressed():
 	get_tree().quit()
-
 
 func _on_btn_mouse_entered():
 	$sfx.stream = button_hover
