@@ -8,31 +8,46 @@ var map_dup
 
 func on_hero_died(hero):
 	if hero == ai:
+		#TODO: overlord comment
 		start_player_run()
 	if hero == player:
+		#TODO: overlord comment
 		on_player_death()
 
+func on_hero_finished(hero):
+	if hero == ai:
+		#TODO: overlord comment
+		start_player_run()
+	if hero == player:
+		#TODO: overlord comment
+		on_player_death()
+	
 func start_AI_run():
 	remove_child(dungeonMaster)
 	add_child(ai)
 	Events.connect("hero_died", self, "on_hero_died", [ai])
+	Events.connect("hero_finished", self, "on_hero_finished", [ai])
 	Events.emit_signal("dungeon_entered")
 	map_dup = $map.duplicate()
-	#TODO: overlord comment
+
 
 func start_player_run():
 	remove_child(ai)
 	Events.disconnect("hero_died", self, "on_hero_died")
+	Events.disconnect("hero_finished", self, "on_hero_finished")
 	add_child(player)
 	Events.connect("hero_died", self, "on_hero_died", [player])
+	Events.connect("hero_finished", self, "on_hero_finished", [player])
 	$map.queue_free()
 	add_child(map_dup)
 	Events.emit_signal("dungeon_entered")
-	#TODO: overlord comment
+
+func on_player_finished():
+	print("Game over, You win!")
+	_on_pause_quit() #Use some other scene.
 
 func on_player_death():
 	print("Game over....")
-	#TODO: overlord comment
 	#yield some time
 	_on_pause_quit() #Use some other scene.
 
@@ -73,3 +88,14 @@ func _on_menu_pressed():
 	get_tree().paused = !get_tree().paused
 	if get_node("ready"):
 		$ready.visible = !$ready.visible
+
+func _ready():
+	if Settings.mobile_controls:
+		$map/place.show()
+
+
+
+
+func _on_Area_body_entered(body):
+	if body.is_in_group("hero"):
+		Events.emit_signal("hero_finished")

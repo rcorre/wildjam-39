@@ -14,15 +14,16 @@ func _on_prop_selected(scene: PackedScene):
 		selected_prop = scene.instance()
 		add_child(selected_prop)
 
+var last_pos = Vector2.ZERO
 func _on_input_event(_camera: Node, event: InputEvent, position: Vector3, _normal: Vector3, _shape_idx: int):
 	if not selected_prop:
 		return
 
 	var pos := position.round()  # "snap" to grid
 	selected_prop.global_transform.origin = pos
-	
 	if event.is_action_pressed("place_prop"):
 		place_prop(pos)
+	last_pos = pos
 
 func place_prop(pos: Vector3):
 	assert(selected_prop)
@@ -34,3 +35,7 @@ func place_prop(pos: Vector3):
 	selected_prop.propagate_call("_on_placed")
 	selected_prop = null
 	Events.emit_signal("prop_placed")
+
+
+func _on_place_pressed():
+	place_prop(last_pos)

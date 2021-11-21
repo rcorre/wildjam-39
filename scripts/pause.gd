@@ -11,6 +11,7 @@ func on_pause_pressed():
 	visible = !get_tree().paused
 
 func _on_quit_pressed():
+	get_tree().paused = false
 	emit_signal("quit")
 
 
