@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Sound_menu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Theme/theme.tres" type="Theme" id=3]
 [ext_resource path="res://assets/fonts/LeagueGothic-Regular.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://audio/music/menu/menu_theme.ogg" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 84
@@ -89,6 +90,11 @@ text = "Quit Game"
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 volume_db = -10.0
 bus = "SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+bus = "Music"
 
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer2/menu/Play" to="." method="_on_btn_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/menu/Play" to="." method="_on_Play_pressed"]
