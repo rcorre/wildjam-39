@@ -12,7 +12,14 @@ func _on_Player_input_look_towards(position : Vector3):
 	var target_rad = atan2(dir_to.x, dir_to.z)
 	var dif_rad = target_rad - rotation.y 
 	
+	var blend_position = $AnimationTree.get("parameters/move/blend_position")
+	var blend_position_v3 = global_transform.basis.xform(Vector3(-blend_position.x,0,blend_position.y))
+	
 	global_transform.basis = global_transform.basis.rotated(Vector3.UP, dif_rad)
+	#Update blend position on rotation
+	blend_position_v3 = global_transform.basis.xform_inv(blend_position_v3)
+	blend_position = Vector2(-blend_position_v3.x, blend_position_v3.z)
+	$AnimationTree.set("parameters/move/blend_position", blend_position)
 
 func _on_Player_input_mobile_look_towards(look_vect : Vector2):
 	"""
@@ -39,6 +46,9 @@ func _on_movement_updated_velocity(velocity):
 	$AnimationTree.set("parameters/move/blend_position", blend_position)
 
 func _physics_process(delta):
+	# Force root motion transform to update on the same frame it was set.
+	# Process mode needs to me manual
+	$AnimationTree.advance(delta)
 	var root_motion_origin = $AnimationTree.get_root_motion_transform().origin
 	var direction = global_transform.basis.xform(root_motion_origin) / delta
 
